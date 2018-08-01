@@ -1,0 +1,29 @@
+body {
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.jumbotron {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.jumbotron > h1 {
+    margin: 0;
+}
+
+.jumbotron > .jumbotron-btns {
+    padding-top: 1rem;
+}
+
+#benefits-intro {
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 12rem;
+    float: right;
+}
+
+.row {
+    margin-bottom: 0;
+}
