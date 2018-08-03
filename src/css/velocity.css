@@ -24,6 +24,24 @@ body {
     float: right;
 }
 
+@media (max-width: 600px) {
+    .jumbotron {
+        padding: 2rem;
+    }
+
+    .benefit {
+        text-align: center;
+    }
+
+    .benefit-icon {
+        display: none;
+    }
+
+    #benefits-intro {
+        padding: 0 1rem;
+    }
+}
+
 .row {
     margin-bottom: 0;
 }
