@@ -2,6 +2,10 @@ body {
     font-family: Roboto, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.brand-logo img {
+    padding-top: 14px;
+}
+
 .jumbotron {
     padding: 4rem 0;
     text-align: center;
