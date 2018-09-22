@@ -1,6 +1,4 @@
-# website
+PaperMC Website
+===============
 
-## Development
-
-## Deploy
-
+Flying through a cloud near you

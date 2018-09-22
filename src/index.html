@@ -3,53 +3,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Velocity - the next generation Minecraft proxy</title>
+    <title>PaperMC - The high performance fork</title>
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:400,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/velocity.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/papermc.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
     <nav class="light-blue darken-2">
         <div class="container">
-            <a href="/" class="brand-logo"><img src="/img/wordmark.png" alt="Velocity" height="48px"></a>
+            <a href="/" class="brand-logo"><img src="/img/wordmark.svg" alt="PaperMC" height="48px"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/community">Community</a></li>
                 <li><a href="/downloads">Downloads</a></li>
+                <li><a href="https://paper.readthedocs.io/">Documentation</a></li>
             </ul>
         </div>
     </nav>
     <div class="light-blue jumbotron white-text">
-        <h1>Make no compromises.</h1>
-        <p>Velocity is a Minecraft server proxy with unparalleled server support, scalability, and flexibility.</p>
+        <h1>Turn your server up to 11.</h1>
+        <p>Paper is the next generation of Minecraft server, compatible with Spigot plugins and offering uncompromising performance.</p>
         <div class="jumbotron-btns">
             <a href="/community" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">chat</i>Community</a>
             &nbsp;
-            <a href="/downloads" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Download</a>
+            <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">help</i>Documentation</a>
             &nbsp;
-            <a href="https://github.com/VelocityPowered/Velocity" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">code</i>GitHub</a>
+            <a href="/downloads" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Downloads</a>
+            &nbsp;
+            <a href="https://github.com/PaperMC/Paper" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">code</i>GitHub</a>
         </div>
     </div>
     <div class="section" id="benefits-intro">
-        <h3>Why will you benefit from Velocity?</h3>
-        <p>Whether you plan to be a friends-only collection of servers or aiming to become the next big Minecraft server, you can trust Velocity to power your network.</p>
+        <h3>Why use Paper?</h3>
+        <p>Whether you're an administrator looking to boost your server or a developer looking for more functionality, Paper is ready for you.</p>
     </div>
     <div class="benefit section">
         <div class="row">
             <div class="col m3">
                 <div class="benefit-icon-outer">
-                    <i class="material-icons benefit-icon">check_circle</i>
+                    <i class="material-icons benefit-icon">flight_takeoff</i>
                 </div>
             </div>
             <div class="col m7">
-                <h4>It's so simple to set up.</h4>
+                <h4>It's stupid fast.</h4>
                 <p>
-                    You can set up Velocity in just a few minutes. No need to muck around with a bunch of different configuration
-                    files or install dubious plugins on your server. 
+                    Paper contains numerous improvements and optimizations resulting in a significant
+                    improvement in performance. Paper also includes the next version of Timings, enabling you to
+                    quickly find out whats slowing down your server.
                 </p>
-                <a href="https://docs.velocitypowered.com/en/latest/users/getting-started.html" class="waves-effect waves-light btn light-blue darken-2">
-                    <i class="material-icons left">archive</i>Learn how to install Velocity
+                <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2">
+                    <i class="material-icons left">archive</i>Learn about our performance
                 </a>
             </div>
         </div>
@@ -58,16 +62,16 @@
     <div class="benefit section">
         <div class="row">
             <div class="col m3">
-                <i class="material-icons benefit-icon">build</i>
+                <i class="material-icons benefit-icon">people</i>
             </div>
             <div class="col m7">
-                <h4>Make your server how you want it.</h4>
+                <h4>An active and growing community.</h4>
                 <p>
-                    Velocity comes with excellent support for <a href="https://aquifermc.org">Paper</a>, <a href="https://www.spongepowered.org">Sponge</a>, and
-                    <a href="http://www.minecraftforge.net">Minecraft Forge</a>. We're also able to respond to Minecraft updates quickly, so you'll never have an
-                    excuse to not update.
+                    Paper has an active and growing community of server administrators and developers. Problem? Come talk
+                    with us on Discord and get real time support. Want to contribute? Submit a pull request and get it reviewed
+                    this century.
                 </p>
-                <a href="#!" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Learn more about Velocity's server support</a>
+                <a href="/community" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Join our community</a>
             </div>
         </div>
     </div>
@@ -76,16 +80,17 @@
         <div class="row">
             <div class="col m3">
                 <i class="material-icons benefit-icon">
-                    lock
+                    code
                 </i>
             </div>
             <div class="col m7">
-                <h4>Secure by default.</h4>
+                <h4>An expanded API.</h4>
                 <p>
-                    Velocity comes with IP forwarding that is secure by default. Simply choose a secure password and put it
-                    in your server configurations. Help ward off griefers with hacked clients!
+                    Paper extends and improves the Bukkit and Spigot APIs so that you and your developers have
+                    more features and functionality at your fingertips. All the meanwhile, Paper retains compatibility
+                    with plugins written for Spigot and Bukkit.
                 </p>
-                <a href="#!" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Configure your servers for more security</a>
+                <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Learn about our API</a>
             </div>
         </div>
     </div>
@@ -94,15 +99,15 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Velocity</h5>
-                    <p class="grey-text text-lighten-4">Velocity is a Minecraft server proxy with unparalleled server support, scalability, and flexibility.</p>
+                    <h5 class="white-text">Paper</h5>
+                    <p class="grey-text text-lighten-4">Paper is a high performance fork of Spigot that maintains plugin compatibility while adding new features and APIs.</p>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2018 The Velocity team
-                <a class="grey-text text-lighten-4 right" href="https://github.com/velocitypowered/website">Fork this website</a>
+                © 2018 The PaperMC Team
+                <a class="grey-text text-lighten-4 right" href="https://github.com/PaperMC/papermc.io">Fork this website</a>
             </div>
         </div>
     </footer>
