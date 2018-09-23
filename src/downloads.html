@@ -28,45 +28,100 @@
                 You can download the latest versions of PaperMC below. If you're into technical details, you can also
                 access <a href="https://papermc.io/ci/">Jenkins</a> directly.
             </p>
-            <div id="downloads-container">
-                <span v-if="loading">
-                    <div class="preloader-wrapper active">
-                        <div class="spinner-layer spinner-blue-only">
-                            <div class="circle-clipper left">
+
+            <h4><a href="#1.13" name="1.13">1.13.1 Builds</a></h4>
+            <div id="downloads-container-113">
+                <div class="downloads-container">
+                    <span v-if="loading">
+                        <div class="preloader-wrapper active">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div><div class="gap-patch">
                                 <div class="circle"></div>
-                            </div><div class="gap-patch">
-                            <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                            </div>
                         </div>
-                        <div class="circle-clipper right">
-                            <div class="circle"></div>
+                    </span>
+
+                    <table class="downloads" v-if="builds.length > 0">
+                        <tr>
+                            <th>Build Number</th>
+                            <th>Changes</th>
+                            <th>Built</th>
+                        </tr>
+                        <tr v-for="build in builds">
+                            <td>
+                                <span v-for="artifact in build.artifacts">
+                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2">
+                                        <i class="material-icons left">save_alt</i>{{ build.number }}
+                                    </a>
+                                </span><br />
+
+                            </td>
+                            <td>
+                                <!--span v-if="build.latest" class="new badge blue" data-badge-caption="Latest"></span-->
+                                <ul class="changes" v-for="change in build.changes">
+                                    <li class="change">{{ change }}</li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                {{ build.formattedDate }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <h4><a href="#1.12" name="1.12">1.12.2 Builds</a></h4>
+            <div id="downloads-container-112">
+                <div class="downloads-container">
+                    <span v-if="loading">
+                        <div class="preloader-wrapper active">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                </span>
-                <table v-if="builds.length > 0">
-                    <tr>
-                        <th>Build Number</th>
-                        <th>Download</th>
-                        <th>Built</th>
-                    </tr>
-                    <tr v-for="build in builds">
-                        <td>
-                            #{{ build.number }}
-                            <span v-if="build.latest" class="new badge blue" data-badge-caption="Latest"></span>
-                        </td>
-                        <td>
-                            <span v-for="artifact in build.artifacts">
-                                <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2">
-                                    <i class="material-icons left">save_alt</i> {{ artifact.type() }}
-                                </a>
-                                &nbsp;
-                            </span>
-                        </td>
-                        <td>
-                            {{ build.formattedDate }}
-                        </td>
-                    </tr>
-                </table>
+                    </span>
+
+                    <table class="downloads" v-if="builds.length > 0">
+                        <tr>
+                            <th>Build Number</th>
+                            <th>Changes</th>
+                            <th>Built</th>
+                        </tr>
+                        <tr v-for="build in builds">
+                            <td>
+                                <span v-for="artifact in build.artifacts">
+                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2">
+                                        <i class="material-icons left">save_alt</i>{{ build.number }}
+                                    </a>
+                                </span><br />
+
+                            </td>
+                            <td>
+                                <!--span v-if="build.latest" class="new badge blue" data-badge-caption="Latest"></span-->
+                                <ul class="changes" v-for="change in build.changes">
+                                    <li class="change">{{ change }}</li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                {{ build.formattedDate }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

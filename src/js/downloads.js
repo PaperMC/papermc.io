@@ -1,9 +1,11 @@
-let JENKINS_LEGACY_URL = "https://papermc.io/ci/job/Paper/";
-let JENKINS_113_URL = "https://papermc.io/ci/job/Paper-1.13/";
-
+let JENKINS_LEGACY_URL = "/ci/job/Paper/";
+let JENKINS_113_URL = "/ci/job/Paper-1.13/";
+Vue.component('download-container', {
+    template: '#download-container-template'
+});
 function fetchJenkinsBuilds(baseUrl) {
     return window.fetch(
-        baseUrl + "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp]{,10}"
+        baseUrl + "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp]{,5}"
     )
     .then(function(resp) {
         if (resp.status !== 200) {
@@ -14,39 +16,53 @@ function fetchJenkinsBuilds(baseUrl) {
 }
 
 function onLoad() {
-    var app = new Vue({
-        el: '#downloads-container',
-        data: {
-            loading: true,
-            builds: []
-        }
-    });
-
-    let baseUrl = JENKINS_LEGACY_URL; // initial page load artifacts
-
-    fetchJenkinsBuilds(baseUrl).then(function(jenkinsResult) {
-        // Lightly process the result
-        jenkinsResult.builds.forEach(function(build, i) {
-            build.latest = i === 0;
-            build.formattedDate = new Date(build.timestamp).toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            });
-            build.artifacts.forEach(function(artifact) {
-                artifact.url = baseUrl + build.number + "/artifact/" + artifact.relativePath;
-                artifact.type = function() {
-                    if (artifact.fileName.startsWith('paperclip')) {
-                        return "Server";
-                    }
-
-                    return "Unknown";
-                }
-            })
+    function buildChanges(baseUrl, target) {
+        var app = new Vue({
+            el: target,
+            data: {
+                loading: true,
+                builds: []
+            }
         });
-        app.loading = false;
-        app.builds = jenkinsResult.builds;
-    })
+
+        fetchJenkinsBuilds(baseUrl).then(function (jenkinsResult) {
+            // Lightly process the result
+            jenkinsResult.builds.forEach(function (build, i) {
+                build.latest = i === 0;
+                build.formattedDate = new Date(build.timestamp).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                });
+                window.fetch(baseUrl + '/' + build.number + '/api/json?wrapper=changes').then((changesResp) => {
+                    return changesResp.json();
+                }).then((changes) => {
+                    const changeList = [];
+                    changes.changeSet.items.forEach(item => {
+                        changeList.push(item.comment.split(/\n/)[0]);
+                    });
+                    build.changes = changeList;
+                    Vue.set(app.builds, i, build);
+                });
+                build.artifacts = build.artifacts.slice(0, 1);
+                build.artifacts.forEach(function (artifact) {
+                    artifact.url = baseUrl + build.number + "/artifact/" + artifact.relativePath;
+                    artifact.type = function () {
+                        if (artifact.fileName.startsWith('paperclip')) {
+                            return "Server";
+                        }
+
+                        return "Unknown";
+                    }
+                })
+            });
+            app.loading = false;
+            app.builds = jenkinsResult.builds;
+        })
+    }
+
+    buildChanges(JENKINS_113_URL, '#downloads-container-113');
+    buildChanges(JENKINS_LEGACY_URL, '#downloads-container-112');
 }
 
 window.addEventListener('load', onLoad);

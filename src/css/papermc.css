@@ -53,3 +53,18 @@ body {
 .row {
     margin-bottom: 0;
 }
+a {
+    outline: none;
+}
+.changes {
+    margin-top: 5px;
+}
+.changes, .changes li {
+    list-style-type: circle !important;
+}
+.downloads .btn-small {
+
+}
+.downloads td {
+    vertical-align: top !important;
+}
