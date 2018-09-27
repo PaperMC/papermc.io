@@ -75,11 +75,12 @@
 
                             </td>
                             <td>
-                                <!--span v-if="build.latest" class="new badge blue" data-badge-caption="Latest"></span-->
                                 <ul class="changes" v-for="change in build.changes">
-                                    <li class="change">{{ change }}</li>
+                                    <li class="change" :title="change.text">
+                                        <span class="commiturl">[<a :href="change.url" target="_blank">{{ change.id }}</a>]</span>
+                                        {{ change.title }}
+                                    </li>
                                 </ul>
-
                             </td>
                             <td>
                                 {{ build.formattedDate }}
@@ -122,11 +123,12 @@
 
                             </td>
                             <td>
-                                <!--span v-if="build.latest" class="new badge blue" data-badge-caption="Latest"></span-->
                                 <ul class="changes" v-for="change in build.changes">
-                                    <li class="change">{{ change }}</li>
+                                    <li class="change" :title="change.text">
+                                        <span class="commiturl">[<a :href="change.url" target="_blank">{{ change.id }}</a>]</span>
+                                        {{ change.title }}
+                                    </li>
                                 </ul>
-
                             </td>
                             <td>
                                 {{ build.formattedDate }}

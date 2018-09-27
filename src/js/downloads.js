@@ -39,9 +39,15 @@ function onLoad() {
                 }).then((changes) => {
                     const changeList = [];
                     changes.changeSet.items.forEach(item => {
-                        changeList.push(item.comment.split(/\n/)[0]);
+                        if (item.comment.toUpperCase().indexOf('[CI-SKIP]') !== -1) return;
+                        changeList.push({
+                            title: item.comment.split(/\n/)[0],
+                            text: item.comment,
+                            url: 'https://github.com/PaperMC/Paper/commit/' + item.commitId,
+                            id: item.commitId.substring(0, 7)
+                        });
                     });
-                    build.changes = changeList;
+                    build.changes = changeList.reverse();
                     Vue.set(app.builds, i, build);
                 });
                 build.artifacts = build.artifacts.slice(0, 1);

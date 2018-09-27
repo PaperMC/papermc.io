@@ -68,3 +68,6 @@ a {
 .downloads td {
     vertical-align: top !important;
 }
+.commiturl {
+    font-family: monospace;
+}
