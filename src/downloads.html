@@ -19,11 +19,12 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:400,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css?cacheID=vendor1"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/papermc.css?cacheID=1"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/papermc.css?cacheID=2"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script type="text/javascript" src="js/materialize.min.js?cacheID=vendor1"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
-    <script type="text/javascript" src="js/downloads.js?cacheID=1"></script>
-    <script type="text/javascript" src="js/site.js?cacheID=1" async="async"></script>
+    <script type="text/javascript" src="js/downloads.js?cacheID=2"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -72,7 +73,8 @@
                         <tr v-for="build in builds">
                             <td>
                                 <span v-for="artifact in build.artifacts">
-                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2">
+                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2"
+                                        @click="downloadClick(build.number)">
                                         <i class="material-icons left">save_alt</i>{{ build.number }}
                                     </a>
                                 </span><br />
@@ -120,7 +122,8 @@
                         <tr v-for="build in builds">
                             <td>
                                 <span v-for="artifact in build.artifacts">
-                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2">
+                                    <a :href="artifact.url" class="btn-small waves-effect waves-light light-blue darken-2"
+                                       @click="downloadClick(build.number)">
                                         <i class="material-icons left">save_alt</i>{{ build.number }}
                                     </a>
                                 </span><br />
@@ -160,5 +163,6 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="js/site.js?cacheID=2" async="async"></script>
 </body>
 </html>

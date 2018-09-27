@@ -16,7 +16,7 @@ function fetchJenkinsBuilds(baseUrl) {
 }
 
 function onLoad() {
-    function buildChanges(baseUrl, target) {
+    function buildChanges(baseUrl, ver, target) {
         var app = new Vue({
             el: target,
             data: {
@@ -24,6 +24,13 @@ function onLoad() {
                 builds: []
             }
         });
+        app.downloadClick = function(build) {
+            gtag && gtag('event', 'Download', {
+                'event_category': 'Paper ' + ver,
+                'event_label': build,
+                'value': 1
+            });
+        };
 
         fetchJenkinsBuilds(baseUrl).then(function (jenkinsResult) {
             // Lightly process the result
@@ -67,8 +74,8 @@ function onLoad() {
         })
     }
 
-    buildChanges(JENKINS_113_URL, '#downloads-container-113');
-    buildChanges(JENKINS_LEGACY_URL, '#downloads-container-112');
+    buildChanges(JENKINS_113_URL, '1.13.1', '#downloads-container-113');
+    buildChanges(JENKINS_LEGACY_URL, '1.12.2', '#downloads-container-112');
 }
 
 window.addEventListener('load', onLoad);
