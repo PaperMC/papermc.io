@@ -1,0 +1,60 @@
+.sidenav-button {
+  margin-left: 20px;
+}
+.sidenav li>ul.collapsible>li>a {
+  padding: 0 32px;
+}
+.sidenav li>ul.collapsible>li>.collapsible-body>ul>li>a {
+  padding: 0 23.5px 0 41px;
+}
+
+/* Sphinx */
+#documentation div.container > .progress {
+  margin: 2em 0;
+}
+#documentation .headerlink {
+  /*font-size: 1.5rem;*/
+  display: none;
+}
+#documentation h1, #documentation h2, #documentation h3 {
+  margin: 0px;
+}
+#documentation .section {
+  padding-bottom: 0px;
+}
+#documentation .ul.simple {
+  margin: 0px;
+}
+/* Warning */
+#documentation .warning {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+#documentation .warning .first {
+  background: #b71c1c;
+  color: white;
+  padding: 5px;
+  margin-top: 1em;
+}
+#documentation .warning p {
+  margin-top: 0px;
+  padding: 5px;
+}
+#documentation .align-center {
+  margin: auto;
+}
+#documentation .align-center:not(table) {
+  display: block;
+}
+
+@media only screen and (min-width: 992px) {
+  footer, #content {
+    padding-left: 300px;
+  }
+  .sidenav {
+    z-index: 2 !important;
+    margin-top: 64px;
+  }
+  nav .brand-logo.middle {
+    left: calc(50% - 2em);
+  }
+}

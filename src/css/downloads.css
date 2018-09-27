@@ -1,0 +1,10 @@
+.builds-table td:first-child, .builds-table th:first-child, .builds-table td:last-child, .builds-table th:last-child {
+  width: 1px;
+}
+.builds-table td:first-child a.btn, .builds-table td:last-child {
+  width: max-content;
+}
+.jenkins-btn {
+  display: block;
+  margin: 0 auto;
+}

@@ -1,0 +1,81 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+a:not([href]) {
+  color: black;
+}
+nav .brand-logo {
+  margin-top: -4px;
+  z-index: 50;
+  font-size: 2.1rem;
+  height: 100%;
+}
+nav .brand-logo img {
+  height: calc(100% - 10px);
+  vertical-align: middle;
+  margin-top: -5px;
+}
+nav .btn-flat:hover {
+  background: rgba(0,0,0,0.1) !important;
+}
+.clickable {
+  cursor: pointer;
+}
+.sidenav .brand-logo {
+  margin: 0 10px;
+  text-align: center;
+  display: block;
+}
+.sidenav .brand-logo img {
+  width: 50%;
+  margin: 10px 0px;
+}
+.sidenav .collapsible-body>ul:not(.collapsible)>li.active, .sidenav.sidenav-fixed .collapsible-body>ul:not(.collapsible)>li.active {
+  background-color: rgba(0,0,0,0.05);
+}
+.sidenav .collapsible-body>ul:not(.collapsible)>li.active a, .sidenav.sidenav-fixed .collapsible-body>ul:not(.collapsible)>li.active a {
+  color: rgba(0,0,0,0.87);
+}
+.tabs .indicator {
+  background-color: #212121;
+}
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
+  color: #212121;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(0,0,0,0.05);
+}
+.brand-logo a {
+  margin-left: 5px;
+}
+
+/* Reasonable Heading Sizes */
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 601px) {
+  nav .brand-logo img {
+    height: 42px;
+  }
+}

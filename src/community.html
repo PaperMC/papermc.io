@@ -1,91 +1,136 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PaperMC - The high performance fork</title>
-
-    <!-- Favicon Handling -->
-    <!-- All this, plus the normal one at root -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=BG70oBaPzN">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=BG70oBaPzN">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=BG70oBaPzN">
-    <link rel="manifest" href="/favicons/site.webmanifest?v=BG70oBaPzN">
-    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?v=BG70oBaPzN" color="#5bbad5">
-    <link rel="shortcut icon" href="/favicons/favicon.ico?v=BG70oBaPzN">
-    <meta name="msapplication-TileColor" content="#1886cd">
-    <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
-    <meta name="theme-color" content="#1886cd">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:400,700" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?cacheID=vendor1"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/papermc.css?cacheID=1" media="screen,projection"/>
-    <script type="text/javascript" src="js/materialize.min.js?cacheID=vendor1"></script>
-    <script type="text/javascript" src="js/site.js?cacheID=1" async="async"></script>
+<!doctype html>
+<html>
+  <head>
+    <title>Community | PaperMC</title>
+    
+    <!-- Google's Material Icons Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- MaterializeCSS Framework's CSS -->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen, projection"/>
+    
+    <!-- Custom Styles -->
+    <link type="text/css" rel="stylesheet" href="css/styles.css" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/community.css" media="screen, projection"/>
+    
+    <!-- Cookies? -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    
+    <!-- Mobile Compatbility Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-    <nav class="light-blue darken-2">
-        <div class="container">
-            <a href="/" class="brand-logo"><img src="/img/wordmark.svg" alt="PaperMC" height="48px"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="active"><a href="/community">Community</a></li>
-                <li><a href="/downloads">Downloads</a></li>
-                <li><a href="https://paper.readthedocs.io/">Documentation</a></li>
-            </ul>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="white">
+        <div class="nav-wrapper">
+          <div class="brand-logo">
+            <a href="/"><img src="images/logo-marker.svg" /></a>
+          </div>
+          <a data-target="sidenav" class="hide-on-large-only grey-text text-darken-4 button-collapse sidenav-button sidenav-trigger clickable"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="https://papermc.io/javadocs/"><i class="material-icons left">info</i>JAVADOCS</a></li>
+            <li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="community"><i class="material-icons left">people</i>COMMUNITY</a></li>
+            <li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="https://github.com/PaperMC/Paper"><i class="material-icons left">lock_open</i>GITHUB</a></li>
+            <li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="docs"><i class="material-icons left">view_headline</i>DOCUMENTATION</a></li>
+            <li><a class="white-text darken-4 grey btn nav-btn waves-effect waves-light" href="downloads"><i class="material-icons left">cloud_download</i>Downloads</a></li>
+          </ul>
         </div>
-    </nav>
-    <div class="container">
-        <div class="section">
-            <h2>Join our community</h2>
-            <p>
-                We're happy to have you as a part of the PaperMC community!
-            </p>
-
-            <h3>Discord</h3>
-            <p>
-                Discord is a popular option for many gamers to communicate with each other. We have a Discord community
-                server that anyone can join.
-            </p>
-            <iframe src="https://discordapp.com/widget?id=289587909051416579&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-
-            <h3>IRC</h3>
-            <p>
-                If you're old-school, or prefer a text-based chatting environment, you can join us on IRC. Our IRC channel
-                is <code>#paper</code> on <strong>irc.spi.gt</strong>. Our IRC channel is linked to our Discord server,
-                so you won't miss out on the conversation. You can join us via your browser with <a href="https://irc.spi.gt/iris/?channels=paper">
-                webchat</a>.
-            </p>
-
-            <h3>GitHub</h3>
-            <p>
-                You can also join the discussion on <a href="https://github.com/PaperMC/Paper">GitHub</a>!
-            </p>
-
-            <h3>Twitter</h3>
-            <p>
-                For breaking updates and announcements you can follow us on Twitter.
-            </p>
-
-            <a class="twitter-timeline" data-width="500" data-height="750" data-dnt="true" data-theme="light" href="https://twitter.com/PaperPowered?ref_src=twsrc%5Etfw">Tweets by PaperPowered</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
+      </nav>
     </div>
-
-    <footer class="page-footer light-blue darken-2">
+    
+    <!-- Sidenav -->
+    <ul id="sidenav" class="sidenav">
+      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg" /></a>
+      <li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li>
+      <li><a class="grey-text text-darken-4" href="community">COMMUNITY</a></li>
+      <li><a class="grey-text text-darken-4" href="https://github.com/PaperMC/Paper">GITHUB</a></li>
+        <li><a class="grey-text text-darken-4" href="docs">DOCUMENTATION</a></li>
+      <li><a class="btn grey darken-4 waves-effect waves-light" href="downloads">Downloads</a></li>
+    </ul>
+    
+    <!-- Main Scrollable Content -->
+    <main>
+      <!-- Intro -->
+      <div class="container">
+        <h1>Join our Community</h1>
+        <span>We're happy to have you as a part of the PaperMC community!</span>
+      </div>
+      
+      <!-- Discord -->
+      <div id="discord-container">
+        <div class="main">
+          <div class="container">
+            <h1>Discord</h1>
+            <span>Discord is a popular option for many gamers to communicate with each other. We have a Discord community server that
+  anyone can join.</span>
+          </div>
+        </div>
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Paper</h5>
-                    <p class="grey-text text-lighten-4">Paper is a high performance fork of Spigot that maintains plugin compatibility while adding new features and APIs.</p>
-                </div>
-            </div>
+          <iframe src="https://discordapp.com/widget?id=289587909051416579&theme=dark" frameborder="0" allowtransparency="true"></iframe>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2018 The PaperMC Team
-                <a class="grey-text text-lighten-4 right" href="https://github.com/PaperMC/papermc.io">Fork this website</a>
+      </div>
+      
+      <!-- IRC -->
+      <div id="irc-container" class="valign-table">
+        <div class="valign-cell">
+          <div class="row container">
+            <div class="col l2 s12">
+              <i class="material-icons">chat</i>
             </div>
+            <div class="col l10 s12">
+              <h1>IRC</h1>
+              <p>
+                IRC and Discord are bridged so it's completely up to you which you want to use.<br>
+                <br>
+                You can join us on either of these two servers:<br>
+                #paper on irc.spi.gt<br>
+                #paper on irc.esper.net<br>
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+      
+      <!-- Twitter -->
+      <div id="twitter-container">
+        <div class="row container">
+          <img src="images/twitter.svg" />
+        </div>
+        <div class="row container twitter-timeline-container">
+          <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer grey darken-4">
+      <div class="container">
+        <div class="row">
+          <h5 class="white-text">PaperMC</h5>
+          <p class="grey-text text-lighten-4">Paper is a high performance fork of Spigot that maintains plugin compatibility while adding new features and APIs.</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <span class="copyright">&copy; 2018 The PaperMC Team</span>
+          <a class="btn white grey-text text-darken-4 right waves-effect" href="https://github.com/PaperMC/papermc.io"><i class="material-icons left">call_split</i> Fork</a>
+        </div>
+      </div>
     </footer>
-</body>
+        
+    <!-- JavaScript Includes -->
+    <!-- MaterializeCSS Framework's JavaScript -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+    <!-- Cookies? -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/community.js"></script>
+    
+    <!-- Twitter Embed -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
 </html>

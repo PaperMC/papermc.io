@@ -1,0 +1,31 @@
+.button-collapse {
+  margin-left: 10px;
+  position: absolute;
+}
+.footer-copyright .copyright {
+  vertical-align: sub;
+}
+#section-why {
+  margin-bottom: 50px;
+}
+i.benefit-icon {
+  text-align: center;
+  display: block;
+  font-size: 10rem;
+}
+@media only screen and (max-width: 1155px) {
+  i.benefit-icon {
+    font-size: 8rem;
+  }
+}
+@media only screen and (max-width: 993px) {
+  #section-why h4 {
+    text-align: center;
+  }
+  i.benefit-icon {
+    font-size: 10rem;
+  }
+  #section-why a.btn {
+    display: block;
+  }
+}

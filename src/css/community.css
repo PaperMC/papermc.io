@@ -1,0 +1,72 @@
+main {
+  display: contents;
+}
+main > .container {
+  margin-bottom: 2.8rem;
+}
+#discord-container {
+  width: 100%;
+  color: white;
+  height: 450px;
+  background-color: #212121;
+}
+#discord-container iframe {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  bottom: 125px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: auto;
+  display: block;
+}
+#discord-container .main {
+  height: 300px;
+  background: url('../images/discord-background.svg') repeat;
+  background-color: #6881D8;
+  background-size: 150px;
+  display: flex;
+}
+#irc-container {
+  width: 100%;
+  min-height: 300px;
+  background: url('../images/irc-background.svg') repeat;
+  background-color: #951717;
+  background-size: 150px;
+  color: white;
+}
+#irc-container .col i {
+  font-size: 9rem;
+  text-align: center;
+  display: block;
+}
+.valign-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+.valign-table {
+  display: table;
+}
+#irc-container .row {
+  margin-bottom: 0px;
+}
+#irc-container h1 {
+  margin: 0px;
+}
+#twitter-container {
+  width: 100%;
+  min-height: 300px;
+  background-color: #1DA1F2;
+  color: white;
+}
+#twitter-container img {
+  width: 10rem;
+  display: block;
+  margin: 0 auto;
+}
+#twitter-container .twitter-timeline-container {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  max-height: 550px;
+  overflow: auto;
+  background-color: white;
+  margin-bottom: 50px;
+}
