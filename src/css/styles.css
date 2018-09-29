@@ -9,6 +9,30 @@ main {
 a:not([href]) {
   color: black;
 }
+
+nav .nav-wrapper {
+  background-color: #212121;
+}
+
+.downloads-button {
+  background-color: #ffffff;
+  color: #000000 !important;
+}
+
+.downloads-button i {
+  background-color: #ffffff;
+  color: #000000 !important;
+}
+
+.jumbotron {
+  background-image: url(https://i.imgur.com/SJ0J0DX.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem 0;
+  text-align: center;
+}
+
 nav .brand-logo {
   margin-top: -4px;
   z-index: 50;
