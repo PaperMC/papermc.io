@@ -1,132 +1,97 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PaperMC - The high performance fork</title>
-
-    <!-- Favicon Handling -->
-    <!-- All this, plus the normal one at root -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=BG70oBaPzN">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=BG70oBaPzN">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=BG70oBaPzN">
-    <link rel="manifest" href="/favicons/site.webmanifest?v=BG70oBaPzN">
-    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?v=BG70oBaPzN" color="#5bbad5">
-    <link rel="shortcut icon" href="/favicons/favicon.ico?v=BG70oBaPzN">
-    <meta name="msapplication-TileColor" content="#1886cd">
-    <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
-    <meta name="theme-color" content="#1886cd">
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:400,700" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?cacheID=vendor1"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/papermc.css?cacheID=2"  media="screen,projection"/>
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <script type="text/javascript" src="js/materialize.min.js?cacheID=vendor1"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
+
 <body>
-    <nav class="light-blue darken-2">
-        <div class="container">
-            <a href="/" class="brand-logo"><img src="/img/wordmark.svg" alt="PaperMC" height="48px"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/community">Community</a></li>
-                <li><a href="/downloads">Downloads</a></li>
-                <li><a href="https://paper.readthedocs.io/">Documentation</a></li>
-            </ul>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="#">PaperMC</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="https://papermc.io/community">Community</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="https://papermc.io/downloads">Downloads</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="https://paper.readthedocs.io/en/stable/">Documentation</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class="light-blue jumbotron white-text">
-        <h1>Turn your server up to 11.</h1>
-        <p>Paper is the next generation of Minecraft server, compatible with Spigot plugins and offering uncompromising performance.</p>
-        <div class="jumbotron-btns">
-            <a href="/community" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">chat</i>Community</a>
-            &nbsp;
-            <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">help</i>Documentation</a>
-            &nbsp;
-            <a href="/downloads" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Downloads</a>
-            &nbsp;
-            <a href="https://github.com/PaperMC/Paper" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">code</i>GitHub</a>
-        </div>
-    </div>
-    <div class="section" id="benefits-intro">
-        <h3>Why use Paper?</h3>
-        <p>Whether you're an administrator looking to boost your server or a developer looking for more functionality, Paper is ready for you.</p>
-    </div>
-    <div class="benefit section">
-        <div class="row">
-            <div class="col m3">
-                <div class="benefit-icon-outer">
-                    <i class="material-icons benefit-icon">flight_takeoff</i>
-                </div>
-            </div>
-            <div class="col m7">
-                <h4>It's stupid fast.</h4>
-                <p>
-                    Paper contains numerous improvements and optimizations resulting in a significant
-                    improvement in performance. Paper also includes the next version of Timings, enabling you to
-                    quickly find out what's slowing down your server.
-                </p>
-                <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2">
-                    <i class="material-icons left">archive</i>Learn about our performance
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="benefit section">
-        <div class="row">
-            <div class="col m3">
-                <i class="material-icons benefit-icon">people</i>
-            </div>
-            <div class="col m7">
-                <h4>An active and growing community.</h4>
-                <p>
-                    Paper has an active and growing community of server administrators and developers. Problem? Come talk
-                    with us on Discord and get real time support. Want to contribute? Submit a pull request and get it reviewed
-                    this century.
-                </p>
-                <a href="/community" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Join our community</a>
-            </div>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <div class="benefit section">
-        <div class="row">
-            <div class="col m3">
-                <i class="material-icons benefit-icon">
-                    code
-                </i>
-            </div>
-            <div class="col m7">
-                <h4>An expanded API.</h4>
-                <p>
-                    Paper extends and improves the Bukkit and Spigot APIs so that you and your developers have
-                    more features and functionality at your fingertips. All the meanwhile, Paper retains compatibility
-                    with plugins written for Spigot and Bukkit.
-                </p>
-                <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">archive</i>Learn about our API</a>
-            </div>
-        </div>
-    </div>
-
-    <footer class="page-footer light-blue darken-2">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Paper</h5>
-                    <p class="grey-text text-lighten-4">Paper is a high performance fork of Spigot that maintains plugin compatibility while adding new features and APIs.</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro">
+            <section class="portfolio-block website gradient" style="margin-top:-110px;"><img src="assets/img/7608950.png" width="155" height="155">
+                <p style="font-size:48px;">Turn your server up to 11 with <strong>Paper</strong>.</p><a class="btn btn-outline-primary btn-lg" role="button" href="https://papermc.io/community" style="width:150px;margin:0px;padding:8px 16px;color:rgb(255,255,255);background-color:#00b2ff;">Community</a>
+                <a
+                    class="btn btn-outline-primary btn-lg" role="button" href="https://paper.readthedocs.io/en/stable/" style="width:180px;padding:8px 16px;color:rgb(255,255,255);background-color:#00b2ff;">Documentation</a><a class="btn btn-outline-primary btn-lg" role="button" href="https://papermc.io/downloads" style="width:150px;padding:8px 16px;background-color:#00b2ff;color:rgb(255,255,255);">Downloads</a><a class="btn btn-outline-primary btn-lg"
+                        role="button" href="https://github.com/PaperMC/Paper" style="width:140px;padding:8px 16px;color:rgb(255,255,255);background-color:#00b2ff;">Github</a>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12 col-lg-5">
+                                <div class="portfolio-laptop-mockup"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </section>
+        <section class="portfolio-block photography"></section>
+        <section class="portfolio-block skills" style="margin-top:-50px;">
             <div class="container">
-                © 2018 The PaperMC Team
-                <a class="grey-text text-lighten-4 right" href="https://github.com/PaperMC/papermc.io">Fork this website</a>
+                <div class="heading">
+                    <h1 style="margin-top:-80px;">Features</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-ios-star-outline"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Community</h3>
+                                <p class="card-text">Paper has an active and growing community of server administrators and developers. Problem? Come talk with us on Discord and get real time support. Want to contribute? Submit a pull request and get it reviewed this century.&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-ios-lightbulb-outline"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Performance</h3>
+                                <p class="card-text">Paper contains numerous improvements and optimizations resulting in a significant<br> improvement in performance. Paper also includes the next version of Timings, enabling you to<br> quickly find out what's slowing down
+                                    your server.<br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-ios-gear-outline"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Expanded API<br></h3>
+                                <p class="card-text">Paper extends and improves the Bukkit and Spigot APIs so that you and your developers have more features and functionality at your fingertips. All the meanwhile, Paper retains compatibility with plugins written for Spigot
+                                    and Bukkit. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links"><a href="https://github.com/PaperMC/Paper">© 2018 The PaperMC Team<br></a></div>
+            <div class="social-icons"></div>
         </div>
     </footer>
-    <script type="text/javascript" src="js/site.js?cacheID=2" async="async"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
 </body>
+
 </html>
