@@ -73,9 +73,33 @@ h5 {
 h6 {
   font-size: 1rem;
 }
-
+a.btn.blue {
+  background-color: #1886cd !important;
+}
+html nav.white {
+  background-color: #1886cd !important;
+}
+nav a, nav i, nav .grey-text.text-darken-4 {
+  color: white !important;
+}
 @media only screen and (max-width: 601px) {
   nav .brand-logo img {
     height: 42px;
+  }
+  .nav-wrapper ul a.btn {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+
+  .nav-wrapper ul a.btn {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .nav-wrapper ul a.btn i {
+    margin-right: 5px;
   }
 }
