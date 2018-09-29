@@ -4,7 +4,25 @@
 .builds-table td:first-child a.btn, .builds-table td:last-child {
   width: max-content;
 }
+.download-desc {
+  padding: 10px;
+}
 .jenkins-btn {
   display: block;
   margin: 0 auto;
+}
+.commit-hash, .commit-hash a {
+  font-size: 12px;
+  font-family: monospace !important;
+}
+@media only screen and (max-width: 601px) {
+  #downloads-tabs .tab {
+    width: 50%;
+    float: left;
+  }
+  #downloads-tabs {
+    height: auto;
+    position: initial;
+    display: block;
+  }
 }
