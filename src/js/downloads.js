@@ -130,5 +130,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    M.Tabs.init(document.querySelector("#downloads-tabs"), {});
+    M.Tabs.init(document.querySelector("#downloads-tabs"), {
+        onShow: function (e) {
+            history.pushState(null, null, '#' + e.getAttribute('id'));
+        }
+    });
 });
