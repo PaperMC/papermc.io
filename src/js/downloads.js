@@ -3,24 +3,28 @@ const downloads = {
         "title": "Paper 1.13.1",
         "jenkins": "Paper-1.13",
         "github": "PaperMC/Paper",
+        "urlIntermediary": "",
         "desc": "Active development for the current Minecraft version.",
     },
     "Paper": {
         "title": "Paper 1.12.2",
         "jenkins": "Paper",
         "github": "PaperMC/Paper",
+        "urlIntermediary": "",
         "desc": "Legacy support for Minecraft 1.12.2, accepting bug and security fixes only."
     },
     "Waterfall": {
         "title": "Waterfall",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
+        "urlIntermediary": "Waterfall-Proxy/bootstrap/target/",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
     },
     "Travertine": {
         "title": "Travertine",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
+        "urlIntermediary": "artifact/Travertine-Proxy/bootstrap/target/",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
     }
 };
@@ -74,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let rows = "";
             const builds = json.builds.filter(build => build.artifacts && build.artifacts.length);
+            const urlIntermediary = downloads[id].urlIntermediary;
             builds.forEach(function (build) {
 
                 const el = container.querySelector("td[data-build-id='" + build.number + "']");
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 rows += `<tr>
-                  <td><a href="https://papermc.io/ci/job/${id}/${build.number}/artifact/${build.artifacts[0].fileName}" 
+                  <td><a href="https://papermc.io/ci/job/${id}/${build.number}/artifact/${urlIntermediary}${build.artifacts[0].fileName}" 
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">save_alt</i>
                   </a></td>
