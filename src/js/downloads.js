@@ -5,7 +5,7 @@ const downloads = {
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
     },
-    "Paper-1.12": {
+    "Paper": {
         "title": "Paper 1.12.2",
         "jenkins": "Paper",
         "github": "PaperMC/Paper",
