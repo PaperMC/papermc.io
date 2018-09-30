@@ -38,6 +38,10 @@ html nav .btn-flat:hover {
     text-align: center;
 }
 
+.jumbotron h1 {
+    margin: 1.5rem 0;
+}
+
 nav .brand-logo {
     margin-top: -4px;
     z-index: 50;
