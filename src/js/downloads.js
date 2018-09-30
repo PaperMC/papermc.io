@@ -6,7 +6,7 @@ const downloads = {
         "urlIntermediary": "",
         "desc": "Active development for the current Minecraft version.",
     },
-    "Paper": {
+    "Paper-1.12": {
         "title": "Paper 1.12.2",
         "jenkins": "Paper",
         "github": "PaperMC/Paper",
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 rows += `<tr>
-                  <td><a href="https://papermc.io/ci/job/${id}/${build.number}/artifact/${urlIntermediary}${build.artifacts[0].fileName}" 
+                  <td><a href="https://papermc.io/ci/job/${downloads[id].jenkins}/${build.number}/artifact/${urlIntermediary}${build.artifacts[0].fileName}" 
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">save_alt</i>
                   </a></td>
