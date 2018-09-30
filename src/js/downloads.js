@@ -24,7 +24,7 @@ const downloads = {
         "title": "Travertine",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
-        "urlIntermediary": "artifact/Travertine-Proxy/bootstrap/target/",
+        "urlIntermediary": "Travertine-Proxy/bootstrap/target/",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
     }
 };
