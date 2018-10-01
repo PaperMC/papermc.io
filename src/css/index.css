@@ -8,10 +8,24 @@
 #section-why {
   margin-bottom: 50px;
 }
+#section-why .col.l3 {
+  padding: 30px 20px;
+}
 i.benefit-icon {
   text-align: center;
   display: block;
   font-size: 10rem;
+}
+.jumbotron {
+  background-image: url(https://i.imgur.com/SJ0J0DX.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  margin: 1.5rem 0;
 }
 @media only screen and (max-width: 1155px) {
   i.benefit-icon {
