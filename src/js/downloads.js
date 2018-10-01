@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   ${rows}
                 </tbody>
               </table>
-              <a class="jenkins-btn btn blue darken-4 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>
+              <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>
             `;
 
         }).catch(function (e) {
