@@ -17,7 +17,7 @@ i.benefit-icon {
   font-size: 10rem;
 }
 .jumbotron {
-  background-image: url(https://i.imgur.com/SJ0J0DX.png);
+  background-image: url('../images/jumbotron.png');
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
