@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         jenkinsFetch(downloads[id].jenkins, "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp,changeSet[items[comment,commitId,msg]]]{,10}").then(function (json) {
             const container = document.getElementById(id).querySelector(".download-content");
             if (json == null) {
-                container.innerText = "Failed to load downloads.dd";
+                container.innerText = "Failed to load downloads.";
                 return;
             }
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   ${rows}
                 </tbody>
               </table>
-              <a class="jenkins-btn btn blue darken-4 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>
+              <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>
             `;
 
         }).catch(function (e) {
