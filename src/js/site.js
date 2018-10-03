@@ -1,4 +1,4 @@
-
+let hasLoaded = false;
 window.dataLayer = window.dataLayer || [];
 function gtag(){
     if (!hasLoaded || !consentRevoked) {
