@@ -1,6 +1,6 @@
 const downloads = {
     "Paper-1.13": {
-        "title": "Paper 1.13.1",
+        "title": "Paper 1.13.2",
         "jenkins": "Paper-1.13",
         "github": "PaperMC/Paper",
         "urlIntermediary": "",
