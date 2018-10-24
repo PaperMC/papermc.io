@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rows += `<tr>
                   <td><a href="https://papermc.io/ci/job/${downloads[id].jenkins}/${build.number}/artifact/${urlIntermediary}${build.artifacts[0].fileName}" 
                   class="btn waves-light waves-effect grey darken-4">
-                  #${build.number}<i class="material-icons left">save_alt</i>
+                  #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
                   <td data-build-id="${build.number}">${changes}</td>
                   <td>${new Date(build.timestamp).toLocaleDateString({year: "numeric", month: "numeric", day: "numeric"})}</td>
