@@ -6,7 +6,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "build": "gulp"
+        "build": "node_modules/gulp/node_modules/.bin/gulp"
     },
     "devDependencies": {
         "gulp": "4.0.0",
@@ -15,6 +15,6 @@
         "gulp-rename": "^1.4.0",
         "gulp-sass": "^4.0.2",
         "gulp-terser": "^1.1.5",
-        "gulp-twig": "^1.2.0",
+        "gulp-twig": "^1.2.0"
     }
 }
