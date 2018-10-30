@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- MaterializeCSS Framework's CSS -->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?cacheID=vendor3" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?v={{ materialize_css_version }}" media="screen, projection"/>
     
     <!-- Custom Styles -->
-    <link type="text/css" rel="stylesheet" href="css/styles.css?cacheId=10" media="screen, projection"/>
-    <link type="text/css" rel="stylesheet" href="css/documentation.css?cacheId=10" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css?v={{ styles_css_version }}" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/documentation.css?v={{ documentation_css_version }}" media="screen, projection"/>
     
     <!-- Cookies? -->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
@@ -25,7 +25,7 @@
       <nav class="grey darken-4">
         <div class="nav-wrapper">
           <div class="brand-logo">
-            <a href="/"><img src="images/logo-marker.svg" /></a>
+            <a href="/"><img src="images/logo-marker.svg?v={{ logo_marker_image_version }}" /></a>
           </div>
           <a data-target="sidenav" class="hide-on-large-only white-text button-collapse sidenav-button sidenav-trigger clickable"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -41,7 +41,7 @@
     
     <!-- Sidenav -->
     <ul id="sidenav" class="sidenav">
-      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg" /></a>
+      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg?v={{ logo_image_version }}" /></a>
       <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
       <li><a class="grey-text text-darken-4 waves-effect" href="/"><i class="material-icons left">home</i>HOME</a></li>
       <li><a class="grey-text text-darken-4 waves-effect" href="/community"><i class="material-icons left">people</i>COMMUNITY</a></li>
@@ -74,13 +74,13 @@
         
     <!-- JavaScript Includes -->
     <!-- MaterializeCSS Framework's JavaScript -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js?v={{ materialize_js_version }}"></script>
     
     <!-- Cookies? -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
     
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="js/script.js?cacheId=10"></script>
-    <script type="text/javascript" src="js/documentation.js?cacheId=10"></script>
+    <script type="text/javascript" src="js/script.js?v={{ script_js_version }}"></script>
+    <script type="text/javascript" src="js/documentation.js?v={{ documentation_js_version }}"></script>
   </body>
 </html>

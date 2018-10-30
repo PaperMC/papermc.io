@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Downloads – PaperMC</title>
+    <title>Community – PaperMC</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -16,16 +16,15 @@
     <meta name="msapplication-TileColor" content="#1886cd">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
     <meta name="theme-color" content="#1886cd">
-    
     <!-- Google's Material Icons Font -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- MaterializeCSS Framework's CSS -->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?cacheID=vendor3" media="screen, projection"/>
-    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?v={{ materialize_css_version }}" media="screen, projection"/>
+
     <!-- Custom Styles -->
-    <link type="text/css" rel="stylesheet" href="css/styles.css?cacheId=10" media="screen, projection"/>
-    <link type="text/css" rel="stylesheet" href="css/downloads.css?cacheId=10" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css?v={{ styles_css_version }}" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="css/community.css?v={{ community_css_version }}" media="screen, projection"/>
     
     <!-- Cookies? -->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
@@ -39,7 +38,7 @@
       <nav class="grey darken-4">
         <div class="nav-wrapper">
           <div class="brand-logo">
-            <a href="/"><img src="images/logo-marker.svg" /></a>
+            <a href="/"><img src="images/logo-marker.svg?v={{ logo_marker_image_version }}" /></a>
           </div>
           <a data-target="sidenav" class="hide-on-large-only white-text button-collapse sidenav-button sidenav-trigger clickable"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -55,7 +54,7 @@
     
     <!-- Sidenav -->
     <ul id="sidenav" class="sidenav">
-      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg" /></a>
+      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg?v={{ logo_image_version }}" /></a>
       <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
       <li><a class="grey-text text-darken-4 waves-effect" href="/"><i class="material-icons left">home</i>HOME</a></li>
       <li><a class="grey-text text-darken-4 waves-effect" href="/community"><i class="material-icons left">people</i>COMMUNITY</a></li>
@@ -65,11 +64,56 @@
     </ul>
     
     <!-- Main Scrollable Content -->
-    <main class="container">
-      <h1>Downloads</h1>
-      <span>You can download the latest versions of Paper or Waterfall below.</span>
-      <div id="content" class="row">
-        
+    <main>
+      <!-- Intro -->
+      <div class="container">
+        <h1>Join our Community</h1>
+        <span>We're happy to have you as a part of the PaperMC community!</span>
+      </div>
+      
+      <!-- Discord -->
+      <div id="discord-container">
+        <div class="main">
+          <div class="container">
+            <h1>Discord</h1>
+            <span>Discord is a popular option for many gamers to communicate with each other. We have a Discord community server that
+  anyone can join.</span>
+          </div>
+        </div>
+        <div class="container">
+          <iframe src="https://discordapp.com/widget?id=289587909051416579&theme=dark" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      
+      <!-- IRC -->
+      <div id="irc-container" class="valign-table">
+        <div class="valign-cell">
+          <div class="row container">
+            <div class="col l2 s12">
+              <i class="material-icons">chat</i>
+            </div>
+            <div class="col l10 s12">
+              <h1>IRC</h1>
+              <p>
+                IRC and Discord are bridged so it's completely up to you which you want to use.<br>
+                <br>
+                You can join us on either of these two servers:<br>
+                #paper on irc.spi.gt<br>
+                #paper on irc.esper.net<br>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Twitter -->
+      <div id="twitter-container">
+        <div class="row container">
+          <img src="images/twitter.svg?v={{ twitter_image_version }}" />
+        </div>
+        <div class="row container twitter-timeline-container">
+          <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>
+        </div>
       </div>
     </main>
     
@@ -86,13 +130,16 @@
         
     <!-- JavaScript Includes -->
     <!-- MaterializeCSS Framework's JavaScript -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js?v={{ materialize_js_version }}"></script>
     
     <!-- Cookies? -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
     
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="js/script.js?cacheId=10"></script>
-    <script type="text/javascript" src="js/downloads.js?cacheId=10"></script>
+    <script type="text/javascript" src="js/script.js?v={{ script_js_version }}"></script>
+    <!--script type="text/javascript" src="js/community.js?cacheId=10"></script-->
+    
+    <!-- Twitter Embed -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
 </html>

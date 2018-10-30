@@ -1,0 +1,20 @@
+{
+    "name": "papermc.io",
+    "description": "The PaperMC website",
+    "homepage": "https://papermc.io/",
+    "repository": "github:papermc/papermc.io",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "gulp"
+    },
+    "devDependencies": {
+        "gulp": "4.0.0",
+        "gulp-buster": "^1.1.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-terser": "^1.1.5",
+        "gulp-twig": "^1.2.0",
+    }
+}
