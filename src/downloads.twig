@@ -1,11 +1,11 @@
 <!doctype html>
-{% set vars = {'page': 'downloads'} %}
+{% set page = 'downloads' %}
 <html>
   <head>
-    {% include 'header.twig' with vars %}
+    {% include 'partial/header.twig' %}
   </head>
   <body>
-    {% include 'navigation.html' %}
+    {% include 'partial/navigation.html' %}
     
     <!-- Main Scrollable Content -->
     <main class="container">
@@ -16,6 +16,6 @@
       </div>
     </main>
     
-    {% include 'footer.twig' with vars %}
+    {% include 'partial/footer.twig' %}
   </body>
 </html>
