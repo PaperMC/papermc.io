@@ -1,66 +1,65 @@
 <!doctype html>
+{% extends 'partial/layout.twig' %}
 {% set page = 'community' %}
-<html>
-  <head>
-    {% include 'partial/header.twig' %}
-  </head>
-  <body>
-    {% include 'partial/navigation.html' %}
-    
-    <!-- Main Scrollable Content -->
-    <main>
-      <!-- Intro -->
-      <div class="container">
-        <h1>Join our Community</h1>
-        <span>We're happy to have you as a part of the PaperMC community!</span>
-      </div>
-      
-      <!-- Discord -->
-      <div id="discord-container">
-        <div class="main">
-          <div class="container">
-            <h1>Discord</h1>
-            <span>Discord is a popular option for many gamers to communicate with each other. We have a Discord community server that
-  anyone can join.</span>
-          </div>
-        </div>
+{% set title = 'Community – PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="css/community.css?v={{ community_css_version }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  <!-- Main Scrollable Content -->
+  <main>
+    <!-- Intro -->
+    <div class="container">
+      <h1>Join our Community</h1>
+      <span>We're happy to have you as a part of the PaperMC community!</span>
+    </div>
+
+    <!-- Discord -->
+    <div id="discord-container">
+      <div class="main">
         <div class="container">
-          <iframe src="https://discordapp.com/widget?id=289587909051416579&theme=dark" frameborder="0" allowtransparency="true"></iframe>
+          <h1>Discord</h1>
+          <span>Discord is a popular option for many gamers to communicate with each other. We have a Discord community server that anyone can join.</span>
         </div>
       </div>
-      
-      <!-- IRC -->
-      <div id="irc-container" class="valign-table">
-        <div class="valign-cell">
-          <div class="row container">
-            <div class="col l2 s12">
-              <i class="material-icons">chat</i>
-            </div>
-            <div class="col l10 s12">
-              <h1>IRC</h1>
-              <p>
-                IRC and Discord are bridged so it's completely up to you which you want to use.<br>
-                <br>
-                You can join us on either of these two servers:<br>
-                #paper on irc.spi.gt<br>
-                #paper on irc.esper.net<br>
-              </p>
-            </div>
+      <div class="container">
+        <iframe src="https://discordapp.com/widget?id=289587909051416579&theme=dark" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+    </div>
+
+    <!-- IRC -->
+    <div id="irc-container" class="valign-table">
+      <div class="valign-cell">
+        <div class="row container">
+          <div class="col l2 s12">
+            <i class="material-icons">chat</i>
+          </div>
+          <div class="col l10 s12">
+            <h1>IRC</h1>
+            <p>
+              IRC and Discord are bridged so it's completely up to you which you want to use.<br>
+              <br>
+              You can join us on either of these two servers:<br>
+              #paper on irc.spi.gt<br>
+              #paper on irc.esper.net<br>
+            </p>
           </div>
         </div>
       </div>
-      
-      <!-- Twitter -->
-      <div id="twitter-container">
-        <div class="row container">
-          <img src="images/twitter.svg?v={{ twitter_image_version }}" />
-        </div>
-        <div class="row container twitter-timeline-container">
-          <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>
-        </div>
+    </div>
+
+    <!-- Twitter -->
+    <div id="twitter-container">
+      <div class="row container">
+        <img src="images/twitter.svg?v={{ twitter_image_version }}"/>
       </div>
-    </main>
-    
-    {% include 'partial/footer.twig' with page %}
-  </body>
-</html>
+      <div class="row container twitter-timeline-container">
+        <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+{% block footer %}
+  <!-- Twitter Embed -->
+  <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}

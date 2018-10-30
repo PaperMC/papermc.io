@@ -1,23 +1,20 @@
 <!doctype html>
+{% extends 'partial/layout.twig' %}
 {% set page = 'documentation' %}
-<html>
-  <head>
-    {% include 'partial/header.twig' %}
-  </head>
-  <body>
-    {% include 'partial/navigation.html' %}
-    
-    <!-- Main Scrollable Content -->
-    <main>
-      <section id="documentation">
-        <div id="content">
-          <div class="container">
-
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    {% include 'partial/footer.twig' %}
-  </body>
-</html>
+{% set title = 'Documentation – PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="css/documentation.css?v={{ documentation_css_version }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  <!-- Main Scrollable Content -->
+  <main>
+    <section id="documentation">
+      <div id="content">
+        <div class="container"></div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+{% block footer %}
+  <script type="text/javascript" src="js/documentation.js?v={{ documentation_js_version }}"></script>
+{% endblock %}
