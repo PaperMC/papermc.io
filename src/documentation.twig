@@ -1,54 +1,11 @@
 <!doctype html>
+{% set vars = {'page': 'documentation'} %}
 <html>
   <head>
-    <title>Documentation – PaperMC</title>
-    
-    <!-- Google's Material Icons Font -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!-- MaterializeCSS Framework's CSS -->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css?v={{ materialize_css_version }}" media="screen, projection"/>
-    
-    <!-- Custom Styles -->
-    <link type="text/css" rel="stylesheet" href="css/styles.css?v={{ styles_css_version }}" media="screen, projection"/>
-    <link type="text/css" rel="stylesheet" href="css/documentation.css?v={{ documentation_css_version }}" media="screen, projection"/>
-    
-    <!-- Cookies? -->
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    
-    <!-- Mobile Compatbility Tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% include 'header.twig' with vars %}
   </head>
   <body>
-    <!-- Navbar -->
-    <div class="navbar-fixed">
-      <nav class="grey darken-4">
-        <div class="nav-wrapper">
-          <div class="brand-logo">
-            <a href="/"><img src="images/logo-marker.svg?v={{ logo_marker_image_version }}" /></a>
-          </div>
-          <a data-target="sidenav" class="hide-on-large-only white-text button-collapse sidenav-button sidenav-trigger clickable"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <!--li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="https://papermc.io/javadocs/"><i class="material-icons left">info</i>JAVADOCS</a></li-->
-            <li><a class="white-text btn btn-flat waves-effect" href="community"><i class="material-icons left">people</i>COMMUNITY</a></li>
-            <li><a class="white-text btn btn-flat waves-effect" href="https://github.com/PaperMC/Paper"><i class="material-icons left">code</i>GITHUB</a></li>
-            <li><a class="white-text btn btn-flat waves-effect" href="https://paper.readthedocs.io/"><i class="material-icons left">help_outline</i>DOCUMENTATION</a></li>
-            <li><a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="downloads"><i class="material-icons left">cloud_download</i>Downloads</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    
-    <!-- Sidenav -->
-    <ul id="sidenav" class="sidenav">
-      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="images/logo.svg?v={{ logo_image_version }}" /></a>
-      <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
-      <li><a class="grey-text text-darken-4 waves-effect" href="/"><i class="material-icons left">home</i>HOME</a></li>
-      <li><a class="grey-text text-darken-4 waves-effect" href="/community"><i class="material-icons left">people</i>COMMUNITY</a></li>
-      <li><a class="grey-text text-darken-4 waves-effect" href="https://github.com/PaperMC/Paper"><i class="material-icons left github">code</i>GITHUB</a></li>
-      <li><a class="grey-text text-darken-4 waves-effect" href="https://paper.readthedocs.io/"><i class="material-icons left">help_outline</i>DOCUMENTATION</a></li>
-      <li><a class="btn light-blue darken-2 waves-effect waves-light" href="downloads">Downloads</a></li>
-    </ul>
+    {% include 'navigation.html' %}
     
     <!-- Main Scrollable Content -->
     <main>
@@ -61,26 +18,6 @@
       </section>
     </main>
     
-    <!-- Footer -->
-    <footer class="page-footer grey darken-4">
-
-      <div class="footer-copyright">
-        <div class="container">
-          <span class="copyright">&copy; 2018 The PaperMC Team</span>
-          <a class="white-text right waves-effect" href="https://github.com/PaperMC/papermc.io"><i class="material-icons">call_split</i></a>
-        </div>
-      </div>
-    </footer>
-        
-    <!-- JavaScript Includes -->
-    <!-- MaterializeCSS Framework's JavaScript -->
-    <script type="text/javascript" src="js/materialize.min.js?v={{ materialize_js_version }}"></script>
-    
-    <!-- Cookies? -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script type="text/javascript" src="js/script.js?v={{ script_js_version }}"></script>
-    <script type="text/javascript" src="js/documentation.js?v={{ documentation_js_version }}"></script>
+    {% include 'footer.twig' with vars %}
   </body>
 </html>

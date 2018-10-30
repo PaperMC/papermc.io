@@ -1,0 +1,49 @@
+<title>
+    {% if page == 'index' %}
+        PaperMC – The High Performance Fork
+    {% elseif page == 'community' %}
+        Community – PaperMC
+    {% elseif page == 'documentation' %}
+        Documentation – PaperMC
+    {% elseif page == 'downloads' %}
+        Downloads - PaperMC
+    {% endif %}
+</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Favicon Handling -->
+<!-- All this, plus the normal one at root -->
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=BG70oBaPzN">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=BG70oBaPzN">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=BG70oBaPzN">
+<link rel="manifest" href="/favicons/site.webmanifest?v=BG70oBaPzN">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?v=BG70oBaPzN" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico?v=BG70oBaPzN">
+<meta name="msapplication-TileColor" content="#1886cd">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
+<meta name="theme-color" content="#1886cd">
+
+<!-- Google's Material Icons Font -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- MaterializeCSS Framework's CSS -->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css?v={{ materialize_css_version }}" media="screen, projection"/>
+
+<!-- Custom Styles -->
+<link type="text/css" rel="stylesheet" href="css/styles.css?v={{ styles_css_version }}" media="screen, projection"/>
+{% if page == 'index' %}
+    <link type="text/css" rel="stylesheet" href="css/index.css?v={{ index_css_version }}" media="screen, projection"/>
+{% elseif page == 'community' %}
+    <link type="text/css" rel="stylesheet" href="css/community.css?v={{ community_css_version }}" media="screen, projection"/>
+{% elseif page == 'documentation' %}
+    <link type="text/css" rel="stylesheet" href="css/documentation.css?v={{ documentation_css_version }}" media="screen, projection"/>
+{% elseif page == 'downloads' %}
+    <link type="text/css" rel="stylesheet" href="css/downloads.css?v={{ downloads_css_version }}" media="screen, projection"/>"
+{% endif %}
+    
+<!-- Cookies? -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> 
+
+<!-- Mobile Compatbility Tag --> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>

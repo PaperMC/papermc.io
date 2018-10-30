@@ -66,7 +66,7 @@ gulp.task("content", function() {
 		let jsBusters = JSON.parse(fs.readFileSync("dist/js/busters.json"));
 		let imageBusters = JSON.parse(fs.readFileSync("dist/images/busters.json"));
 
-		gulp.src("src/*.twig")
+		gulp.src(["src/*.twig", "!src/header.twig", "!src/footer.twig"])
 			.pipe(
 				gulp_twig({
 					data: {

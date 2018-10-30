@@ -1,0 +1,32 @@
+<!-- Footer -->
+<footer class="page-footer grey darken-4">
+
+  <div class="footer-copyright">
+    <div class="container">
+      <span class="copyright">&copy; 2018 The PaperMC Team</span>
+        <a class="white-text right waves-effect" href="https://github.com/PaperMC/papermc.io">
+          <i class="material-icons">call_split</i>
+        </a>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript Includes -->
+<!-- MaterializeCSS Framework's JavaScript -->
+<script type="text/javascript" src="js/materialize.min.js?v={{ materialize_js_version }}"></script>
+
+<!-- Cookies? -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="js/script.js?v={{ script_js_version }}"></script>
+{% if page == 'documentation' %}
+  <script type="text/javascript" src="js/documentation.js?v={{ documentation_js_version }}"></script>
+{% elseif page == 'downloads' %}
+  <script type="text/javascript" src="js/downloads.js?v={{ downloads_js_version }}"></script>
+{% endif %}
+
+{% if page == 'community' %}
+  <!-- Twitter Embed -->
+  <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endif %}
