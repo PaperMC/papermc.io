@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon Handling -->
+    <!-- All this, plus the normal one at root -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=BG70oBaPzN">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=BG70oBaPzN">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=BG70oBaPzN">
+    <link rel="manifest" href="/favicons/site.webmanifest?v=BG70oBaPzN">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?v=BG70oBaPzN" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicons/favicon.ico?v=BG70oBaPzN">
+    <meta name="msapplication-TileColor" content="#1886cd">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
+    <meta name="theme-color" content="#1886cd">
+
+    <!-- Google's Material Icons Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- MaterializeCSS Framework's CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ urls['css/materialize.min.css'] }}" media="screen, projection"/>
+
+    <!-- Custom Styles -->
+    <link type="text/css" rel="stylesheet" href="{{ urls['css/styles.css'] }}" media="screen, projection"/>
+    {% block styles %}{% endblock %}
+
+    <!-- Cookies? -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
+
+    <!-- Mobile Compatbility Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="grey darken-4">
+        <div class="nav-wrapper">
+          <div class="brand-logo">
+            <a href="/"><img src="{{ urls['images/logo-marker.svg'] }}"/></a>
+          </div>
+          <a data-target="sidenav" class="hide-on-large-only white-text button-collapse sidenav-button sidenav-trigger clickable">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <!--li><a class="grey-text text-darken-4 btn btn-flat waves-effect" href="https://papermc.io/javadocs/"><i class="material-icons left">info</i>JAVADOCS</a></li-->
+            <li>
+              <a class="white-text btn btn-flat waves-effect" href="community">
+                <i class="material-icons left">people</i>COMMUNITY
+              </a>
+            </li>
+            <li>
+              <a class="white-text btn btn-flat waves-effect" href="https://github.com/PaperMC/Paper">
+                <i class="material-icons left">code</i>GITHUB
+              </a>
+            </li>
+            <li>
+              <a class="white-text btn btn-flat waves-effect" href="https://paper.readthedocs.io/">
+                <i class="material-icons left">help_outline</i>DOCUMENTATION
+              </a>
+            </li>
+            <li>
+              <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="downloads">
+                <i class="material-icons left">cloud_download</i>Downloads
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Sidenav -->
+    <ul id="sidenav" class="sidenav">
+      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="{{ urls['images/logo.svg'] }}"/></a>
+      <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
+      <li>
+        <a class="grey-text text-darken-4 waves-effect" href="/">
+          <i class="material-icons left">home</i>HOME
+        </a>
+      </li>
+      <li>
+        <a class="grey-text text-darken-4 waves-effect" href="/community">
+          <i class="material-icons left">people</i>COMMUNITY
+        </a>
+      </li>
+      <li>
+        <a class="grey-text text-darken-4 waves-effect" href="https://github.com/PaperMC/Paper">
+          <i class="material-icons left github">code</i>GITHUB
+        </a>
+      </li>
+      <li>
+        <a class="grey-text text-darken-4 waves-effect" href="https://paper.readthedocs.io/">
+          <i class="material-icons left">help_outline</i>DOCUMENTATION
+        </a>
+      </li>
+      <li>
+        <a class="btn light-blue darken-2 waves-effect waves-light" href="downloads">Downloads</a>
+      </li>
+    </ul>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="page-footer grey darken-4">
+
+      <div class="footer-copyright">
+        <div class="container">
+          <span class="copyright">&copy; 2018 The PaperMC Team</span>
+          <a class="white-text right waves-effect" href="https://github.com/PaperMC/papermc.io">
+            <i class="material-icons">call_split</i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Includes -->
+    <!-- MaterializeCSS Framework's JavaScript -->
+    <script type="text/javascript" src="{{ urls['js/materialize.min.js'] }}"></script>
+
+    <!-- Cookies? -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="{{ urls['js/script.js'] }}"></script>
+    {% block footer %}{% endblock %}
+  </body>
+</html>

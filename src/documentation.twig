@@ -1,0 +1,20 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'documentation' %}
+{% set title = 'Documentation – PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/documentation.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  <!-- Main Scrollable Content -->
+  <main>
+    <section id="documentation">
+      <div id="content">
+        <div class="container"></div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+{% block footer %}
+  <script type="text/javascript" src="{{ urls['js/documentation.js'] }}"></script>
+{% endblock %}

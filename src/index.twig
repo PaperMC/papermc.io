@@ -1,0 +1,61 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'index' %}
+{% set title = 'PaperMC – The High Performance Fork' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/index.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  <!-- Main Scrollable Content -->
+  <main>
+    <div class="jumbotron white-text">
+      <h1>Turn your server up to 11.</h1>
+      <p>Paper is the next generation of Minecraft server, compatible with Spigot plugins and offering uncompromising performance.</p>
+    </div>
+    <section id="section-why" class="container">
+      <h3 class="center-align">Why use Paper?</h3>
+      <p class="center-align">Whether you're an administrator looking to boost your server or a developer looking for more functionality, Paper is ready for you.</p>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <i class="material-icons benefit-icon">flight_takeoff</i>
+        </div>
+        <div class="col s12 l9">
+          <h4>It's stupid fast.</h4>
+          <p>
+            Paper contains numerous improvements and optimizations resulting in a significant improvement in performance. Paper also includes the next version of Timings, enabling you to quickly find out what's slowing down your server.
+          </p>
+          <a href="https://paper.readthedocs.io/" class="waves-effect waves-light btn light-blue darken-2">
+            <i class="material-icons left">archive</i>Learn about Performance</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <i class="material-icons benefit-icon">people</i>
+        </div>
+        <div class="col s12 l9">
+          <h4>An active and growing community.</h4>
+          <p>
+            Paper has an active and growing community of server administrators and developers. Problem? Come talk with us on Discord and get real time support. Want to contribute? Submit a pull request and get it reviewed this century.
+          </p>
+          <a href="community" class="waves-effect waves-light btn light-blue darken-2">
+            <i class="material-icons left">archive</i>Join our Community</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <i class="material-icons benefit-icon">code</i>
+        </div>
+        <div class="col s12 l9">
+          <h4>An expanded API.</h4>
+          <p>
+            Paper extends and improves the Bukkit and Spigot APIs so that you and your developers have more features and functionality at your fingertips. All the meanwhile, Paper retains compatibility with plugins written for Spigot and Bukkit.
+          </p>
+          <a href="https://papermc.io/javadocs/" class="waves-effect waves-light btn light-blue darken-2">
+            <i class="material-icons left">archive</i>Learn about our API</a>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+{% block footer %}{% endblock %}
