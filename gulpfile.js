@@ -31,6 +31,12 @@ gulp.task("copy images", function() {
     .pipe(gulp.dest("dist/images"))
 })
 
+gulp.task("copy favicons", function() {
+  return gulp
+    .src("src/favicons/*")
+    .pipe(gulp.dest("dist/favicons"))
+})
+
 gulp.task("bust", function() {
   return Promise.all([
     // CSS busters
@@ -110,4 +116,4 @@ gulp.task("minify", function() {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("default", gulp.series("sass", "terse", "copy images", "bust", "content", "minify"));
+gulp.task("default", gulp.series("sass", "terse", "copy images", "copy favicons", "bust", "content", "minify"));
