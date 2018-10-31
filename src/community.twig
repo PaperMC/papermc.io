@@ -3,7 +3,7 @@
 {% set page = 'community' %}
 {% set title = 'Community – PaperMC' %}
 {% block styles %}
-  <link type="text/css" rel="stylesheet" href="css/community.css?v={{ community_css_version }}" media="screen, projection"/>
+  <link type="text/css" rel="stylesheet" href="{{ community_css }}" media="screen, projection"/>
 {% endblock %}
 {% block content %}
   <!-- Main Scrollable Content -->
@@ -51,7 +51,7 @@
     <!-- Twitter -->
     <div id="twitter-container">
       <div class="row container">
-        <img src="images/twitter.svg?v={{ twitter_image_version }}"/>
+        <img src="{{ twitter_svg }}"/>
       </div>
       <div class="row container twitter-timeline-container">
         <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>

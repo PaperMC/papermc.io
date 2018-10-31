@@ -3,7 +3,7 @@
 {% set page = 'documentation' %}
 {% set title = 'Documentation – PaperMC' %}
 {% block styles %}
-  <link type="text/css" rel="stylesheet" href="css/documentation.css?v={{ documentation_css_version }}" media="screen, projection"/>
+  <link type="text/css" rel="stylesheet" href="{{ documentation_css }}" media="screen, projection"/>
 {% endblock %}
 {% block content %}
   <!-- Main Scrollable Content -->
@@ -16,5 +16,5 @@
   </main>
 {% endblock %}
 {% block footer %}
-  <script type="text/javascript" src="js/documentation.js?v={{ documentation_js_version }}"></script>
+  <script type="text/javascript" src="{{ documentation_js }}"></script>
 {% endblock %}
