@@ -112,7 +112,7 @@ gulp.task("content", function() {
 gulp.task("minify", function() {
   return gulp
     .src("dist/*.html")
-    .pipe(gulp_htmlmin({collapseWhitespace: true}))
+    .pipe(gulp_htmlmin({collapseWhitespace: true,  removeComments: true}))
     .pipe(gulp.dest("dist"));
 });
 
