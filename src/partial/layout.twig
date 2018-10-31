@@ -22,10 +22,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- MaterializeCSS Framework's CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ materialize_min_css }}" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ urls['css/materialize.min.css'] }}" media="screen, projection"/>
 
     <!-- Custom Styles -->
-    <link type="text/css" rel="stylesheet" href="{{ styles_css }}" media="screen, projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ urls['css/styles.css'] }}" media="screen, projection"/>
     {% block styles %}{% endblock %}
 
     <!-- Cookies? -->
@@ -40,7 +40,7 @@
       <nav class="grey darken-4">
         <div class="nav-wrapper">
           <div class="brand-logo">
-            <a href="/"><img src="{{ logo__marker_svg }}"/></a>
+            <a href="/"><img src="{{ urls['images/logo-marker.svg'] }}"/></a>
           </div>
           <a data-target="sidenav" class="hide-on-large-only white-text button-collapse sidenav-button sidenav-trigger clickable">
             <i class="material-icons">menu</i>
@@ -74,7 +74,7 @@
 
     <!-- Sidenav -->
     <ul id="sidenav" class="sidenav">
-      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="{{ logo_svg }}"/></a>
+      <a href="/" class="grey-text text-darken-4 brand-logo"><img src="{{ urls['images/logo.svg'] }}"/></a>
       <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
       <li>
         <a class="grey-text text-darken-4 waves-effect" href="/">
@@ -118,13 +118,13 @@
 
     <!-- JavaScript Includes -->
     <!-- MaterializeCSS Framework's JavaScript -->
-    <script type="text/javascript" src="{{ materialize_min_js }}"></script>
+    <script type="text/javascript" src="{{ urls['js/materialize.min.js'] }}"></script>
 
     <!-- Cookies? -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="{{ script_js }}"></script>
+    <script type="text/javascript" src="{{ urls['js/script.js'] }}"></script>
     {% block footer %}{% endblock %}
   </body>
 </html>

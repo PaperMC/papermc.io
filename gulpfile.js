@@ -50,13 +50,14 @@ gulp.task("content", function() {
   return new Promise((resolve, reject) => {
     let busters = JSON.parse(fs.readFileSync("dist/busters.json"));
 
-    var twigData = {};
+    var twigData = {
+      urls: {}
+    };
 
     Object.keys(busters).forEach(file => {
       let baseName = path.basename(file);
       let dir = path.dirname(file).split("/")[1];
-      twigData[baseName.replace(/-/g, "__").replace(/\./g, "_")] =
-        dir + "/" + baseName + "?v=" + busters[file];
+      twigData.urls[dir + "/" + baseName] = dir + "/" + baseName + "?v=" + busters[file];
     });
 
     gulp
