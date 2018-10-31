@@ -37,10 +37,12 @@ gulp.task("copy favicons", function() {
 gulp.task("bust", function() {
   return gulp
     .src("dist/**/*")
-    .pipe(gulp_buster({
-      algo: "sha256",
-      length: 16
-    }))
+    .pipe(
+      gulp_buster({
+        algo: "sha256",
+        length: 16
+      })
+    )
     .pipe(gulp.dest("dist"));
 });
 
@@ -53,13 +55,17 @@ gulp.task("content", function() {
     Object.keys(busters).forEach(file => {
       let baseName = path.basename(file);
       let dir = path.dirname(file).split("/")[1];
-      twigData[baseName.replace(/-/g, "__").replace(/\./g, "_")] = dir + "/" + baseName + "?v=" + busters[file];
+      twigData[baseName.replace(/-/g, "__").replace(/\./g, "_")] =
+        dir + "/" + baseName + "?v=" + busters[file];
     });
 
-    gulp.src("src/*.twig")
-      .pipe(gulp_twig({
-        data: twigData
-      }))
+    gulp
+      .src("src/*.twig")
+      .pipe(
+        gulp_twig({
+          data: twigData
+        })
+      )
       .on("error", reject)
       .pipe(
         gulp_rename(path => {
@@ -74,9 +80,12 @@ gulp.task("content", function() {
 gulp.task("minify", function() {
   return gulp
     .src("dist/*.html")
-    .pipe(gulp_htmlmin({
-      collapseWhitespace: true
-    }))
+    .pipe(
+      gulp_htmlmin({
+        collapseWhitespace: true,
+        removeComments: true
+      })
+    )
     .pipe(gulp.dest("dist"));
 });
 
