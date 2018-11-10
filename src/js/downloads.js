@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
                   <td data-build-id="${build.number}">${changes}</td>
-                  <td>${new Date(build.timestamp).toLocaleDateString({year: "numeric", month: "numeric", day: "numeric"})}</td>
+                  <td>${new Date(build.timestamp).toISOString().split('T')[0]}</td>
                 </tr>`;
             });
 
