@@ -1,5 +1,8 @@
-.builds-table td:first-child a.btn, .builds-table td:last-child {
-  width: max-content;
+.builds-table td:last-child, .builds-table th:last-child {
+  width: 1px;
+}
+.builds-table td:first-child a {
+  width: 100%;
 }
 .download-desc {
   padding: 10px;
@@ -19,7 +22,10 @@
   }
   #downloads-tabs {
     height: auto;
-    position: initial;
     display: block;
+  }
+  /* Hidden indicator due to #7, Materialize JS modification may be required to work as intended */
+  #downloads-tabs .indicator {
+    display: none;
   }
 }

@@ -34,6 +34,10 @@ gulp.task("copy favicons", function() {
   return gulp.src("src/favicons/*").pipe(gulp.dest("dist/favicons"));
 });
 
+gulp.task("copy htaccess", function() {
+  return gulp.src("src/.htaccess").pipe(gulp.dest("dist"));
+});
+
 gulp.task("bust", function() {
   return gulp
     .src("dist/**/*")
@@ -92,5 +96,5 @@ gulp.task("minify", function() {
 
 gulp.task(
   "default",
-  gulp.series("sass", "terse", "copy images", "copy favicons", "bust", "content", "minify")
+  gulp.series("sass", "terse", "copy images", "copy favicons", "copy htaccess", "bust", "content", "minify")
 );

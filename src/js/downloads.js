@@ -49,9 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const title = downloads[id].title;
         tabs += `<li class="tab col s${12 / jobs}"><a href="#${id}">${title}</a></li>`;
 
-        tabContents += `<div id="${id}" class="col s12">
-            <div class="download-content">
-            <div class="download-desc">${downloads[id].desc}</div>          
+        tabContents += `
+        <div id="${id}" class="col s12">
+          <div class="download-content">
+            <div class="download-desc">${downloads[id].desc}</div>
               <div class="progress">
                   <div class="indeterminate"></div>
               </div>
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let changes = "";
                 build.changeSet.items.forEach(function (item) {
-                    changes += `<span class="commit-hash">[<a title="${escapeHTML(item.comment)}" href="https://github.com/${githubID}/commit/${item.commitId}" target="_blank">${escapeHTML(item.commitId.substring(0, 7))}</a>]</span> ${escapeHTML(item.msg)}<br>`;
+                    changes += `<span class="commit-hash">[<a title="${escapeHTML(item.comment)}" href="https://github.com/${githubID}/commit/${item.commitId}" target="_blank">${escapeHTML(item.commitId.substring(0, 7))}</a>]</span> ${escapeHTML(item.msg).replace(/([^&])#([0-9]*)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}<br>`;
                 });
 
                 if (!changes) {
@@ -107,22 +108,21 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             container.innerHTML = `
-                <div class="download-desc">${downloads[id].desc}</div>
-              <table class="builds-table">
-                <thead>
-                  <tr>
-                    <th>Build</th>
-                    <th>Changes</th>
-                    <th>Date</th>
-                  </tr>
-                </thead>
-        
-                <tbody>
-                  ${rows}
-                </tbody>
-              </table>
-              <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>
-            `;
+              <div class="download-desc">${downloads[id].desc}</div>
+                <table class="builds-table">
+                  <thead>
+                    <tr>
+                      <th>Build</th>
+                      <th>Changes</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+          
+                  <tbody>
+                    ${rows}
+                  </tbody>
+                </table>
+                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>`;
 
         }).catch(function (e) {
             console.error(e);
