@@ -1,8 +1,5 @@
 .builds-table td:last-child, .builds-table th:last-child {
-  width: 1px;
-}
-.builds-table td:first-child a {
-  width: 100%;
+  width: max-content;
 }
 .download-desc {
   padding: 10px;
