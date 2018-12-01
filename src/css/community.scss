@@ -26,6 +26,25 @@ main > .container {
   background-size: 150px;
   display: flex;
 }
+#forum-container {
+  width: 100%;
+  min-height: 300px;
+  background: url('../images/forum-background.svg') repeat;
+  background-color: #E08E1D;
+  background-size: 150px;
+  color: white;
+}
+#forum-container .col .icon-large {
+  font-size: 9rem;
+  text-align: center;
+  display: block;
+}
+#forum-container .row {
+  margin-bottom: 0px;
+}
+#forum-container h1 {
+  margin: 0px;
+}
 #irc-container {
   width: 100%;
   min-height: 300px;
