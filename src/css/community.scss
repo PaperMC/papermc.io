@@ -29,6 +29,7 @@ main > .container {
 #forum-container {
   width: 100%;
   min-height: 300px;
+  height: 0px; // fix PaperMC/papermc.io#12
   background: url('../images/forum-background.svg') repeat;
   background-color: #E08E1D;
   background-size: 150px;
@@ -48,6 +49,7 @@ main > .container {
 #irc-container {
   width: 100%;
   min-height: 300px;
+  height: 0px; // fix PaperMC/papermc.io#12
   background: url('../images/irc-background.svg') repeat;
   background-color: #951717;
   background-size: 150px;
