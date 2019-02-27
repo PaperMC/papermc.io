@@ -5,7 +5,6 @@ const downloads = {
         "api_version": "1.13.2",
         "jenkins": "Paper-1.13",
         "github": "PaperMC/Paper",
-        "urlIntermediary": "",
         "desc": "Active development for the current Minecraft version.",
     },
     "Paper-1.12": {
@@ -14,7 +13,6 @@ const downloads = {
         "api_version": "1.12.2",
         "jenkins": "Paper",
         "github": "PaperMC/Paper",
-        "urlIntermediary": "",
         "desc": "Legacy support for Minecraft 1.12.2, accepting bug and security fixes only."
     },
     "Waterfall": {
@@ -23,7 +21,6 @@ const downloads = {
         "api_version": "1.13",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
-        "urlIntermediary": "Waterfall-Proxy/bootstrap/target/",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
     },
     "Travertine": {
@@ -32,7 +29,6 @@ const downloads = {
         "api_version": "1.13",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
-        "urlIntermediary": "Travertine-Proxy/bootstrap/target/",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
     }
 };
@@ -87,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let rows = "";
             const builds = json.builds.filter(build => build.artifacts && build.artifacts.length);
-            const urlIntermediary = downloads[id].urlIntermediary;
             builds.forEach(function (build) {
 
                 const el = container.querySelector("td[data-build-id='" + build.number + "']");
