@@ -1,6 +1,8 @@
 const downloads = {
     "Paper-1.13": {
         "title": "Paper 1.13.2",
+        "api_endpoint": "paper",
+        "api_version": "1.13.2",
         "jenkins": "Paper-1.13",
         "github": "PaperMC/Paper",
         "urlIntermediary": "",
@@ -8,6 +10,8 @@ const downloads = {
     },
     "Paper-1.12": {
         "title": "Paper 1.12.2",
+        "api_endpoint": "paper",
+        "api_version": "1.12.2",
         "jenkins": "Paper",
         "github": "PaperMC/Paper",
         "urlIntermediary": "",
@@ -15,6 +19,8 @@ const downloads = {
     },
     "Waterfall": {
         "title": "Waterfall",
+        "api_endpoint": "waterfall",
+        "api_version": "1.13",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "urlIntermediary": "Waterfall-Proxy/bootstrap/target/",
@@ -22,6 +28,8 @@ const downloads = {
     },
     "Travertine": {
         "title": "Travertine",
+        "api_endpoint": "travertine",
+        "api_version": "1.13",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "urlIntermediary": "Travertine-Proxy/bootstrap/target/",
@@ -98,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 rows += `<tr>
-                  <td><a href="https://papermc.io/ci/job/${downloads[id].jenkins}/${build.number}/artifact/${urlIntermediary}${build.artifacts[0].fileName}" 
+                  <td><a href="https://papermc.io/api/v1/${downloads[id].api_endpoint}/${downloads[id].api_version}/${build.number}/download" 
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
