@@ -117,7 +117,7 @@
     <script type="text/javascript" src="{{ urls['js/materialize.min.js'] }}"></script>
 
     {# Cookies? #}
-    {# CSS outside of head?! #}
+    {# CSS outside of head: This is to stop render blocking for CSS that won't be used until the JS is loaded anyway #}
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 
