@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Favicon Handling -->
-    <!-- All this, plus the normal one at root -->
+    {# Favicon Handling #}
+    {# All this, plus the normal one at root #}
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=BG70oBaPzN">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=BG70oBaPzN">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=BG70oBaPzN">
@@ -18,24 +18,21 @@
     <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=BG70oBaPzN">
     <meta name="theme-color" content="#1886cd">
 
-    <!-- Google's Material Icons Font -->
+    {# Google's Material Icons Font #}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- MaterializeCSS Framework's CSS -->
+    {# MaterializeCSS Framework's CSS #}
     <link type="text/css" rel="stylesheet" href="{{ urls['css/materialize.min.css'] }}" media="screen, projection"/>
 
-    <!-- Custom Styles -->
+    {# Custom Styles #}
     <link type="text/css" rel="stylesheet" href="{{ urls['css/styles.css'] }}" media="screen, projection"/>
     {% block styles %}{% endblock %}
 
-    <!-- Cookies? -->
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
-
-    <!-- Mobile Compatbility Tag -->
+    {# Mobile Compatbility Tag #}
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <!-- Navbar -->
+    {# Navbar  #}
     <div class="navbar-fixed">
       <nav class="grey darken-4">
         <div class="nav-wrapper">
@@ -72,10 +69,10 @@
       </nav>
     </div>
 
-    <!-- Sidenav -->
+    {# Sidenav #}
     <ul id="sidenav" class="sidenav">
       <a href="/" class="grey-text text-darken-4 brand-logo"><img src="{{ urls['images/logo.svg'] }}"/></a>
-      <!--li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li-->
+      {# <li><a class="grey-text text-darken-4" href="https://papermc.io/javadocs/">JAVA DOCS</a></li> #}
       <li>
         <a class="grey-text text-darken-4 waves-effect" href="/">
           <i class="material-icons left">home</i>HOME
@@ -103,12 +100,11 @@
 
     {% block content %}{% endblock %}
 
-    <!-- Footer -->
+    {# Footer #}
     <footer class="page-footer grey darken-4">
-
       <div class="footer-copyright">
         <div class="container">
-          <span class="copyright">&copy; 2018 The PaperMC Team</span>
+          <span class="copyright">&copy; 2019 The PaperMC Team</span>
           <a class="white-text right waves-effect" href="https://github.com/PaperMC/papermc.io">
             <i class="material-icons">call_split</i>
           </a>
@@ -116,14 +112,16 @@
       </div>
     </footer>
 
-    <!-- JavaScript Includes -->
-    <!-- MaterializeCSS Framework's JavaScript -->
+    {# JavaScript Includes #}
+    {# MaterializeCSS Framework's JavaScript #}
     <script type="text/javascript" src="{{ urls['js/materialize.min.js'] }}"></script>
 
-    <!-- Cookies? -->
+    {# Cookies? #}
+    {# CSS outside of head?! #}
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 
-    <!-- Custom Scripts -->
+    {# Custom Scripts #}
     <script type="text/javascript" src="{{ urls['js/script.js'] }}"></script>
     {% block footer %}{% endblock %}
   </body>
