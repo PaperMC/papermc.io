@@ -18,7 +18,7 @@ const downloads = {
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.13",
+        "api_version": "1.13", // 1.14 is hacked on below, see that note
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
@@ -26,7 +26,7 @@ const downloads = {
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
-        "api_version": "1.13",
+        "api_version": "1.13", // 1.14 is hacked on below, see that note
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
@@ -100,8 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     changes = "No changes";
                 }
 
+                // TODO - rework system, add to API, whatever so that this crap is no longer needed
+                var apiVer = downloads[id].api_version
+                if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
+                  apiVer = "1.14"
+                } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
+                  apiVer = "1.14"
+                }
+
                 rows += `<tr>
-                  <td><a href="https://papermc.io/api/v1/${downloads[id].api_endpoint}/${downloads[id].api_version}/${build.number}/download" 
+                  <td><a href="https://papermc.io/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download" 
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
