@@ -18,6 +18,9 @@ html nav .btn-flat:hover {
 .btn.white:hover {
   background-color: #c5c5c5 !important;
 }
+.btn, .btn-flat, .btn-large {
+  border-radius: 100px;
+}
 .btn.light-blue.darken-2:hover {
   background-color: #0082ca !important;
 }
@@ -67,6 +70,15 @@ nav .btn-flat:hover {
 .brand-logo a {
   margin-left: 5px;
 }
+.community-platform {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 15px;
+  margin-bottom: 2.8rem;
+  overflow: hidden;
+}
+.material-icons {
+  user-select: none;
+}
 
 /* Reasonable Heading Sizes */
 h1 {
@@ -88,6 +100,11 @@ h5 {
 h6 {
   font-size: 1rem;
 }
+@media only screen and (max-width: 1650px) {
+  #forum-container div > i, #irc-container div > i {
+    font-size: 6rem !important;
+  }
+}
 @media only screen and (max-width: 601px) {
   nav .brand-logo img {
     height: 42px;
@@ -102,12 +119,6 @@ h6 {
 }
 
 @media only screen and (max-width: 1200px) {
-  .nav-wrapper ul a.btn {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
   .nav-wrapper ul a.btn i {
     margin-right: 5px;
   }
