@@ -8,51 +8,59 @@ const gulp_twig = require("gulp-twig");
 const gulp_buster = require("gulp-buster");
 const gulp_rename = require("gulp-rename");
 
+const dirs = {
+  src: path.resolve("src"),
+  out: path.resolve("dist")
+}
+
 gulp.task("sass", function() {
   return gulp
-    .src("src/css/*.scss")
+    .src(path.join(dirs.src, "css/*.scss"))
     .pipe(
       gulp_sass({
         outputStyle: "compressed"
       }).on("error", gulp_sass.logError)
     )
-    .pipe(gulp.dest("dist/css"));
+    .pipe(gulp.dest(path.join(dirs.out, "css")));
 });
 
 gulp.task("terse", function() {
   return gulp
-    .src("src/js/*.js")
+    .src(path.join(dirs.src, "js/*.js"))
     .pipe(gulp_terser())
-    .pipe(gulp.dest("dist/js"));
+    .pipe(gulp.dest(path.join(dirs.out, "js")));
 });
 
 gulp.task("copy images", function() {
-  return gulp.src("src/images/*").pipe(gulp.dest("dist/images"));
+  return gulp.src(path.join(dirs.src, "images/**/*"))
+    .pipe(gulp.dest(path.join(dirs.out, "images")));
 });
 
 gulp.task("copy favicons", function() {
-  return gulp.src("src/favicons/*").pipe(gulp.dest("dist/favicons"));
+  return gulp.src(path.join(dirs.src, "favicons/**/*"))
+    .pipe(gulp.dest(path.join(dirs.out, "favicons")));
 });
 
 gulp.task("copy htaccess", function() {
-  return gulp.src("src/.htaccess").pipe(gulp.dest("dist"));
+  return gulp.src(path.join(dirs.src, ".htaccess"))
+    .pipe(gulp.dest(dirs.out));
 });
 
 gulp.task("bust", function() {
   return gulp
-    .src("dist/**/*")
+    .src(path.join(dirs.out, "**/*"))
     .pipe(
       gulp_buster({
         algo: "sha256",
         length: 16
       })
     )
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest(dirs.out));
 });
 
 gulp.task("content", function() {
   return new Promise((resolve, reject) => {
-    let busters = JSON.parse(fs.readFileSync("dist/busters.json"));
+    let busters = JSON.parse(fs.readFileSync(path.join(dirs.out, "busters.json")));
 
     var twigData = {
       urls: {}
@@ -65,7 +73,7 @@ gulp.task("content", function() {
     });
 
     gulp
-      .src("src/*.twig")
+      .src(path.join(dirs.src, "**/*.twig"))
       .pipe(
         gulp_twig({
           data: twigData
@@ -77,21 +85,21 @@ gulp.task("content", function() {
           path.extname = ".html";
         })
       )
-      .pipe(gulp.dest("dist"))
+      .pipe(gulp.dest(dirs.out))
       .on("end", resolve);
   });
 });
 
 gulp.task("minify", function() {
   return gulp
-    .src("dist/*.html")
+    .src(path.join(dirs.out, "**/*.html"))
     .pipe(
       gulp_htmlmin({
         collapseWhitespace: true,
         removeComments: true
       })
     )
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest(dirs.out));
 });
 
 gulp.task(
