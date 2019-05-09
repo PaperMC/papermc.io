@@ -6,7 +6,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "build": "node_modules/gulp/node_modules/.bin/gulp"
+        "build": "node_modules/.bin/gulp"
     },
     "devDependencies": {
         "gulp": "4.0.0",
