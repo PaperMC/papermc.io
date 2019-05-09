@@ -13,6 +13,9 @@ const dirs = {
   out: path.resolve("dist")
 }
 
+// file name in which to store cache-busting digests
+const bustersFile = "busters.json"
+
 gulp.task("sass", function() {
   return gulp
     .src(path.join(dirs.src, "css/*.scss"))
@@ -52,7 +55,8 @@ gulp.task("bust", function() {
     .pipe(
       gulp_buster({
         algo: "sha256",
-        length: 16
+        length: 16,
+        fileName: bustersFile
       })
     )
     .pipe(gulp.dest(dirs.out));
@@ -60,7 +64,7 @@ gulp.task("bust", function() {
 
 gulp.task("content", function() {
   return new Promise((resolve, reject) => {
-    let busters = JSON.parse(fs.readFileSync(path.join(dirs.out, "busters.json")));
+    let busters = JSON.parse(fs.readFileSync(path.join(dirs.out, bustersFile)));
 
     var twigData = {
       urls: {}
