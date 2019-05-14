@@ -12,15 +12,15 @@
   font-size: 12px;
   font-family: monospace !important;
 }
+#downloads-tabs {
+  display: flex;
+
+  .tab {
+    flex-grow: 1;
+  }
+}
+
 @media only screen and (max-width: 601px) {
-  #downloads-tabs .tab {
-    width: 50%;
-    float: left;
-  }
-  #downloads-tabs {
-    height: auto;
-    display: block;
-  }
   /* Hidden indicator due to #7, Materialize JS modification may be required to work as intended */
   #downloads-tabs .indicator {
     display: none;
