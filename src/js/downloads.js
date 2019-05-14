@@ -2,7 +2,7 @@ const downloads = {
     "Paper-1.13": {
         "title": "Paper 1.14.1",
         "api_endpoint": "paper",
-        "api_version": "1.14.1",
+        "api_version": "1.14.1", // 1.14(.0) is hacked on below, see that note
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -34,7 +34,7 @@ const downloads = {
 };
 
 function jenkinsFetch(job, path) {
-    return window.fetch("/ci/job/" + job + path).then(function (response) {
+    return window.fetch("https://papermc.io/ci/job/" + job + path).then(function (response) {
         if (response.status > 400)
             return null;
 
@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
                   apiVer = "1.14"
                 } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
+                  apiVer = "1.14"
+                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.1" && build.number <= 17) {
                   apiVer = "1.14"
                 }
 
