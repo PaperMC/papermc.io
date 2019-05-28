@@ -1,8 +1,8 @@
 const downloads = {
     "Paper-1.14": {
-        "title": "Paper 1.14.1",
+        "title": "Paper 1.14.2",
         "api_endpoint": "paper",
-        "api_version": "1.14.1", // 1.14(.0) is hacked on below, see that note
+        "api_version": "1.14.2", // 1.14(.0/.1) is hacked on below, see that note
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -110,6 +110,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
                 var apiVer = downloads[id].api_version
+                if (downloads[id].api_endpoint == "waterfall" && build.number >= 283) {
+                    apiVer = "1.14.1"
+                } else if (downloads[id].api_endpoint == "travertine" && build.number >= 100) {
+                    apiVer = "1.14.1"
+                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 50) {
+                    apiVer = "1.14.1"
+                }
+                // Kept, just in case
                 if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
                   apiVer = "1.14"
                 } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
