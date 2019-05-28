@@ -110,19 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
                 var apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "waterfall" && build.number >= 283) {
-                    apiVer = "1.14.1"
-                } else if (downloads[id].api_endpoint == "travertine" && build.number >= 100) {
-                    apiVer = "1.14.1"
-                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 50) {
-                    apiVer = "1.14.1"
-                }
-                // Kept, just in case
-                if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
+                if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 50) {
+                  apiVer = "1.14.1"
+                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 17) {
+                  apiVer = "1.14"
+                } else if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
                   apiVer = "1.14"
                 } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
-                  apiVer = "1.14"
-                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.1" && build.number <= 17) {
                   apiVer = "1.14"
                 }
 
