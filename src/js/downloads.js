@@ -42,7 +42,7 @@ const downloads = {
 };
 
 function jenkinsFetch(job, path) {
-    return window.fetch("https://papermc.io/ci/job/" + job + path).then(function (response) {
+    return window.fetch("/ci/job/" + job + path).then((response) => {
         if (response.status > 400)
             return null;
 
@@ -54,12 +54,12 @@ function escapeHTML(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     // Show downloads
     let tabs = "", tabContents = "", jobs = Object.keys(downloads).length;
     for (const id in downloads) {
         const title = downloads[id].title;
-        tabs += `<li class="tab col s${12 / jobs}"><a href="#${id}">${title}</a></li>`;
+        tabs += `<li class="tab"><a href="#${id}">${title}</a></li>`;
 
         tabContents += `
         <div id="${id}" class="col s12">
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (const id in downloads) {
         const githubID = downloads[id].github;
-        jenkinsFetch(downloads[id].jenkins, "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp,changeSet[items[comment,commitId,msg]]]{,10}").then(function (json) {
+        jenkinsFetch(downloads[id].jenkins, "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp,changeSet[items[comment,commitId,msg]]]{,10}").then((json) => {
             const container = document.getElementById(id).querySelector(".download-content");
             if (json == null) {
                 container.innerText = "Failed to load downloads.";
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let rows = "";
             const builds = json.builds.filter(build => build.artifacts && build.artifacts.length);
-            builds.forEach(function (build) {
+            builds.forEach((build) => {
 
                 const el = container.querySelector("td[data-build-id='" + build.number + "']");
                 if (build == null) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 let changes = "";
-                build.changeSet.items.forEach(function (item) {
+                build.changeSet.items.forEach((item) => {
                     changes += `<span class="commit-hash">[<a title="${escapeHTML(item.comment)}" href="https://github.com/${githubID}/commit/${item.commitId}" target="_blank">${escapeHTML(item.commitId.substring(0, 7))}</a>]</span> ${escapeHTML(item.msg).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}<br>`;
                 });
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 rows += `<tr>
-                  <td><a href="https://papermc.io/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download" 
+                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download" 
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
@@ -145,16 +145,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     ${rows}
                   </tbody>
                 </table>
-                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="https://papermc.io/ci/job/${downloads[id].jenkins}/">More</a>`;
+                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a>`;
 
-        }).catch(function (e) {
+        }).catch((e) => {
             console.error(e);
             document.getElementById(id).innerText = "Failed to load downloads.";
         });
     }
 
     M.Tabs.init(document.querySelector("#downloads-tabs"), {
-        onShow: function (e) {
+        onShow: (e) => {
             history.pushState(null, null, '#' + e.getAttribute('id'));
         }
     });

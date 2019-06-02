@@ -9,56 +9,61 @@ main > .container {
   color: white;
   height: 570px;
   background-color: #212121;
-}
-#discord-container iframe {
-  width: 100%;
-  height: 370px;
-  position: relative;
-  bottom: 125px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  margin: auto;
-  display: block;
-}
-#discord-container .main {
-  height: 300px;
-  background: url('../images/discord-background.svg') repeat;
-  background-color: #6881D8;
-  background-size: 150px;
-  display: flex;
+
+  iframe {
+    width: 100%;
+    height: 370px;
+    position: relative;
+    bottom: 125px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: auto;
+    display: block;
+  }
+  .main {
+    height: 300px;
+    background: url('../images/discord-background.svg') repeat;
+    background-color: #6881D8;
+    background-size: 150px;
+    display: flex;
+  }
 }
 #forum-container {
   width: 100%;
-  min-height: 300px;
+  padding: 5rem 0;
   height: 0px; // fix PaperMC/papermc.io#12
   background: url('../images/forum-background.svg') repeat;
   background-color: #E08E1D;
   background-size: 150px;
   color: white;
-}
-#forum-container .col .icon-large {
-  font-size: 9rem;
-  text-align: center;
-  display: block;
-}
-#forum-container .row {
-  margin-bottom: 0px;
-}
-#forum-container h1 {
-  margin: 0px;
+  
+  h1, .row {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .col .icon-large {
+    font-size: 9rem;
+    text-align: center;
+    display: block;
+  }
 }
 #irc-container {
   width: 100%;
-  min-height: 300px;
-  height: 0px; // fix PaperMC/papermc.io#12
+  padding: 5rem 0;
+  height: 0px;
   background: url('../images/irc-background.svg') repeat;
   background-color: #951717;
   background-size: 150px;
   color: white;
-}
-#irc-container .col i {
-  font-size: 9rem;
-  text-align: center;
-  display: block;
+  
+  h1, .row {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .col i {
+    font-size: 9rem;
+    text-align: center;
+    display: block;
+  }
 }
 .valign-cell {
   display: table-cell;
@@ -67,27 +72,22 @@ main > .container {
 .valign-table {
   display: table;
 }
-#irc-container .row {
-  margin-bottom: 0px;
-}
-#irc-container h1 {
-  margin: 0px;
-}
 #twitter-container {
   width: 100%;
   min-height: 300px;
   background-color: #1DA1F2;
   color: white;
-}
-#twitter-container img {
-  width: 10rem;
-  display: block;
-  margin: 0 auto;
-}
-#twitter-container .twitter-timeline-container {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  max-height: 550px;
-  overflow: auto;
-  background-color: white;
-  margin-bottom: 50px;
+
+  img {
+    width: 10rem;
+    display: block;
+    margin: 0 auto;
+  }
+  .twitter-timeline-container {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    max-height: 550px;
+    overflow: auto;
+    background-color: white;
+    margin-bottom: 50px;
+  }
 }
