@@ -1,8 +1,8 @@
 const downloads = {
     "Paper-1.14": {
-        "title": "Paper 1.14.3",
+        "title": "Paper 1.14.4",
         "api_endpoint": "paper",
-        "api_version": "1.14.3", // 1.14(.0/.1/.2) is hacked on below, see that note
+        "api_version": "1.14.4", // 1.14(.0/.1/.2/.3) is hacked on below, see that note
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -26,7 +26,7 @@ const downloads = {
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.13", // 1.14 is hacked on below, see that note
+        "api_version": "1.14",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
@@ -34,7 +34,7 @@ const downloads = {
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
-        "api_version": "1.13", // 1.14 is hacked on below, see that note
+        "api_version": "1.14",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
@@ -110,12 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
                 var apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.3" && build.number <= 107) {
-                  apiVer = "1.14.2"
-                } else if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
-                  apiVer = "1.14"
-                } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
-                  apiVer = "1.14"
+                if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.4" && build.number <= 134) {
+                  apiVer = "1.14.3"
                 }
 
                 rows += `<tr>
