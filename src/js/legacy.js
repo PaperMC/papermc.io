@@ -1,4 +1,4 @@
-const versions = ["1.11.2", "1.10.2", "1.9.4", "1.8.8"];
+const versions = ["1.12.2", "1.11.2", "1.10.2", "1.9.4", "1.8.8"];
 
 versions.forEach(function(i) {
   fetch('/api/v1/paper/' + i + '/latest').then(r => r.json())
