@@ -2,7 +2,7 @@ const downloads = {
     "Paper-1.14": {
         "title": "Paper 1.14.4",
         "api_endpoint": "paper",
-        "api_version": "1.14.4", // 1.14(.0/.1/.2/.3) is hacked on below, see that note
+        "api_version": "1.14.4", // 1.14.3 is hacked on below, see that note
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -14,14 +14,6 @@ const downloads = {
         "jenkins": "Paper-1.13",
         "github": "PaperMC/Paper",
         "desc": "Legacy support for Minecraft 1.13.2"
-    },
-    "Paper-1.12": {
-        "title": "Paper 1.12.2",
-        "api_endpoint": "paper",
-        "api_version": "1.12.2",
-        "jenkins": "Paper",
-        "github": "PaperMC/Paper",
-        "desc": "Legacy support for Minecraft 1.12.2, accepting bug and security fixes only."
     },
     "Waterfall": {
         "title": "Waterfall",
