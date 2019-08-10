@@ -111,6 +111,11 @@ gulp.task('dev', gulp.parallel(gulp.series('quickBuild', () => {
         target: 'https://papermc.io/',
         secure: false,
         changeOrigin: true
+      })],
+      middleware: [proxyMiddleware('/api', {
+        target: 'https://papermc.io/',
+        secure: false,
+        changeOrigin: true
       })]
     }
   })
