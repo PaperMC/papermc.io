@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 rows += `<tr>
-                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download" 
+                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download"
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
@@ -126,12 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
                       <th>Date</th>
                     </tr>
                   </thead>
-          
+
                   <tbody>
                     ${rows}
                   </tbody>
                 </table>
-                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a>`;
+                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a><br>
+                <a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`;
 
         }).catch((e) => {
             console.error(e);
