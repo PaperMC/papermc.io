@@ -3948,9 +3948,9 @@ tar@^4:
     yallist "^3.0.3"
 
 terser@^4.0.0:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.1.4.tgz#4478b6a08bb096a61e793fea1a4434408bab936c"
-  integrity sha512-+ZwXJvdSwbd60jG0Illav0F06GDJF0R4ydZ21Q3wGAFKoBGyJGo34F63vzJHgvYxc1ukOtIjvwEvl9MkjzM6Pg==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.2.0.tgz#4b1b5f4424b426a7a47e80d6aae45e0d7979aef0"
+  integrity sha512-6lPt7lZdZ/13icQJp8XasFOwZjFJkxFFIb/N1fhYEQNoNI3Ilo3KABZ9OocZvZoB39r6SiIk/0+v/bt8nZoSeA==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
@@ -4215,9 +4215,9 @@ utils-merge@1.0.1:
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
 uuid@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
-  integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
+  integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
 
 v8flags@^3.0.1:
   version "3.1.3"
