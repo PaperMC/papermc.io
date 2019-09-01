@@ -131,8 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${rows}
                   </tbody>
                 </table>
-                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a><br>
-                <a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`;
+                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a><br>`;
+
+            if (downloads[id].api_endpoint == "paper") {
+              container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
+            }
 
         }).catch((e) => {
             console.error(e);
