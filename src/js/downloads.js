@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
-                const apiVer = downloads[id].api_version
+                let apiVer = downloads[id].api_version
                 if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.4" && build.number <= 134) {
                   apiVer = "1.14.3"
                 }
