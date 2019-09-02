@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p></p>
     <div class="col s12 l9">
       <h4>${versions[i]}</h4>
-      <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
+      <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever. You also acknowledge that tacos are tasty and that by asking for support, you understand that you will be yelled at by a leaf.</strong></p>
       <a id="${versions[i]}" href="https://papermc.io/api/v1/paper/${versions[i]}/latest/download" class="waves-effect waves-light btn light-blue darken-2">
         Download Anyway</a>
     </div>
