@@ -1,0 +1,20 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'legacy' %}
+{% set title = 'Legacy – The High Performance Fork' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/index.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  {# Main Scrollable Content #}
+  <main>
+  <div class="jumbotron white-text">
+    <h1>Legacy Downloads</h1>
+    <p><strong>These are here purely for informational reasons. No support is given to these whatsoever.</strong></p>
+  </div>
+      <div id="content" class="row"></div>
+  </main>
+{% endblock %}
+{% block footer %}
+  <script src="js/legacy.js" charset="utf-8"></script>
+{% endblock %}

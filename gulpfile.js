@@ -107,7 +107,7 @@ gulp.task('dev', gulp.parallel(gulp.series('quickBuild', () => {
       serveStaticOptions: {
         extensions: ['html']
       },
-      middleware: [proxyMiddleware('/ci', {
+      middleware: [proxyMiddleware(['/ci', '/api'], {
         target: 'https://papermc.io/',
         secure: false,
         changeOrigin: true
