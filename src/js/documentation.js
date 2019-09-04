@@ -36,9 +36,9 @@ var documentationFileToTitle = {}, documentation =
 };
 
 function addSection(section) {
-  var html = "";
-  for (var subsection in section) {
-    var length = Object.keys(section[subsection]).length;
+  let html = "";
+  for (const subsection in section) {
+    const length = Object.keys(section[subsection]).length;
     if (length == 0 || subsection == "file")
       continue;
     
@@ -52,7 +52,7 @@ function addSection(section) {
     }
     
     // Category
-    var sectionsHTML = addSection(section[subsection]);
+    let sectionsHTML = addSection(section[subsection]);
     html += `
       <li>
         <ul class="collapsible collapsible-accordion">
@@ -87,7 +87,7 @@ function loadDocumentation(file) {
     }
     
     response.text().then(function(text) {
-      var xml = text, html = new DOMParser().parseFromString(xml, "text/xml");
+      const xml = text, html = new DOMParser().parseFromString(xml, "text/xml");
       
       // Fix image relativity
       html.querySelectorAll("img[src]:not([src^='http'])").forEach(function(img) {
@@ -100,7 +100,7 @@ function loadDocumentation(file) {
       html.querySelectorAll("*[href]:not([href^='http'])").forEach(function(el) {
         href = el.getAttribute("href");
         hrefRelative = href.startsWith('../') ? href.substr(3) : href;
-        for (var file in documentationFileToTitle) {
+        for (let file in documentationFileToTitle) {
           if (file == hrefRelative || file == file.substr(0, file.indexOf("/")) + "/" + hrefRelative) {
             el.href = "#" + documentationFileToTitle[file].replace(/ /g, '_');
             
@@ -120,7 +120,7 @@ function loadDocumentation(file) {
       // Active
       document.querySelectorAll("#sidenav li").forEach(function(el) {
         el.classList.remove("active");
-        var a = el.querySelector("a");
+        const a = el.querySelector("a");
         if (a == null)
           return;
         
@@ -132,7 +132,7 @@ function loadDocumentation(file) {
   });
 }
 
-var anchorClickHandler = function(e) {
+let anchorClickHandler = function(e) {
   if (this.hash.length == 0) {
       window.scroll({ 
         top: 0,
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
     
     // Load first documentation page
-    var hashFile = location.hash.substring(1).toLowerCase().replace(/_/g, ' ');
+    const hashFile = location.hash.substring(1).toLowerCase().replace(/_/g, ' ');
     for (file in documentationFileToTitle)
       if (hashFile == documentationFileToTitle[file].toLowerCase()) {
         document.getElementById("documentation").goTo();
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener("hashchange", function(e) {
-  var hash = location.hash.substring(1), hashFile = hash.toLowerCase().replace(/_/g, ' ');
+  const hash = location.hash.substring(1), hashFile = hash.toLowerCase().replace(/_/g, ' ');
   for (file in documentationFileToTitle)
     if (hashFile == documentationFileToTitle[file].toLowerCase()) {
       loadDocumentation(file);
