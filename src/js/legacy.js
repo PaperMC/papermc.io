@@ -1,10 +1,10 @@
 const versions = ["1.12.2", "1.11.2", "1.10.2", "1.9.4", "1.8.8"];
-var div = document.getElementById('content');
+
 document.addEventListener('DOMContentLoaded', () => {
   // init layout first for ordering
   for (const i in versions) {
 
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = `<div class="row">
     <div class="col s12 l3">
       <i class="material-icons benefit-icon">assignment_late</i>
