@@ -1,0 +1,40 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'javadocs' %}
+{% set title = 'Javadocs – PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/javadocs.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  {# Main Scrollable Content #}
+  <main class="container">
+    <h1>Javadocs</h1>
+    <span>You can view the javadocs for specific versions of Paper or Waterfall below.</span>
+    <div id="paper" class="row">
+	  <h3>Paper</h3>
+	  <p>Javadocs for Paper can be found down below.</p>
+	  <div>
+	    <a href="https://papermc.io/javadocs/paper/1.14/" class="waves-effect waves-light btn light-blue darken-2">
+              <i class="material-icons left">archive</i>1.14 javadocs</a>
+	  </div>
+	  <div>
+	    <a href="https://papermc.io/javadocs/paper/1.13/" class="waves-effect waves-light btn light-blue darken-2">
+              <i class="material-icons left">archive</i>1.13 javadocs</a>
+	  </div>
+	  <div>
+	    <a href="https://papermc.io/javadocs/paper/1.12/" class="waves-effect waves-light btn light-blue darken-2">
+              <i class="material-icons left">archive</i>1.12 javadocs</a>
+      </div>
+	</div>
+	<div id="waterfall" class="row">
+	  <h3>Waterfall</h3>
+	  <p>Javadocs for Waterfall can be found down below.</p>
+	  <div>
+	    <a href="https://papermc.io/javadocs/waterfall/" class="waves-effect waves-light btn light-blue darken-2">
+              <i class="material-icons left">archive</i>Javadocs</a>
+	  </div>
+	</div>
+  </main>
+{% endblock %}
+{% block footer %}
+{% endblock %}
