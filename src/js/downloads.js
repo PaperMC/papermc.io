@@ -18,7 +18,7 @@ const downloads = {
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.14",
+        "api_version": "1.15", // 1.14 tacked on below
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
@@ -26,7 +26,7 @@ const downloads = {
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
-        "api_version": "1.14",
+        "api_version": "1.15", // 1.14 tacked on below
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
@@ -104,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 let apiVer = downloads[id].api_version
                 if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.4" && build.number <= 134) {
                   apiVer = "1.14.3"
+                } else if (downloads[id].api_endpoint == "waterfall" && build.number <= 301) {
+                  apiVer = "1.14"
+                } else if (downloads[id].api_endpoint == "travertine" && build.number <= 112) {
+                  apiVer = "1.14"
                 }
 
                 rows += `<tr>
