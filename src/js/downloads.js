@@ -1,11 +1,19 @@
 const downloads = {
+    "Paper-1.15": {
+        "title": "Paper 1.15",
+        "api_endpoint": "paper",
+        "api_version": "1.15",
+        "jenkins": "Paper-1.15",
+        "github": "PaperMC/Paper",
+        "desc": "Active development for the current Minecraft version.",
+    },
     "Paper-1.14": {
         "title": "Paper 1.14.4",
         "api_endpoint": "paper",
         "api_version": "1.14.4", // 1.14.3 is hacked on below, see that note
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
-        "desc": "Active development for the current Minecraft version.",
+        "desc": "Soon to be unsupported version.",
     },
     "Paper-1.13": {
         "title": "Paper 1.13.2",
