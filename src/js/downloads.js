@@ -1,6 +1,6 @@
 const downloads = {
     "Paper-1.15": {
-        "title": "Paper 1.15",
+        "title": "Paper 1.15.1",
         "api_endpoint": "paper",
         "api_version": "1.15.1",
         "jenkins": "Paper-1.15",
