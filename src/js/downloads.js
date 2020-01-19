@@ -10,18 +10,10 @@ const downloads = {
     "Paper-1.14": {
         "title": "Paper 1.14.4",
         "api_endpoint": "paper",
-        "api_version": "1.14.4", // 1.14.3 is hacked on below, see that note
+        "api_version": "1.14.4",
         "jenkins": "Paper-1.14",
         "github": "PaperMC/Paper",
         "desc": "Soon to be unsupported version.",
-    },
-    "Paper-1.13": {
-        "title": "Paper 1.13.2",
-        "api_endpoint": "paper",
-        "api_version": "1.13.2",
-        "jenkins": "Paper-1.13",
-        "github": "PaperMC/Paper",
-        "desc": "Legacy support for Minecraft 1.13.2"
     },
     "Waterfall": {
         "title": "Waterfall",
@@ -112,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 let apiVer = downloads[id].api_version
                 if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.1" && build.number <= 21) {
                     apiVer = "1.15"
-                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.4" && build.number <= 134) {
-                  apiVer = "1.14.3"
                 } else if (downloads[id].api_endpoint == "waterfall" && build.number <= 301) {
                   apiVer = "1.14"
                 } else if (downloads[id].api_endpoint == "travertine" && build.number <= 112) {
