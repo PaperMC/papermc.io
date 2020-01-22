@@ -1,8 +1,8 @@
 const downloads = {
     "Paper-1.15": {
-        "title": "Paper 1.15.1",
+        "title": "Paper 1.15.2",
         "api_endpoint": "paper",
-        "api_version": "1.15.1",
+        "api_version": "1.15.2", // 1.15.1 tacked on below
         "jenkins": "Paper-1.15",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -18,7 +18,7 @@ const downloads = {
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.15", // 1.14 tacked on below
+        "api_version": "1.15",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
@@ -26,7 +26,7 @@ const downloads = {
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
-        "api_version": "1.15", // 1.14 tacked on below
+        "api_version": "1.15",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
@@ -102,12 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
                 let apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.1" && build.number <= 21) {
-                    apiVer = "1.15"
-                } else if (downloads[id].api_endpoint == "waterfall" && build.number <= 301) {
-                  apiVer = "1.14"
-                } else if (downloads[id].api_endpoint == "travertine" && build.number <= 112) {
-                  apiVer = "1.14"
+                if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.2" && build.number <= 62) {
+                    apiVer = "1.15.1"
                 }
 
                 rows += `<tr>
