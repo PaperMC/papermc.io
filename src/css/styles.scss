@@ -1,125 +1,154 @@
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-main {
-  flex: 1 0 auto;
-}
-a:not([href]) {
-  color: black;
-}
-html nav .btn-flat:hover {
-  background: rgba(255, 255, 255, .3) !important;
-}
-.page-footer {
-  padding-top: 0px;
-}
-.btn.white:hover {
-  background-color: #c5c5c5 !important;
-}
-.btn, .btn-flat, .btn-large {
-  border-radius: 100px;
-}
-.btn.light-blue.darken-2:hover {
-  background-color: #0082ca !important;
-}
-.footer-copyright .copyright {
-  vertical-align: middle;
-}
-nav .brand-logo {
-  margin-top: -4px;
-  z-index: 50;
-  font-size: 2.1rem;
-  height: 100%;
-}
-nav .brand-logo img {
-  height: calc(100% - 10px);
-  vertical-align: middle;
-}
-nav .btn-flat:hover {
-  background: rgba(0, 0, 0, 0.1) !important;
-}
-.clickable {
-  cursor: pointer;
-}
-.sidenav .brand-logo {
-  margin: 0 10px;
-  text-align: center;
-  display: block;
-}
-.sidenav .brand-logo img {
-  width: 50%;
-  margin: 10px 0px;
-}
-.sidenav .collapsible-body > ul:not(.collapsible) > li.active, .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-.sidenav .collapsible-body > ul:not(.collapsible) > li.active a, .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
-  color: rgba(0, 0, 0, 0.87);
-}
-.tabs .indicator {
-  background-color: #212121;
-}
-.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
-  color: #212121;
-}
-.tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-.brand-logo a {
-  margin-left: 5px;
-}
-.community-platform {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  border-radius: 15px;
-  margin-bottom: 2.8rem;
-  overflow: hidden;
-}
-.material-icons {
-  user-select: none;
+display:flex;
+min-height:100vh;
+flex-direction:column;
 }
 
-/* Reasonable Heading Sizes */
+main {
+flex:1 0 auto;
+}
+
+a:not([href]) {
+color:#000;
+}
+
+html nav .btn-flat:hover {
+background:rgba(255,255,255,.3)!important;
+}
+
+.page-footer {
+padding-top:0;
+}
+
+.btn.white:hover {
+background-color:#c5c5c5!important;
+}
+
+.btn,.btn-flat,.btn-large {
+border-radius:100px;
+}
+
+.btn.light-blue.darken-2:hover {
+background-color:#0082ca!important;
+}
+
+.footer-copyright .copyright {
+vertical-align:middle;
+}
+
+nav .brand-logo {
+margin-top:-4px;
+z-index:50;
+font-size:2.1rem;
+height:100%;
+}
+
+nav .brand-logo img {
+height:calc(100% - 10px);
+vertical-align:middle;
+}
+
+nav .btn-flat:hover {
+background:rgba(0,0,0,0.1)!important;
+}
+
+.clickable {
+cursor:pointer;
+}
+
+.sidenav .brand-logo {
+margin:0 10px;
+text-align:center;
+display:block;
+}
+
+.sidenav .brand-logo img {
+width:50%;
+margin:10px 0;
+}
+
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active,.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
+background-color:rgba(0,0,0,0.05);
+}
+
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active a,.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
+color:rgba(0,0,0,0.87);
+}
+
+.tabs .indicator {
+background-color:#212121;
+}
+
+.tabs .tab a,.tabs .tab a:hover,.tabs .tab a.active {
+color:#212121;
+}
+
+.tabs .tab a:focus,.tabs .tab a:focus.active {
+background-color:rgba(0,0,0,0.05);
+}
+
+.brand-logo a {
+margin-left:5px;
+}
+
+.community-platform {
+box-shadow:0 10px 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);
+border-radius:15px;
+margin-bottom:2.8rem;
+overflow:hidden;
+}
+
+.material-icons {
+user-select:none;
+}
+
 h1 {
-  font-size: 3rem;
+font-size:3rem;
 }
 
 h2 {
-  font-size: 2rem;
+font-size:2rem;
 }
+
 h3 {
-  font-size: 1.75rem;
+font-size:1.75rem;
 }
+
 h4 {
-  font-size: 1.5rem;
+font-size:1.5rem;
 }
+
 h5 {
-  font-size: 1.25rem;
+font-size:1.25rem;
 }
+
 h6 {
-  font-size: 1rem;
+font-size:1rem;
 }
+
 @media only screen and (max-width: 1650px) {
-  #forum-container div > i, #irc-container div > i {
-    font-size: 6rem !important;
-  }
+#forum-container div > i,#irc-container div > i {
+font-size:6rem!important;
 }
+}
+
 @media only screen and (max-width: 601px) {
-  nav .brand-logo img {
-    height: 42px;
-  }
-  .nav-wrapper ul a.btn {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
+nav .brand-logo img {
+height:42px;
+}
+
+.nav-wrapper ul a.btn {
+margin-left:5px;
+margin-right:5px;
+}
+
+h1 {
+font-size:2rem;
+}
 }
 
 @media only screen and (max-width: 1200px) {
-  .nav-wrapper ul a.btn i {
-    margin-right: 5px;
-  }
+.nav-wrapper ul a.btn i {
+margin-right:5px;
+}
 }
