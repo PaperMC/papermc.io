@@ -41,8 +41,8 @@ gulp.task('copy favicons', () => {
   .pipe(browserSync.stream());
 });
 
-gulp.task('copy htaccess', () => {
-  return gulp.src('src/.htaccess').pipe(gulp.dest('dist'));
+gulp.task('copy primary favicon', () => {
+  return gulp.src('src/favicon.ico').pipe(gulp.dest('dist'));
 });
 
 gulp.task('bust', () => {
@@ -96,7 +96,7 @@ gulp.task('minify', () => {
     .pipe(gulp.dest('dist')).pipe(browserSync.stream());
 });
 
-gulp.task('quickBuild', gulp.series('sass', 'copy images', 'copy js', 'copy favicons', 'copy htaccess', 'bust', 'content'));
+gulp.task('quickBuild', gulp.series('sass', 'copy images', 'copy js', 'copy favicons', 'copy primary favicon', 'bust', 'content'));
 
 gulp.task('default', gulp.series('quickBuild', 'terse', 'minify'));
 
@@ -107,7 +107,7 @@ gulp.task('dev', gulp.parallel(gulp.series('quickBuild', () => {
       serveStaticOptions: {
         extensions: ['html']
       },
-      middleware: [proxyMiddleware('/ci', {
+      middleware: [proxyMiddleware(['/ci', '/api'], {
         target: 'https://papermc.io/',
         secure: false,
         changeOrigin: true

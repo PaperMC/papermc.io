@@ -1,0 +1,33 @@
+.builds-table td:last-child, .builds-table th:last-child {
+  width: max-content;
+}
+.download-desc {
+  padding: 10px;
+}
+.jenkins-btn {
+  display: block;
+  margin: 0 auto;
+}
+.commit-hash, .commit-hash a {
+  font-size: 12px;
+  font-family: monospace !important;
+}
+
+#downloads-tabs {
+  display: flex;
+
+  .tab {
+    flex-grow: 1;
+  }
+}
+
+a.btn {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 601px) {
+  /* Hidden indicator due to #7, Materialize JS modification may be required to work as intended */
+  #downloads-tabs .indicator {
+    display: none;
+  }
+}

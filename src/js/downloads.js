@@ -1,32 +1,16 @@
 const downloads = {
-    "Paper-1.14": {
-        "title": "Paper 1.14.2",
+    "Paper-1.15": {
+        "title": "Paper 1.15.2",
         "api_endpoint": "paper",
-        "api_version": "1.14.2", // 1.14(.0/.1) is hacked on below, see that note
-        "jenkins": "Paper-1.14",
+        "api_version": "1.15.2", // 1.15.1 tacked on below
+        "jenkins": "Paper-1.15",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
-    },
-    "Paper-1.13": {
-        "title": "Paper 1.13.2",
-        "api_endpoint": "paper",
-        "api_version": "1.13.2",
-        "jenkins": "Paper-1.13",
-        "github": "PaperMC/Paper",
-        "desc": "Legacy support for Minecraft 1.13.2"
-    },
-    "Paper-1.12": {
-        "title": "Paper 1.12.2",
-        "api_endpoint": "paper",
-        "api_version": "1.12.2",
-        "jenkins": "Paper",
-        "github": "PaperMC/Paper",
-        "desc": "Legacy support for Minecraft 1.12.2, accepting bug and security fixes only."
     },
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.13", // 1.14 is hacked on below, see that note
+        "api_version": "1.15",
         "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
@@ -34,7 +18,7 @@ const downloads = {
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
-        "api_version": "1.13", // 1.14 is hacked on below, see that note
+        "api_version": "1.15",
         "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
         "desc": "Waterfall, with additional support for Minecraft 1.7.10."
@@ -109,19 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
-                var apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 50) {
-                  apiVer = "1.14.1"
-                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.14.2" && build.number <= 17) {
-                  apiVer = "1.14"
-                } else if (downloads[id].api_endpoint == "waterfall" && build.number >= 277) {
-                  apiVer = "1.14"
-                } else if (downloads[id].api_endpoint == "travertine" && build.number >= 94) {
-                  apiVer = "1.14"
+                let apiVer = downloads[id].api_version
+                if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.2" && build.number <= 62) {
+                    apiVer = "1.15.1"
                 }
 
                 rows += `<tr>
-                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download" 
+                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download"
                   class="btn waves-light waves-effect grey darken-4">
                   #${build.number}<i class="material-icons left">cloud_download</i>
                   </a></td>
@@ -140,12 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
                       <th>Date</th>
                     </tr>
                   </thead>
-          
+
                   <tbody>
                     ${rows}
                   </tbody>
                 </table>
-                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a>`;
+                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a><br>`;
+
+            if (downloads[id].api_endpoint == "paper") {
+              container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
+            }
 
         }).catch((e) => {
             console.error(e);
