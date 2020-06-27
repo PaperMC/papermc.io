@@ -1,11 +1,19 @@
 const downloads = {
+    "Paper-1.16": {
+        "title": "Paper 1.16",
+        "api_endpoint": "paper",
+        "api_version": "1.16",
+        "jenkins": "Paper-1.16",
+        "github": "PaperMC/Paper",
+        "desc": "Active development for the current Minecraft version.",
+    },
     "Paper-1.15": {
         "title": "Paper 1.15.2",
         "api_endpoint": "paper",
         "api_version": "1.15.2", // 1.15.1 tacked on below
         "jenkins": "Paper-1.15",
         "github": "PaperMC/Paper",
-        "desc": "Active development for the current Minecraft version.",
+        "desc": "Legacy support while the newest version stabilizes.",
     },
     "Waterfall": {
         "title": "Waterfall",
