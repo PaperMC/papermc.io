@@ -1,114 +1,251 @@
 <!doctype html>
 {% extends 'partial/layout.twig' %}
 {% set page = 'community' %}
-{% set title = 'Community – PaperMC' %}
+{% set title = 'Community Guidelines – PaperMC' %}
 {% block styles %}
-  <link type="text/css" rel="stylesheet" href="{{ urls['css/community.css'] }}" media="screen, projection"/>
+<link type="text/css" rel="stylesheet" href="{{ urls['css/community-guidelines.css'] }}" media="screen, projection"/>
 {% endblock %}
 {% block content %}
   {# Main Scrollable Content #}
   <main>
     {# Intro #}
     <div class="container">
-      <h1>Paper Discord Community Guidelines</h1>
-      <div id="content" class="row">
-		<h3>Overview</h3>
-		<p>The Paper Discord server has grown significantly over the past couple of years, even just the past couple of months. With this rise in user base Paper has grown way past what it was originally created to be, a small group of tightly-knit developers having fun on a side project, never really intending it to go anywhere. With this fact in mind, we need to be more proactive and explicit about how we want to combat negativity and toxicity in the Paper Discord and the Paper community.</p>
-		<p>We want Paper to be a welcoming community to all, where new people feel safe to hang out and ask questions, and where old members are happy to hang out, chat, and help others too.</p>
-	  </div>
-	  <div id="content" class="row">
-		<h3>More specific rules</h3>
-		<p>Paper has a fairly short and sweet set of rules. It generally comes down to:
-			<ol>
-				<li>Don't be a jerk</li>
-				<li>Listen to server staff</li>
-			</ol>
-			We do this because creating an exhaustive list for all negative behavior which we want to avoid is impossible and likely won’t help anyways. The kinds of people who would engage in the behaviors we don’t like in the first place probably aren’t the people we want around at all.
-		</p>
-		<p>
-			However, to help we’ll lay out the rules listed in the Paper Discord server and break them down further to give more context.
-			<ol>
-				<li>We do not permit language or content which can be reasonably considered discriminatory.
-					<ol type="a">
-						<li>Most of the words and language which is banned here should be obvious, but will be listed in more detail below in <a href="#zero-tolerance-items">Zero Tolerance Items.</a></li>
-					</ol>
-				</li>
-				<li>We do not permit content which is pornographic, distasteful, or excessively violent.
-					<ol type="a">
-						<li>This is similar to the first rule.</li>
-					</ol>
-				</li>
-				<li>We do not permit spamming or excessively sending messages, including repeating questions or links too frequently.
-					<ol type="a">
-						<li>Spam bots and trolling users will be banned immediately without warning.</li>
-						<li>Users who are looking for help and are incessantly repeating questions because they aren’t receiving any answers should be asked to stop repeating their question so often and be patient instead. They should also be directed to <code>#paper-help</code> if they aren’t there already.
-							<ol type="i">
-								<li>Repeating a question after some time has passed and the question is no longer current and the conversation has changed is fine, as long as it’s not too repetitive.</li>
-								<li>Repeating a question because the user is receiving help but doesn’t like the answer they received is not fine.</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>We do not permit trying to buy or sell services or hire developers. This is not a marketplace.
-					<ol type="a">
-						<li>This is something Paper wants to avoid in general. When we were smaller we didn’t care as much, so some people may still think that it’s okay, but we made this a rule specifically because we don’t want to allow it at all.</li>
-					</ol>
-				</li>
-				<li>We do not permit formatting your username to be difficult to read, to impersonate others, to advertise, or to be inappropriate.
-					<ol type="a">
-						<li>Non-hateful and non-bigoted cursing is fine for the most part, but not in usernames. If someone is cursing in every message they should be asked to calm down and stop using those words so much. If a curse word is in their username, that’s basically the same as saying that word every time they send a message - so same problem.</li>
-						<li>Impersonating people includes anyone in or out of the server, not just staff and not just those in Paper.</li>
-						<li>People often try to put their servers or plugins in their usernames, which seems a little distasteful. Users can put their server or plugins in their Discord status and it will appear if anyone clicks on their names. Including server or plugin names in their username also potentially makes their name ridiculously long.</li>
-						<li>Usernames that are nothing but a bunch of symbols that are impossible to pronounce aren’t very conducive of a good conversation environment. A lot of members do this to put themselves at the top of the userlist, but never talk, and that’s not really a big deal or worth the effort. Users who are talking though should have reasonable usernames. However, this does not apply to usernames in different languages and alphabets. There is a difference between having a username in Japanese and having only random symbols as your username.</li>
-					</ol>
-				</li>
-				<li>We do not permit pinging server staff, moderators, or contributors.
-					<ol type="a">
-						<li>Basically anyone with a role is a target for pinging, and the larger Paper gets, the more of an issue this becomes.</li>
-						<li>Someone pinging a particular person because they are responding to that person is not a problem and not even warranting of a warning. Someone pinging a project developer or contributor just because they want an answer in <code>#paper-help</code> is what is being addressed here.</li>
-						<li>There are some users who don’t want to be pinged. Please respect that decision.</li>
-					</ol>
-				</li>
-			</ol>
-		</p>
-	  </div>
-	  <div id="content" class="row">
-		<h3 id="zero-tolerance-items">Zero Tolerance Items</h3>
-		<p>Particularly severe issues represent a behavior and a kind of person we don’t want associated with Paper in any way. These behaviors will result in an immediate ban without warning:
-			<ul>
-				<li>Racial slurs or racist speech</li>
-				<li>Sexist slurs or sexist speech</li>
-				<li>Homophobic or transphobic slurs or speech</li>
-				<li>Ableist slurs or speech</li>
-				<li>Any other hate speech not already listed</li>
-				<li>Doxxing people</li>
-				<li>Personal attacks</li>
-			</ul>
-		This list is not exhaustive. If someone is engaging in bad behavior not conducive to a friendly environment and we believe it warrants an immediate ban, then we will do so.</p>
-		<p>When someone is removed for something like this, all messages in question will be removed as well.</p>
-	  </div>
-	  <div id="content" class="row">
-		<h3>Topic Specific Channels</h3>
-		<p>Paper has channels dedicated to specific topics, but that hasn’t been well enforced. This includes other project staff, so going forward we need to do better in keeping these channels clear of chit-chat and instead focused on their purpose. This should help newer members in particular feel more comfortable asking questions in the help channels if people aren’t also talking over them about some irrelevant topic.</p>
-		<p>Moderators will shut down any off-topic discussions happening in any of the following channels and ask for the conversation to move to <code>#general</code> instead:
-			<ul>
-				<li><code>#paper-help</code></li>
-				<li><code>#paper-dev</code></li>
-				<li><code>#waterfall-help</code></li>
-				<li><code>#waterfall-dev</code></li>
-			</ul>
-		</p>
-	  </div>
-	  <div id="content" class="row">
-		<h3>Support Channels</h3>
-		<p>Our support channels <code>#paper-help</code> and <code>#waterfall-help</code> are there for people who need support using our software. While we are very happy that so many members of the community actively support here and answer questions, please make sure to follow our guidelines here as well. Many people that come here and ask questions are new to Minecraft Servers and to the community itself. We should be welcoming towards newcomers, especially since we all started somewhere. In general, “Rule 1: Don’t be a jerk” applies here as well, but we would like to add the following points:
-			<ol>
-				<li>Please don’t harass people for using offline mode. We understand that you might not like it and don’t want to support it yourself, and that is okay. In that case, just leave people alone, and let someone else answer their questions.</li>
-				<li>Please don’t harass people for using software/plugins that you don’t like. We know that some plugins are not that well received in this community, but as long as they are not causing the issue itself, you shouldn’t harass people for using them. This doesn’t mean that you can’t recommend a replacement. Again, as in 1) if you don’t like if someone is using a specific software, you can always choose to just ignore the question and let someone else answer.</li>
-			</ol>
-		</p>
-	  </div>
-	</div>
+      <h1>Paper Community Guidelines</h1>
+      <div class="row">
+        <h3 id="overview" class="header-link"><a href="#overview"><i class="material-icons">link</i></a>Overview</h3>
+        <p>
+          Paper has grown significantly past what it was originally created to be &mdash; a small group of tightly-knit
+          developers having fun on a side project, never really intending it to go anywhere. With this fact in mind, we
+          need to be proactive and explicit about how we intend to combat negativity and toxicity in the Paper
+          community.
+        </p>
+        <p>
+          We want Paper to be a welcoming community to all, where new members feel safe to hang out and ask questions,
+          and where old members are happy to hang out, chat, and help others too. We want Paper to be an inclusive
+          environment. Paper is, at its core, a development community. We want to continue staying focused on being a
+          development community rather than letting toxic behavior take over.
+        </p>
+        <p>
+          This document is the definitive list of guidelines everyone in the community must follow to participate in
+          this community.
+        </p>
+      </div>
+      <div class="row">
+        {% spaceless %}
+          <h3 id="the-paper-community" class="header-link">
+            <a href="#the-paper-community"><i class="material-icons">link</i></a>
+            <span>The Paper Community</span>
+          </h3>
+        {% endspaceless %}
+        <p>
+          This document uses the phrase "Paper community" to refer to all communication which happens within the Paper
+          ecosystem. This includes every forum of communication which is officially part of the Paper project. To be
+          abundantly clear, these Paper Community Guidelines apply to all of the following:
+        </p>
+        <ul class="bullet-list">
+          <li>The Paper Discord server</li>
+          <li>Any of the Paper IRC channels</li>
+          <li>
+            The Paper GitHub
+            <ul>
+              <li>This includes issues, pull requests, and any discussion inside issues or pull requests</li>
+            </ul>
+          </li>
+          <li>The Paper forums</li>
+        </ul>
+      </div>
+      <div class="row">
+        {% spaceless %}
+          <h3 id="guidelines" class="header-link">
+            <a href="#guidelines"><i class="material-icons">link</i></a>
+            <span>Guidelines</span>
+          </h3>
+        {% endspaceless %}
+        <p>Paper has a fairly short and sweet set of rules. It generally comes down to:</p>
+        <ol>
+          <li>Don't be a jerk</li>
+          <li>Listen to project staff</li>
+        </ol>
+        <p>
+          We do this because creating an exhaustive list for all negative behavior which we want to avoid is impossible
+          and likely won't help anyways. The kinds of people who would engage in the behaviors we don't like in the
+          first place probably aren't the people we want around at all.
+        </p>
+        <p>
+          However, there are specific behaviors we want to avoid in our community. The following behaviors are not
+          permitted in the Paper community:
+        </p>
+        <ol>
+          <li>Using language or posting content which can be reasonably considered discriminatory.
+            <ol type="a">
+              <li>
+                Most of the words and language which is banned here should be obvious, but will be listed in more detail
+                below in <a href="#zero-tolerance-items">Zero Tolerance Items.</a>
+              </li>
+            </ol>
+          </li>
+          <li>Posting content which is pornographic, distasteful, or excessively violent.
+            <ol type="a">
+              <li>This is similar to the first rule.</li>
+            </ol>
+          </li>
+          <li>
+            Spamming or excessively sending messages, including repeating questions or links too
+            frequently.
+            <ol type="a">
+              <li>Spam bots and trolling users will be banned immediately without warning.</li>
+              <li>
+                Users who are looking for help and are incessantly repeating questions because they aren't receiving any
+                answers should be asked to stop repeating their question so often and be patient instead. They should
+                also be directed to <code>#paper-help</code> if they aren't there already.
+                <ol type="i">
+                  <li>
+                    Repeating a question after some time has passed and the question is no longer current and the
+                    conversation has changed is fine, as long as it's not too repetitive.
+                  </li>
+                  <li>
+                    Repeating a question because the user is receiving help but doesn't like the answer they received is
+                    not fine.
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>Trying to buy or sell services or hire developers. This is not a marketplace.</li>
+          <li>Formatting usernames to be difficult to read, to impersonate others, to advertise, or to be inappropriate.
+            <ol type="a">
+              <li>
+                Non-hateful and non-bigoted cursing is fine for the most part, but not in usernames. If someone is
+                cursing in every message they should be asked to calm down and stop using those words so much. If a
+                curse word is in their username, that's basically the same as saying that word every time they send a
+                message &mdash; so it's the same problem.
+              </li>
+              <li>
+                Impersonating people includes anyone in or out of the server, not just staff and not just those in
+                Paper.
+              </li>
+              <li>
+                People often try to put their servers or plugins in their usernames, which seems a little distasteful.
+                Users can put their server or plugins in their Discord status and it will appear if anyone clicks on
+                their names. Including server or plugin names in their username also potentially makes their name
+                ridiculously long.
+              </li>
+              <li>
+                Usernames that are nothing but a bunch of symbols that are impossible to pronounce aren't very conducive
+                of a good conversation environment. A lot of members do this to put themselves at the top of the
+                userlist, but never talk, and that's not really a big deal or worth the effort. Users who are talking
+                though should have reasonable usernames. However, this does not apply to usernames in different
+                languages and alphabets. There is a difference between having a username in Japanese and having only
+                random symbols as your username.
+              </li>
+            </ol>
+          </li>
+          <li>We do not permit pinging server staff, moderators, or contributors.
+            <ol type="a">
+              <li>
+                Anyone with a role is a target for pinging, and the larger Paper gets, the more of an issue this
+                becomes.
+              </li>
+              <li>
+                Someone pinging a particular person because they are responding to that person is not a problem and not
+                even warranting of a warning. Someone pinging a project developer or contributor just because they want
+                an answer in <code>#paper-help</code> is what is addressed here.
+              </li>
+              <li>There are some users who don't want to be pinged. Please respect that decision.</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div class="row">
+        {% spaceless %}
+          <h3 id="zero-tolerance-items" class="header-link">
+            <a href="#zero-tolerance-items"><i class="material-icons">link</i></a>
+            <span>Zero Tolerance Items</span>
+          </h3>
+        {% endspaceless %}
+        <p>
+          Particularly severe issues represent a behavior and a kind of person we don't want associated with Paper in
+          any way. These behaviors will result in an immediate ban without warning:
+        </p>
+        <ul class="bullet-list">
+          <li>Racial slurs or racist speech</li>
+          <li>Sexist slurs or sexist speech</li>
+          <li>Homophobic or transphobic slurs or speech</li>
+          <li>Ableist slurs or speech</li>
+          <li>Any other hate speech not already listed</li>
+          <li>Doxxing people</li>
+          <li>Personal attacks</li>
+        </ul>
+        <p>
+          This list is not exhaustive. If someone is engaging in bad behavior not conducive to a friendly environment
+          and we believe it warrants an immediate ban, then we will do so.
+        </p>
+        <p>
+          When someone is removed for something like this, all messages in question will be removed as well.
+        </p>
+      </div>
+      <div class="row">
+        {% spaceless %}
+          <h3 id="topic-specific-channels-in-discord" class="header-link">
+            <a href="#topic-specific-channels-in-discord"><i class="material-icons">link</i></a>
+            <span>Topic Specific Channels in Discord</span>
+          </h3>
+        {% endspaceless %}
+        <p>
+          Paper has channels dedicated to specific topics, and conversations in these channels should stay on-topic.
+          This can help newer members in particular feel more comfortable asking questions in the help channels if
+          other members aren't also talking over them about other irrelevant topics.
+        </p>
+        <p>
+          Moderators will shut down any off-topic discussions happening in any of the following channels and ask for
+          the conversation to move to <code>#general</code> instead:
+        </p>
+        <ul>
+          <li><code>#paper-help</code></li>
+          <li><code>#paper-dev</code></li>
+          <li><code>#waterfall-help</code></li>
+          <li><code>#waterfall-dev</code></li>
+        </ul>
+      </div>
+      <div class="row">
+        {% spaceless %}
+          <h3 id="support-channels" class="header-link">
+            <a href="#support-channels"><i class="material-icons">link</i></a>
+            <span>Support Channels</span>
+          </h3>
+        {% endspaceless %}
+        <p>
+          Our support channels <code>#paper-help</code> and <code>#waterfall-help</code> are there for people who need
+          support using our software. While we are very happy that so many members of the community actively support
+          there and answer questions, please make sure to follow our guidelines there as well. Many people that go there
+          to ask questions are new to Minecraft Servers and to the community itself. We should be welcoming towards
+          newcomers, especially since we all started somewhere. In general, "Rule 1: Don't be a jerk" applies here as
+          well, but we would like to add the following points:
+        </p>
+        <ol>
+          <li>
+            Please don't harass people for using offline mode. We understand that you might not like it and don't want
+            to support it yourself, and that is okay. In that case, just leave people alone, and let someone else answer
+            their questions.
+          </li>
+          <li>
+            Please don't harass people for using software/plugins that you don't like. We know that some plugins are not
+            that well received in this community, but as long as they are not causing the issue itself, you shouldn't
+            harass people for using them. This doesn't mean that you can't recommend a replacement. Again, as in 1) if
+            you don't like if someone is using a specific software, you can always choose to just ignore the question
+            and let someone else answer.
+          </li>
+        </ol>
+      </div>
+      <div class="row">
+        {% spaceless %}
+        <h3 id="last-updated" class="header-link">
+          <a href="#last-updated"><i class="material-icons">link</i></a>
+          <span>Last Updated <code>2020-07-31</code></span>
+        </h3>
+        {% endspaceless %}
+      </div>
+    </div>
   </main>
 {% endblock %}
 {% block footer %}
