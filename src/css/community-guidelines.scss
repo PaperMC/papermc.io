@@ -1,0 +1,36 @@
+.row {
+  ul {
+    padding-left: 20px;
+
+    li {
+      list-style-type: disc;
+      li {
+        list-style-type: circle;
+      }
+    }
+  }
+
+  ol, ul {
+    li {
+      padding-top: 0.35em;
+    }
+  }
+}
+
+.header-link {
+  left: -1em;
+  position: relative;
+
+  a {
+    visibility: hidden;
+    i {
+      transform: translateY(0.1em) rotate(-45deg);
+    }
+  }
+
+  &:hover {
+    a {
+      visibility: visible;
+    }
+  }
+}
