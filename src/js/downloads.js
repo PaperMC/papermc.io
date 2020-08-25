@@ -1,8 +1,8 @@
 const downloads = {
     "Paper-1.16": {
-        "title": "Paper 1.16.1",
+        "title": "Paper 1.16.2",
         "api_endpoint": "paper",
-        "api_version": "1.16.1",
+        "api_version": "1.16.2",
         "jenkins": "Paper-1.16",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
