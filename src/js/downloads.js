@@ -1,8 +1,8 @@
 const downloads = {
     "Paper-1.16": {
-        "title": "Paper 1.16.1",
+        "title": "Paper 1.16.2",
         "api_endpoint": "paper",
-        "api_version": "1.16.1",
+        "api_version": "1.16.2", // 1.16.1 tacked on below
         "jenkins": "Paper-1.16",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
@@ -102,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // TODO - rework system, add to API, whatever so that this crap is no longer needed
                 let apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.2" && build.number <= 62) {
+                if (downloads[id].api_endpoint == "paper" && apiVer == "1.16.2" && build.number <= 138) {
+                    apiVer = "1.16.1"
+                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.2" && build.number <= 62) {
                     apiVer = "1.15.1"
                 } else if (downloads[id].api_endpoint == "waterfall" && build.number <= 350) {
                     apiVer = "1.15"
