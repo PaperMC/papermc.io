@@ -1,6 +1,6 @@
 const downloads = {
     "Paper-1.16": {
-        "title": "Paper 1.16.2",
+        "title": "Paper 1.16.3",
         "api_endpoint": "paper",
         "api_version": "1.16.3", // 1.16.2 tacked on below
         "jenkins": "Paper-1.16",
