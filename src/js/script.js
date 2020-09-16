@@ -62,4 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       location: true
   });
+
+  const triggers = document.getElementsByClassName("dropdown-trigger");
+  for (var i = 0; i < triggers.length; i++) {
+    const trigger = triggers.item(i);
+    if (trigger != null) {
+        M.Dropdown.init(trigger, {
+            alignment: 'right',
+            coverTrigger: false,
+            hover: true,
+            onOpenStart: function() {
+                trigger.classList.add("dropdown-active");
+            },
+            onCloseStart: function() {
+                trigger.classList.remove("dropdown-active");
+            }
+        });
+    }
+  }
 });
