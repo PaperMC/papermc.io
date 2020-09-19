@@ -46,6 +46,25 @@ main > .container {
     display: block;
   }
 }
+#guideline-container {
+  width: 100%;
+  padding: 5rem 0;
+  height: 0px; // fix PaperMC/papermc.io#12
+  background: url('../images/guideline-background.svg') repeat;
+  background-color: #12a138;
+  background-size: 150px;
+  color: white;
+  
+  h1, .row {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .col .icon-large {
+    font-size: 9rem;
+    text-align: center;
+    display: block;
+  }
+}
 #irc-container {
   width: 100%;
   padding: 5rem 0;
