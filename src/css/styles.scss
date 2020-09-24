@@ -3,6 +3,25 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #181a1b;
+    color: #e8e6e3;	
+  }
+  .tabs {
+    background-color: rgb(24,26,27);
+  }
+  
+  .tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
+  color: rgb(211, 207, 202) !important; 
+  }
+  
+  tr {
+    border-bottom-color: rgba(140, 130, 115, 0.12);
+  }
+}
+
 main {
   flex: 1 0 auto;
 }
