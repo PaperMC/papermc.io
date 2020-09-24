@@ -9,6 +9,7 @@ body {
     background-color: #181a1b;
     color: #e8e6e3;	
   }
+  
   .tabs {
     background-color: rgb(24,26,27);
   }
@@ -20,6 +21,19 @@ body {
   tr {
     border-bottom-color: rgba(140, 130, 115, 0.12);
   }
+  
+  .sidenav {
+    background-color: #181a1b;		
+  }
+  
+  .grey-text.text-darken-4 {
+    color: #e8e6e3 !important
+  } 
+  
+  .sidenav li>a>i.material-icons {
+	color: #e8e6e3; 
+  }
+  
 }
 
 main {
