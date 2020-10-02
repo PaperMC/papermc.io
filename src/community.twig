@@ -15,7 +15,7 @@
     </div>
 
 	<div class="container">
-	{# Guidelines #}
+	  {# Guidelines #}
 	  <div id="guideline-container" class="community-platform valign-table">
 	    <div class="row container">
           <div class="col l2 s12">
@@ -26,7 +26,7 @@
 			<p>
 			  The rules to our community, please read them before participating.
 			  <br><br>
-			  <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="community-guidelines"><i class="material-icons left">gavel</i>Community Guidelines</a>.
+			  <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="community-guidelines"><i class="material-icons left">gavel</i>Community Guidelines</a>
 			</p>
 		  </div>
 	    </div>
@@ -87,8 +87,7 @@
         <div class="row container">
           <img src="{{ urls['images/twitter.svg'] }}"/>
         </div>
-        <div class="row container twitter-timeline-container">
-          <a class="twitter-timeline" data-dnt="true" data-theme="light" data-link-color="#039be5" href="https://twitter.com/PaperPowered">PaperMC Tweets</a>
+        <div class="row container twitter-timeline-container" id="twitter-timeline">
         </div>
       </div>
     </div>
@@ -96,5 +95,6 @@
 {% endblock %}
 {% block footer %}
   {# Twitter Embed #}
+  <script type="text/javascript" src="{{ urls['js/community.js'] }}"></script>
   <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {% endblock %}

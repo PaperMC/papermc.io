@@ -110,3 +110,11 @@ main > .container {
     margin-bottom: 50px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  #twitter-container {
+    .twitter-timeline-container {
+      background-color: #181a1b;
+    }
+  } 
+}
