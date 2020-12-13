@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("content").appendChild(div);
 
     // update with edge-cached URL
-    fetch('/api/v1/paper/' + versions[i] + '/latest').then(r => r.json()).then(data => {
-      document.getElementById(versions[i]).setAttribute("href", `https://papermc.io/api/v1/paper/${versions[i]}/${data.build}/download`);
+    fetch(`/api/v2/projects/paper/versions/${versions[i]}`).then(r => r.json()).then(data => {
+      const build = data.builds[data.builds.length - 1];
+      document.getElementById(versions[i]).setAttribute("href", `https://papermc.io/api/v2/projects/paper/versions/${data.version}/builds/${build}/downloads/paper-${data.version}-${build}.jar`);
     }).catch((e) => {
       console.error(e);
     });
