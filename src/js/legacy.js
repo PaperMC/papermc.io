@@ -1,4 +1,4 @@
-const versions = ["1.14.4", "1.13.2", "1.12.2", "1.11.2", "1.10.2", "1.9.4", "1.8.8"];
+const versions = ["1.15.2", "1.14.4", "1.13.2", "1.12.2", "1.11.2", "1.10.2", "1.9.4", "1.8.8"];
 
 document.addEventListener('DOMContentLoaded', () => {
   // init layout first for ordering
