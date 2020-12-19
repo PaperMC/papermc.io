@@ -2,40 +2,45 @@ const downloads = {
     "Paper-1.16": {
         "title": "Paper 1.16.4",
         "api_endpoint": "paper",
-        "api_version": "1.16.4", // 1.16.3 tacked on below
+        "api_version": "1.16",
         "jenkins": "Paper-1.16",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
+        "limit": 10,
+        "cache": null,
     },
     "Paper-1.15": {
         "title": "Paper 1.15.2",
         "api_endpoint": "paper",
-        "api_version": "1.15.2", // 1.15.1 tacked on below
-        "jenkins": "Paper-1.15",
+        "api_version": "1.15",
         "github": "PaperMC/Paper",
         "desc": "Legacy support while the newest version stabilizes.",
+        "limit": 10,
+        "cache": null,
     },
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
         "api_version": "1.16",
-        "jenkins": "Waterfall",
         "github": "PaperMC/Waterfall",
-        "desc": "Our fork of the BungeeCord software, with improved Forge support and more features."
+        "desc": "Our fork of the BungeeCord software, with improved Forge support and more features.",
+        "limit": 10,
+        "cache": null,
     },
     "Travertine": {
         "title": "Travertine",
         "api_endpoint": "travertine",
         "api_version": "1.16",
-        "jenkins": "Travertine",
         "github": "PaperMC/Travertine",
-        "desc": "Waterfall, with additional support for Minecraft 1.7.10."
+        "desc": "Waterfall, with additional support for Minecraft 1.7.10.",
+        "limit": 10,
+        "cache": null,
     }
 };
 
-function jenkinsFetch(job, path) {
-    return window.fetch("/ci/job/" + job + path).then((response) => {
-        if (response.status > 400)
+function apiFetch(project, version) {
+    return window.fetch(`/api/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
+        if (response.status >= 400)
             return null;
 
         return response.json();
@@ -73,76 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ${tabContents}`;
 
     for (const id in downloads) {
-        const githubID = downloads[id].github;
-        jenkinsFetch(downloads[id].jenkins, "/api/json?tree=builds[number,url,artifacts[fileName,relativePath],timestamp,changeSet[items[comment,commitId,msg]]]{,10}").then((json) => {
-            const container = document.getElementById(id).querySelector(".download-content");
-            if (json == null) {
-                container.innerText = "Failed to load downloads.";
-                return;
-            }
-
-            let rows = "";
-            const builds = json.builds.filter(build => build.artifacts && build.artifacts.length);
-            builds.forEach((build) => {
-
-                const el = container.querySelector("td[data-build-id='" + build.number + "']");
-                if (build == null) {
-                    el.innerText = "Failed to load downloads.";
-                    return;
-                }
-
-                let changes = "";
-                build.changeSet.items.forEach((item) => {
-                    changes += `<span class="commit-hash">[<a title="${escapeHTML(item.comment)}" href="https://github.com/${githubID}/commit/${item.commitId}" target="_blank">${escapeHTML(item.commitId.substring(0, 7))}</a>]</span> ${escapeHTML(item.msg).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}<br>`;
-                });
-
-                if (!changes) {
-                    changes = "No changes";
-                }
-
-                // TODO - rework system, add to API, whatever so that this crap is no longer needed
-                let apiVer = downloads[id].api_version
-                if (downloads[id].api_endpoint == "paper" && apiVer == "1.16.4" && build.number <= 253) {
-                    apiVer = "1.16.3"
-                } else if (downloads[id].api_endpoint == "paper" && apiVer == "1.15.2" && build.number <= 62) {
-                    apiVer = "1.15.1"
-                } else if (downloads[id].api_endpoint == "waterfall" && build.number <= 350) {
-                    apiVer = "1.15"
-                } else if (downloads[id].api_endpoint == "travertine" && build.number <= 144) {
-                    apiVer = "1.15"
-                }
-
-                rows += `<tr>
-                  <td><a href="/api/v1/${downloads[id].api_endpoint}/${apiVer}/${build.number}/download"
-                  class="btn waves-light waves-effect grey darken-4">
-                  #${build.number}<i class="material-icons left">cloud_download</i>
-                  </a></td>
-                  <td data-build-id="${build.number}">${changes}</td>
-                  <td>${new Date(build.timestamp).toISOString().split('T')[0]}</td>
-                </tr>`;
-            });
-
-            container.innerHTML = `
-              <div class="download-desc">${downloads[id].desc}</div>
-                <table class="builds-table">
-                  <thead>
-                    <tr>
-                      <th>Build</th>
-                      <th>Changes</th>
-                      <th>Date</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    ${rows}
-                  </tbody>
-                </table>
-                <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" href="/ci/job/${downloads[id].jenkins}/">More</a><br>`;
-
-            if (downloads[id].api_endpoint == "paper") {
-              container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
-            }
-
+        apiFetch(downloads[id].api_endpoint, downloads[id].api_version).then((json) => {
+            downloads[id].cache = json;
+            load(id);
         }).catch((e) => {
             console.error(e);
             document.getElementById(id).innerText = "Failed to load downloads.";
@@ -155,3 +93,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function load(id) {
+    const githubID = downloads[id].github;
+    const container = document.getElementById(id).querySelector(".download-content");
+    const json = downloads[id].cache;
+    if (json == null) {
+        container.innerText = "Failed to load downloads.";
+        return;
+    }
+
+    let rows = "";
+    const builds = json.builds.filter(build => build.downloads && build.downloads.application);
+    let oldVersion;
+    builds.sort((a, b) => b.build - a.build).slice(0, downloads[id].limit).forEach((build) => {
+        let changes = "";
+        build.changes.forEach((item) => {
+            changes += `<span class="commit-hash">[<a title="${escapeHTML(item.summary)}" href="https://github.com/${githubID}/commit/${item.commit}" target="_blank">${escapeHTML(item.commit.substring(0, 7))}</a>]</span> ${escapeHTML(item.summary).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}<br>`;
+        });
+
+        if (!changes) {
+            changes = "No changes";
+        }
+
+        if (!oldVersion) {
+            oldVersion = build.version;
+        }
+
+        if (oldVersion !== build.version) {
+            oldVersion = build.version;
+            rows += `<tr>
+                <td colspan="3">${capitalizeFirstLetter(downloads[id].api_endpoint)} ${build.version}</td>
+            </tr>`;
+        }
+
+        rows += `<tr>
+              <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/paper-${build.version}-${build.build}.jar"
+              class="btn waves-light waves-effect grey darken-4">
+              #${build.build}<i class="material-icons left">cloud_download</i>
+              </a></td>
+              <td data-build-id="${build.build}">${changes}</td>
+              <td>${new Date(build.time).toISOString().split('T')[0]}</td>
+            </tr>`;
+    });
+
+    container.innerHTML = `
+          <div class="download-desc">${downloads[id].desc}</div>
+            <table class="builds-table">
+              <thead>
+                <tr>
+                  <th>Build</th>
+                  <th>Changes</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                ${rows}
+              </tbody>
+            </table>
+            <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
+
+    if (downloads[id].api_endpoint == "paper") {
+        container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
+    }
+}
+
+function loadMore(id) {
+    downloads[id].limit += 10;
+    load(id);
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
