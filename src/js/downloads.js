@@ -143,7 +143,11 @@ function load(id) {
                 ${rows}
               </tbody>
             </table>
-            <a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
+            `;
+
+    if (json.builds.length > downloads[id].limit) {
+        container.innerHTML += `<a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
+    }
 
     if (downloads[id].api_endpoint == "paper") {
         container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
