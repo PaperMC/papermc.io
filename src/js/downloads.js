@@ -133,9 +133,9 @@ function load(id) {
             <table class="builds-table">
               <thead>
                 <tr>
-                  <th>Build</th>
-                  <th>Changes</th>
-                  <th>Date</th>
+                  <th width="14%">Build</th>
+                  <th width="76%">Changes</th>
+                  <th width="10%">Date</th>
                 </tr>
               </thead>
 
