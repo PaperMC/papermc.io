@@ -30,38 +30,39 @@ document.addEventListener('DOMContentLoaded', function() {
           hasLoaded = true;
       }
   }
-
-  cookieconsent.initialise({
-      container: document.body.getElementsByTagName("main")[0],
-      "palette": {
-          "popup": {
-              "background": "#252e39"
-          },
-          "button": {
-              "background": "#14a7d0"
-          }
-      },
-      "theme": "edgeless",
-      "type": "opt-in",
-      "content": {
-          "message": "PaperMC uses cookies to help analyze how many people use our software.",
-          "allow": "Allow"
-      },
-      revokable: true,
-      onStatusChange(status) {
-          checkConsent(this.hasConsented());
-      },
-      onInitialise(status) {
-          checkConsent(this.hasConsented());
-      },
-      onNoCookieLaw() {
-          checkConsent(true);
-      },
-      law: {
-          regionalLaw: true,
-      },
-      location: true
-  });
+  if (cookieconsent != null) {
+	  cookieconsent.initialise({
+		  container: document.body.getElementsByTagName("main")[0],
+		  "palette": {
+			  "popup": {
+				  "background": "#252e39"
+			  },
+			  "button": {
+				  "background": "#14a7d0"
+			  }
+		  },
+		  "theme": "edgeless",
+		  "type": "opt-in",
+		  "content": {
+			  "message": "PaperMC uses cookies to help analyze how many people use our software.",
+			  "allow": "Allow"
+		  },
+		  revokable: true,
+		  onStatusChange(status) {
+			  checkConsent(this.hasConsented());
+		  },
+		  onInitialise(status) {
+			  checkConsent(this.hasConsented());
+		  },
+		  onNoCookieLaw() {
+			  checkConsent(true);
+		  },
+		  law: {
+			  regionalLaw: true,
+		  },
+		  location: true
+	  });
+  }
 
   const triggers = document.getElementsByClassName("dropdown-trigger");
   for (var i = 0; i < triggers.length; i++) {
