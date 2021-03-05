@@ -1,0 +1,16 @@
+pre {
+  width: 720px;
+
+  .hljs {
+    padding: 1em;
+    border-radius: 5px;
+  }
+}
+
+#snippet-tabs {
+  display: flex;
+
+  .tab {
+    flex-grow: 1;
+  }
+}

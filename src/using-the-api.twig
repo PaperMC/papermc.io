@@ -1,0 +1,73 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'using-the-api' %}
+{% set title = 'Using the Paper API - PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/highlight-a11y-dark.min.scss'] }}" media="screen, projection"/>
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/using-the-api.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+    <main class="container">
+        <h1>Using the Paper API</h1>
+        <p>The Paper API is available from the PaperMC Maven repository. This tool can provide the source code, compiled jars, and javadocs to your project.</p>
+
+        <div class="row">
+            <div class="col s12">
+                <ul id="snippet-tabs" class="tabs">
+                    <li class="tab"><a class="active" href="#maven">Maven</a></li>
+                    <li class="tab"><a href="#groovygradle">Gradle (Groovy DSL)</a></li>
+                    <li class="tab"><a href="#kotlingradle">Gradle (Kotlin DSL)</a></li>
+                </ul>
+            </div>
+            <div id="maven" class="col s12">
+                <h5>Repository</h3>
+                <p>Add this to your <code>pom.xml</code>:</p>
+                <pre><code class="xml">&lt;repository&gt;
+    &lt;id&gt;papermc&lt;/id&gt;
+    &lt;url&gt;https://papermc.io/repo/repository/maven-public/&lt;/url&gt;
+&lt;/repository&gt;</code></pre>
+
+                <h5>Dependency</h3>
+                <p>Then, add this:</p>
+                <pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.destroystokyo.paper&lt;/groupId&gt;
+    &lt;artifactId&gt;paper-api&lt;/artifactId&gt;
+    &lt;version&gt;<span class="latest-artifact-version"></span>&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+            </div>
+
+            <div id="groovygradle" class="col s12">
+                <h5>Repository</h3>
+                <p>Add this to your <code>build.gradle</code>:</p>
+                <pre><code class="groovy">repositories {
+    maven { url "https://papermc.io/repo/repository/maven-public/" }
+}</code></pre>
+
+                <h5>Dependency</h3>
+                <p>Then, add this:</p>
+                <pre><code class="groovy">dependencies {
+    compileOnly "com.destroystokyo.paper:paper-api:<span class="latest-artifact-version"></span>"
+}</code></pre>
+            </div>
+
+            <div id="kotlingradle" class="col s12">
+                <h5>Repository</h3>
+                <p>Add this to your <code>build.gradle.kts</code>:</p>
+                <pre><code class="kotlin">repositories {
+    maven { url = uri("https://papermc.io/repo/repository/maven-public/") }
+}</code></pre>
+
+                <h5>Dependency</h3>
+                <p>Then, add this:</p>
+                <pre><code class="kotlin">dependencies {
+    compileOnly("com.destroystokyo.paper:paper-api:<span class="latest-artifact-version"></span>")
+}</code></pre>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block footer %}
+  <script src="{{ urls['js/highlight.min.js'] }}" charset="utf-8"></script>
+  <script src="{{ urls['js/using-the-api.js'] }}" charset="utf-8"></script>
+{% endblock %}
