@@ -3,7 +3,6 @@ const downloads = {
         "title": "Paper 1.17.1",
         "api_endpoint": "paper",
         "api_version": "1.17",
-        "jenkins": "Paper-1.17",
         "github": "PaperMC/Paper",
         "desc": "Active development for the current Minecraft version.",
         "limit": 10,
