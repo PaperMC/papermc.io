@@ -17,15 +17,6 @@ const downloads = {
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features.",
         "limit": 10,
         "cache": null,
-    },
-    "Travertine": {
-        "title": "Travertine",
-        "api_endpoint": "travertine",
-        "api_version": "1.16",
-        "github": "PaperMC/Travertine",
-        "desc": "Waterfall, with additional support for Minecraft 1.7.10.",
-        "limit": 10,
-        "cache": null,
     }
 };
 

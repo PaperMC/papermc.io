@@ -1,31 +1,171 @@
-const versions = ["1.15.2", "1.14.4", "1.13.2", "1.12.2", "1.11.2", "1.10.2", "1.9.4", "1.8.8"];
+const downloads = {
+  "Paper": {
+      "title": "Paper",
+      "desc": "Legacy downloads for old major releases of the Paper software.",
+      "api_endpoint": "paper",
+      "versions": [
+        {
+          "version": "1.15.2",
+          "build": "391"
+        },
+        {
+          "version": "1.14.4",
+          "build": "243"
+        },
+        {
+          "version": "1.13.2",
+          "build": "655"
+        },
+        {
+          "version": "1.12.2",
+          "build": "1618"
+        },
+        {
+          "version": "1.11.2",
+          "build": "1104"
+        },
+        {
+          "version": "1.10.2",
+          "build": "916"
+        },
+        {
+          "version": "1.9.4",
+          "build": "773"
+        },
+        {
+          "version": "1.8.8",
+          "build": "443"
+        }
+      ],
+      cache: null
+  },
+  "Travertine": {
+      "title": "Travertine",
+      "desc": "Legacy downloads for our retired 1.7-capable server proxy software, Travertine.",
+      "api_endpoint": "travertine",
+      "versions": [
+        {
+          "version": "1.17",
+          "build": "191"
+        },
+        {
+          "version": "1.16",
+          "build": "191"
+        },
+        {
+          "version": "1.15",
+          "build": "144"
+        },
+        {
+          "version": "1.14",
+          "build": "112"
+        },
+        {
+          "version": "1.13",
+          "build": "93"
+        },
+        {
+          "version": "1.12",
+          "build": "44"
+        }
+      ],
+      cache: null
+  }
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-  // init layout first for ordering
-  for (const i in versions) {
+document.addEventListener('DOMContentLoaded', async () => {
+  let tabs = "", tabContents = "";
 
-    let div = document.createElement('div');
-    div.innerHTML = `<div class="row">
-    <div class="col s12 l3">
-      <i class="material-icons benefit-icon">assignment_late</i>
-    </div>
-    <p></p>
-    <div class="col s12 l9">
-      <h4>${versions[i]}</h4>
-      <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
-      <a id="${versions[i]}" href="https://papermc.io/api/v1/paper/${versions[i]}/latest/download" class="waves-effect waves-light btn light-blue darken-2">
-        Download Anyway</a>
-    </div>
-  </div>`;
+  for (const id in downloads) {
+    const title = downloads[id].title;
+    tabs += `<li class="tab"><a href="#${id}">${title}</a></li>`;
 
-    document.getElementById("content").appendChild(div);
+    tabContents += `
+    <div id="${id}" class="col s12">
+      <div class="download-content">
+        <div class="download-desc">${downloads[id].desc}</div>
+        <div class="progress">
+          <div class="indeterminate"></div>
+        </div>
+      </div>
+    </div>`;
+  }
 
-    // update with edge-cached URL
-    fetch(`/api/v2/projects/paper/versions/${versions[i]}`).then(r => r.json()).then(data => {
-      const build = data.builds[data.builds.length - 1];
-      document.getElementById(versions[i]).setAttribute("href", `https://papermc.io/api/v2/projects/paper/versions/${data.version}/builds/${build}/downloads/paper-${data.version}-${build}.jar`);
-    }).catch((e) => {
-      console.error(e);
-    });
+  document.getElementById("content").innerHTML = `<div class="col s12">
+    <ul id="legacy-tabs" class="tabs">
+      ${tabs}
+    </ul>
+  </div>
+  ${tabContents}`;
+
+  M.Tabs.init(document.querySelector("#legacy-tabs"), {
+    onShow: (e) => {
+        history.pushState(null, null, '#' + e.getAttribute('id'));
+    }
+  });
+
+  for (const id in downloads) {
+    let container = document.getElementById(id).querySelector(".download-content");
+    let rows = "";
+
+    for (const version of downloads[id].versions) {
+      let json = await apiFetch(downloads[id].api_endpoint, version.version, version.build)
+      downloads[id].cache = json;
+
+      try {
+        rows += await load(id, version.version, version.build)
+      } catch (e) {
+        console.error(e);
+        document.getElementById(id).innerText = "Failed to load downloads.";
+      }
+    }
+
+    container.innerHTML = `<div class="download-desc">${downloads[id].desc}</div>
+    ${rows}`;
   }
 });
+
+async function apiFetch(project, version, build) {
+  return window.fetch(`/api/v2/projects/${project}/versions/${version}/builds/${build}`).then((response) => {
+      if (response.status >= 400) {
+          return null;
+      }
+
+      return response.json();
+  });
+}
+
+async function load(id, version, build) {
+  const container = document.getElementById(id).querySelector(".download-content");
+
+  const json = downloads[id].cache;
+  if (json == null) {
+      container.innerText = "Failed to load downloads.";
+      return;
+  }
+
+  if (!json.downloads && !json.downloads.application) {
+    return `<div class="row">
+      <div class="col s12 l3">
+        <i class="material-icons benefit-icon">assignment_late</i>
+      </div>
+      <p></p>
+      <div class="col s12 l9">
+        <h4>${version}</h4>
+        <p>Failed to retrieve information for this legacy download. Please try again later.</p>
+      </div>
+    </div>`;
+  } else {
+    return `<div class="row">
+      <div class="col s12 l3">
+        <i class="material-icons benefit-icon">assignment_late</i>
+      </div>
+      <p></p>
+      <div class="col s12 l9">
+        <h4>${version}</h4>
+        <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
+        <a id="${id}-${version}-${build}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${version}/builds/${build}/downloads/${json.downloads.application.name}" class="waves-effect waves-light btn light-blue darken-2">Download Anyway</a>
+      </div>
+    </div>`;
+  }
+}

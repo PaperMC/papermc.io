@@ -1,0 +1,17 @@
+#legacy-tabs {
+    display: flex;
+  
+    .tab {
+      flex-grow: 1;
+    }
+}
+
+.download-desc {
+    padding: 10px;
+}
+
+i.benefit-icon {
+    text-align: center;
+    display: block;
+    font-size: 10rem;
+}
