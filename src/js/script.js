@@ -1,6 +1,6 @@
 var consentRevoked = false, hasLoaded = false;
 Element.prototype.goTo = function() {
-  window.scroll({ 
+  window.scroll({
     top: this.offsetTop - (document.innerWidth > 601 ? 64 : 56),
     left: 0,
     behavior: 'smooth'
@@ -9,7 +9,7 @@ Element.prototype.goTo = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   sidenav = M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
-  
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){
       if (!hasLoaded || !consentRevoked) {
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
           hasLoaded = true;
       }
   }
-  if (cookieconsent != null) {
-	  cookieconsent.initialise({
+  if (window.cookieconsent) {
+      window.cookieconsent.initialise({
 		  container: document.body.getElementsByTagName("main")[0],
 		  "palette": {
 			  "popup": {
