@@ -1,11 +1,19 @@
 const downloads = {
+    "Paper-1.17": {
+        "title": "Paper 1.17",
+        "api_endpoint": "paper",
+        "api_version": "1.17",
+        "github": "PaperMC/Paper",
+        "desc": "Test builds for 1.17. <b>Use with extreme caution! Backups are mandatory.</b>",
+        "limit": 10,
+        "cache": null,
+    },
     "Paper-1.16": {
         "title": "Paper 1.16.5",
         "api_endpoint": "paper",
         "api_version": "1.16",
-        "jenkins": "Paper-1.16",
         "github": "PaperMC/Paper",
-        "desc": "Active development for the current Minecraft version.",
+        "desc": "Support branch for 1.16.",
         "limit": 10,
         "cache": null,
     },
@@ -146,11 +154,11 @@ function load(id) {
             `;
 
     if (json.builds.length > downloads[id].limit) {
-        container.innerHTML += `<a class="jenkins-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
+        container.innerHTML += `<a class="wide-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
     }
 
-    if (downloads[id].api_endpoint == "paper") {
-        container.innerHTML += `<a class="jenkins-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
+    if (downloads[id].api_endpoint === "paper") {
+        container.innerHTML += `<a class="wide-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
     }
 }
 
