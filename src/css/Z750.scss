@@ -1,0 +1,40 @@
+p {
+  font-size: 1.2rem;
+}
+
+.content {
+  width: 50rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.label {
+  color: gray;
+}
+
+.time {
+  font-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .label {
+    color: dimgray;
+  }
+}
+
+.sep {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 85%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sep {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
