@@ -4,7 +4,7 @@ const downloads = {
         "api_endpoint": "paper",
         "api_version": "1.17",
         "github": "PaperMC/Paper",
-        "desc": "Early builds for 1.17. Should be safe to use, but there may still have issues and bugs.",
+        "desc": "Early builds for 1.17. Should be safe to use, but they may still have issues and bugs.",
         "limit": 10,
         "cache": null,
     },
