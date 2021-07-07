@@ -1,10 +1,10 @@
 const downloads = {
     "Paper-1.17": {
-        "title": "Paper 1.17",
+        "title": "Paper 1.17.1",
         "api_endpoint": "paper",
         "api_version": "1.17",
         "github": "PaperMC/Paper",
-        "desc": "Early builds for 1.17. Should be safe to use, but they may still have issues and bugs.",
+        "desc": "Active development for the current Minecraft version.",
         "limit": 10,
         "cache": null,
     },
