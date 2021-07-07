@@ -45,12 +45,9 @@ const downloads = {
       "api_endpoint": "travertine",
       "versions": [
         {
-          "version": "1.17",
-          "build": "191"
-        },
-        {
           "version": "1.16",
-          "build": "191"
+          "build": "191",
+          "name": "1.16-1.17"
         },
         {
           "version": "1.15",
@@ -113,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       downloads[id].cache = json;
 
       try {
-        rows += await load(id, version.version, version.build)
+        rows += await load(id, version.version, version.build, version.name)
       } catch (e) {
         console.error(e);
         document.getElementById(id).innerText = "Failed to load downloads.";
@@ -135,7 +132,7 @@ async function apiFetch(project, version, build) {
   });
 }
 
-async function load(id, version, build) {
+async function load(id, version, build, name) {
   const container = document.getElementById(id).querySelector(".download-content");
 
   const json = downloads[id].cache;
@@ -151,7 +148,7 @@ async function load(id, version, build) {
       </div>
       <p></p>
       <div class="col s12 l9">
-        <h4>${version}</h4>
+        <h4>${name ? name : version}</h4>
         <p>Failed to retrieve information for this legacy download. Please try again later.</p>
       </div>
     </div>`;
@@ -162,7 +159,7 @@ async function load(id, version, build) {
       </div>
       <p></p>
       <div class="col s12 l9">
-        <h4>${version}</h4>
+        <h4>${name ? name : version}</h4>
         <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
         <a id="${id}-${version}-${build}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${version}/builds/${build}/downloads/${json.downloads.application.name}" class="waves-effect waves-light btn light-blue darken-2">Download Anyway</a>
       </div>
