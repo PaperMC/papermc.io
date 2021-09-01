@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const {ocData, ghData} = await (await fetch("https://raw.githubusercontent.com/PaperMC/papermc.io/data/sponsors.json")).json();
+    const data = await fetch("https://raw.githubusercontent.com/PaperMC/papermc.io/data/sponsors.json");
+    const {ocData, ghData} = await data.json();
     const list = document.getElementById("sponsor-list");
 
     ocData.collective.contributors.nodes.forEach(node => {

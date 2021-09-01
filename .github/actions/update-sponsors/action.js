@@ -5,10 +5,39 @@ const axios = require('axios');
 main();
 
 async function main() {
+    const root = '/home/runner/work/papermc.io/papermc.io/work/';
     const [ocData, ghData] = await Promise.all([opencollective(), github()]);
     console.log(`Found ${ocData.collective.contributors.totalCount} OC Sponsors and ${ghData.organization.sponsors.totalCount} GH Sponsors`);
-    fs.writeFileSync('/home/runner/work/papermc.io/papermc.io/work/sponsors.json', JSON.stringify({ocData, ghData}));
+    fs.writeFileSync(root + 'sponsors.json', JSON.stringify({ocData, ghData}));
+
+    let listEntries = "";
+    let count = 0;
+    ocData.collective.contributors.nodes.forEach(node => {
+        listEntries += createListEntry(node.name, node.image);
+        count++;
+    });
+    ghData.organization.sponsors.nodes.forEach(node => {
+        listEntries += createListEntry(node.login, node.avatarUrl.replace("&v=4", ""));
+        count++;
+    });
+
+    const height = Math.ceil(count / 6.0) * 80 + 32
+    const svg = `<svg width="500" height="${height}" xmlns="http://www.w3.org/2000/svg">
+        <foreignObject width="500" height="${height}">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <ul>
+                    ${listEntries}
+                </ul>
+            </div>
+        </foreignObject>
+    </svg>`;
+    fs.writeFileSync(root + 'sponsors.svg', svg);
+
     console.log('Saved');
+}
+
+function createListEntry(name, image) {
+    return `<li style="display: inline"><img src='${image}' alt='${name}' title='${name}' onerror='this.src="https://opencollective.com/static/images/default-guest-logo.svg"' style="height: 64px;width: 64px;margin: 5px;border-radius: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);"/></li>`;
 }
 
 async function opencollective() {
@@ -54,7 +83,7 @@ async function github() {
         }
     }`;
     const apiKey = core.getInput("repo-token", {required: true});
-    const result = await graphQL('https://api.github.com/graphql', query, 'Bearer ' + apiKey); // dummy account with no perms
+    const result = await graphQL('https://api.github.com/graphql', query, 'Bearer ' + apiKey);
     return result.data;
 }
 
