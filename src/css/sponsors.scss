@@ -1,0 +1,47 @@
+main {
+  display: contents;
+}
+main > .container {
+  margin-bottom: 2.8rem;
+}
+#opencollective-container {
+  background: url('../images/guideline-background.svg') repeat;
+  background-color: #12a138;
+  background-size: 150px;
+}
+#githubsponsors-container {
+  background: url('../images/guideline-background.svg') repeat;
+  background-color: #1274a1;
+  background-size: 150px;
+}
+#list-container {
+  background: url('../images/guideline-background.svg') repeat;
+  background-color: #a18412;
+  background-size: 150px;
+}
+.community-platform {
+  width: 100%;
+  padding: 5rem 0;
+  color: white;
+
+  h1, .row {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .col .icon-large {
+    font-size: 9rem;
+    text-align: center;
+    display: block;
+  }
+}
+#sponsor-list {
+  li {
+    display: inline;
+  }
+  img {
+    height: 64px;
+    width: 64px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+}

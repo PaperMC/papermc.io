@@ -1,0 +1,11 @@
+name: Update Sponsors
+description: Updates the Sponsors
+author: MiniDigger
+inputs:
+  repo-token:
+    description: The GITHUB_TOKEN secret
+    required: true
+
+runs:
+  using: node12
+  main: action.js

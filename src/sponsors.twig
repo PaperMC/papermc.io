@@ -1,0 +1,73 @@
+<!doctype html>
+{% extends 'partial/layout.twig' %}
+{% set page = 'sponsors' %}
+{% set title = 'Sponsors – PaperMC' %}
+{% block styles %}
+  <link type="text/css" rel="stylesheet" href="{{ urls['css/sponsors.css'] }}" media="screen, projection"/>
+{% endblock %}
+{% block content %}
+  {# Main Scrollable Content #}
+  <main>
+    {# Intro #}
+    <div class="container">
+      <h1>Support Us</h1>
+      <span>First of all, thank you for considering helping out, we really appreciate that!</span>
+    </div>
+
+	<div class="container">
+	  {# Open Collective #}
+	  <div id="opencollective-container" class="community-platform valign-table">
+	    <div class="row container">
+          <div class="col l2 s12">
+		    <i class="material-icons icon-large">savings</i>
+          </div>
+          <div class="col l10 s12">
+            <h1>Open Collective</h1>
+			<p>
+              PaperMC has various recurring expenses, mostly related to infrastructure. Paper uses <a href="https://opencollective.com/">Open Collective</a>  via the <a href="https://opencollective.com/opensource">Open Source Collective fiscal host</a> to manage expenses.
+              Open Collective allows us to be extremely transparent, so you can always see how your donations are used.<br><br>
+			  <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="https://opencollective.com/papermc"><i class="material-icons left">gavel</i>PaperMC Open Collective</a>
+			</p>
+		  </div>
+	    </div>
+	  </div>
+      {# Forum #}
+      <div id="githubsponsors-container" class="community-platform valign-table">
+        <div class="row container">
+          <div class="col l2 s12">
+            <i class="material-icons icon-large">request_page</i>
+          </div>
+          <div class="col l10 s12">
+            <h1>Github Sponsors</h1>
+            <p>
+              Additionally, you can also dontate via GitHub Sponsors, which will also go towards our Open Collective.
+              <br><br>
+              <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" href="https://github.com/sponsors/PaperMC"><i class="material-icons left">forum</i>PaperMC Github Sponsors Profile</a>
+            </p>
+          </div>
+        </div>
+      </div>
+        {# List #}
+        <div id="list-container" class="community-platform valign-table">
+            <div class="row container">
+                <div class="col l2 s12">
+                    <i class="material-icons icon-large">people</i>
+                </div>
+                <div class="col l10 s12">
+                    <h1>Our Sponsors</h1>
+                    <p>
+                        Our current balance is <span id="oc-balance">$--.--</span>, our estimated expenses are <span id="oc-spending">$--.--</span> per month.
+                        <ul id="sponsor-list">
+
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+{% endblock %}
+{% block footer %}
+  {# JS #}
+  <script type="text/javascript" src="{{ urls['js/sponsors.js'] }}"></script>
+{% endblock %}

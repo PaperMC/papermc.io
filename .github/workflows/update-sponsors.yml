@@ -1,0 +1,32 @@
+name: Update Sponsors
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  update-sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout data branch
+        uses: actions/checkout@v2
+        with:
+          ref: data
+          path: work
+      - name: Yarn
+        run: (cd ./.github/actions/update-sponsors && yarn)
+      - name: Update
+        uses: ./.github/actions/update-sponsors
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: sponsors.json
+          author_name: Automated
+          author_email: automated@papermc.io
+          branch: data
+          message: Sponsor Update
+          cwd: './work/'
