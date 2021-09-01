@@ -1,0 +1,13 @@
+{
+  "name": "update-sponsors",
+  "version": "1.0.0",
+  "description": "Updates the sponsors",
+  "main": "action.js",
+  "author": "MiniDigger",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "axios": "^0.21.1"
+  }
+}
