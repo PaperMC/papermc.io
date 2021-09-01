@@ -1,11 +1,15 @@
 const core = require('@actions/core');
 const fs = require('fs');
 const axios = require('axios');
+const puppeteer = require('puppeteer');
+
+const local = false;
+const localKey = '';
+const root = local ? '' : '/home/runner/work/papermc.io/papermc.io/work/';
 
 main();
 
 async function main() {
-    const root = '/home/runner/work/papermc.io/papermc.io/work/';
     const [ocData, ghData] = await Promise.all([opencollective(), github()]);
     console.log(`Found ${ocData.collective.contributors.totalCount} OC Sponsors and ${ghData.organization.sponsors.totalCount} GH Sponsors`);
     fs.writeFileSync(root + 'sponsors.json', JSON.stringify({ocData, ghData}));
@@ -21,17 +25,22 @@ async function main() {
         count++;
     });
 
-    const height = Math.ceil(count / 6.0) * 80 + 32
-    const svg = `<svg width="500" height="${height}" xmlns="http://www.w3.org/2000/svg">
-        <foreignObject width="500" height="${height}">
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <ul>
-                    ${listEntries}
-                </ul>
-            </div>
-        </foreignObject>
-    </svg>`;
-    fs.writeFileSync(root + 'sponsors.svg', svg);
+    const height = Math.ceil(count / 6.0) * 80;
+    const width = 500;
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const page = await browser.newPage();
+    const html = `<html lang="en" style="height: ${height}px;width: ${width}px">
+    <body>
+    <ul style="margin: 0;padding: 0;list-style: none;">
+        ${listEntries}
+    </ul>
+    </body>
+    </html>
+    `;
+    fs.writeFileSync(root + 'sponsors.html', html);
+    await page.setContent(html);
+    await page.screenshot({path: root + 'sponsors.png', omitBackground: true, clip: {x: 0, y: 0, height, width}});
+    await browser.close();
 
     console.log('Saved');
 }
@@ -82,8 +91,8 @@ async function github() {
             }
         }
     }`;
-    const apiKey = core.getInput("repo-token", {required: true});
-    const result = await graphQL('https://api.github.com/graphql', query, 'Bearer ' + apiKey);
+    const apiKey = core.getInput("repo-token", {required: !local});
+    const result = await graphQL('https://api.github.com/graphql', query, 'Bearer ' + (local ? localKey : apiKey));
     return result.data;
 }
 
@@ -94,6 +103,6 @@ async function graphQL(url, query, auth) {
             'Accept': 'application/json',
             'Authorization': auth ? auth : ''
         }
-    });
+    }).catch(e => console.log(`query to ${url} failed: ${e.response.status}, ${e.response ? JSON.stringify(e.response.data) : null}`,));
     return result.data;
 }
