@@ -118,7 +118,7 @@ function load(id) {
         }
 
         rows += `<tr>
-              <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${downloads[id].api_endpoint}-${build.version}-${build.build}.jar"
+              <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
               class="btn waves-light waves-effect grey darken-4">
               #${build.build}<i class="material-icons left">cloud_download</i>
               </a></td>
