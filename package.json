@@ -10,14 +10,17 @@
     "dev": "node node_modules/gulp/bin/gulp.js dev"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.5",
-    "gulp": "^4.0.0",
+    "browser-sync": "^2.27.5",
+    "gulp": "^4.0.2",
     "gulp-buster": "^1.1.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-terser": "^1.1.5",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-terser": "^2.1.0",
     "gulp-twig": "^1.2.0",
-    "http-proxy-middleware": "^0.19.1"
+    "http-proxy-middleware": "^2.0.1"
+  },
+  "dependencies": {
+    "sass": "^1.42.1"
   }
 }
