@@ -16,7 +16,7 @@ async function main() {
 
     let listEntries = "";
     let count = 0;
-    ocData.collective.contributors.nodes.forEach(node => {
+    ocData.collective.contributors.nodes.filter(node => node.name !== "Github Sponsors").forEach(node => {
         listEntries += createListEntry(node.name, node.image);
         count++;
     });
