@@ -3,12 +3,13 @@ const path = require('path');
 const browserSync = require('browser-sync').create();
 const gulp = require('gulp');
 const gulp_htmlmin = require('gulp-htmlmin');
-const gulp_sass = require('gulp-sass');
+const gulp_sass = require('gulp-sass')(require('sass'));
 const gulp_terser = require('gulp-terser');
 const gulp_twig = require('gulp-twig');
 const gulp_buster = require('gulp-buster');
 const gulp_rename = require('gulp-rename');
 const proxyMiddleware = require('http-proxy-middleware');
+const {createProxyMiddleware} = require("http-proxy-middleware");
 
 gulp.task('sass', () => {
   return gulp
@@ -33,12 +34,12 @@ gulp.task('copy js', () => {
 
 gulp.task('copy images', () => {
   return gulp.src('src/images/*').pipe(gulp.dest('dist/images'))
-  .pipe(browserSync.stream());
+    .pipe(browserSync.stream());
 });
 
 gulp.task('copy favicons', () => {
   return gulp.src('src/favicons/*').pipe(gulp.dest('dist/favicons'))
-  .pipe(browserSync.stream());
+    .pipe(browserSync.stream());
 });
 
 gulp.task('copy primary favicon', () => {
@@ -107,8 +108,8 @@ gulp.task('dev', gulp.parallel(gulp.series('quickBuild', () => {
       serveStaticOptions: {
         extensions: ['html']
       },
-      middleware: [proxyMiddleware(['/ci', '/api'], {
-        target: 'https://papermc.io/',
+      middleware: [createProxyMiddleware(['/api'], {
+        target: 'https://papermc.io',
         secure: false,
         changeOrigin: true
       })]
