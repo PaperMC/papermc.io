@@ -2,20 +2,28 @@ main {
   display: contents;
 }
 main > .container {
-  margin-bottom: 2.8rem;
+  margin-bottom: 1.8rem;
+}
+.col.l3 {
+  padding: 30px 20px;
+}
+i.benefit-icon {
+  text-align: center;
+  display: block;
+  font-size: 8rem;
 }
 #opencollective-container {
-  background: url('../images/guideline-background.svg') repeat;
+  background: url('../images/opencollective-background.svg') repeat;
   background-color: #12a138;
   background-size: 150px;
 }
 #githubsponsors-container {
-  background: url('../images/guideline-background.svg') repeat;
+  background: url('../images/githubsponsors-background.svg') repeat;
   background-color: #1274a1;
   background-size: 150px;
 }
 #list-container {
-  background: url('../images/guideline-background.svg') repeat;
+  background: url('../images/sponsorlist-background.svg') repeat;
   background-color: #a18412;
   background-size: 150px;
 }
