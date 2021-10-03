@@ -27,6 +27,7 @@ i.benefit-icon {
   background-size: cover;
   padding: 4rem 0;
   text-align: center;
+  text-shadow: 1px 1px 5px black;
 }
 .jumbotron h1 {
   margin: 1.5rem 0;
@@ -46,4 +47,7 @@ i.benefit-icon {
   #section-why a.btn {
     display: block;
   }
+  #section-why .btn {
+    margin-bottom: 1em;
+  } 
 }
