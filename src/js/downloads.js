@@ -119,7 +119,7 @@ function load(id) {
 
         rows += `<tr>
               <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
-              class="btn waves-light waves-effect grey darken-4">
+              class="waves-effect waves-light btn light-blue darken-2">
               #${build.build}<i class="material-icons left">cloud_download</i>
               </a></td>
               <td data-build-id="${build.build}">${changes}</td>
@@ -129,7 +129,7 @@ function load(id) {
 
     container.innerHTML = `
           <div class="download-desc">${downloads[id].desc}</div>
-            <table class="builds-table">
+            <table class="builds-table striped">
               <thead>
                 <tr>
                   <th width="14%">Build</th>
@@ -145,7 +145,7 @@ function load(id) {
             `;
 
     if (json.builds.length > downloads[id].limit) {
-        container.innerHTML += `<a class="wide-btn btn light-blue darken-2 waves-effect waves-light" onclick="loadMore('${id}')">More</a><br>`;
+        container.innerHTML += `<a class="wide-btn btn light-blue darken-2 waves-effect waves-light white-text" onclick="loadMore('${id}')">More</a><br>`;
     }
 
     if (downloads[id].api_endpoint === "paper") {
