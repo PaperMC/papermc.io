@@ -8,15 +8,6 @@ const downloads = {
         "limit": 10,
         "cache": null,
     },
-    "Paper-1.16": {
-        "title": "Paper 1.16.5",
-        "api_endpoint": "paper",
-        "api_version": "1.16",
-        "github": "PaperMC/Paper",
-        "desc": "Support branch for 1.16.",
-        "limit": 10,
-        "cache": null,
-    },
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",

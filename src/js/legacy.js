@@ -5,6 +5,10 @@ const downloads = {
       "api_endpoint": "paper",
       "versions": [
         {
+          "version": "1.16.5",
+          "build": "790"
+        },
+        {
           "version": "1.15.2",
           "build": "391"
         },
