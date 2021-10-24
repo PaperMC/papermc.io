@@ -11,12 +11,13 @@ main();
 
 async function main() {
     const [ocData, ghData] = await Promise.all([opencollective(), github()]);
+    cleanData(ocData, ghData);
     console.log(`Found ${ocData.collective.contributors.totalCount} OC Sponsors and ${ghData.organization.sponsors.totalCount} GH Sponsors`);
     fs.writeFileSync(root + 'sponsors.json', JSON.stringify({ocData, ghData}));
 
     let listEntries = "";
     let count = 0;
-    ocData.collective.contributors.nodes.filter(node => node.name !== "Github Sponsors").forEach(node => {
+    ocData.collective.contributors.nodes.forEach(node => {
         listEntries += createListEntry(node.name, node.image);
         count++;
     });
@@ -43,6 +44,13 @@ async function main() {
     await browser.close();
 
     console.log('Saved');
+}
+
+function cleanData(ocData, ghData) {
+    ocData.collective.contributors.nodes = ocData.collective.contributors.nodes.filter(node => node.name !== "Github Sponsors");
+
+    ghLogins = ghData.organization.sponsors.nodes.map(node => node.login);
+    ocData.collective.contributors.nodes = ocData.collective.contributors.nodes.filter(node => !ghLogins.includes(node.name));
 }
 
 function createListEntry(name, image) {
