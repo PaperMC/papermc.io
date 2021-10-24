@@ -21,8 +21,7 @@ main > .container {
   }
   .main {
     height: 370px;
-    background: url('../images/discord-background.svg') repeat;
-    background-color: #6881D8;
+    background: #6881D8 url('../images/discord-background.svg') repeat;
     background-size: 150px;
     display: flex;
   }
@@ -31,8 +30,7 @@ main > .container {
   width: 100%;
   padding: 5rem 0;
   height: 0px; // fix PaperMC/papermc.io#12
-  background: url('../images/forum-background.svg') repeat;
-  background-color: #E08E1D;
+  background: #E08E1D url('../images/forum-background.svg') repeat;
   background-size: 150px;
   color: white;
   
@@ -50,8 +48,7 @@ main > .container {
   width: 100%;
   padding: 5rem 0;
   height: 0px; // fix PaperMC/papermc.io#12
-  background: url('../images/guideline-background.svg') repeat;
-  background-color: #12a138;
+  background: #12a138 url('../images/guideline-background.svg') repeat;
   background-size: 150px;
   color: white;
   
@@ -69,8 +66,7 @@ main > .container {
   width: 100%;
   padding: 5rem 0;
   height: 0px;
-  background: url('../images/irc-background.svg') repeat;
-  background-color: #951717;
+  background: #951717 url('../images/irc-background.svg') repeat;
   background-size: 150px;
   color: white;
   
