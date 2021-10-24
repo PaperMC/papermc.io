@@ -10,7 +10,7 @@ const root = local ? '' : '/home/runner/work/papermc.io/papermc.io/work/';
 main();
 
 async function main() {
-    let [ocData, ghData] = await Promise.all([opencollective(), github()]);
+    const [ocData, ghData] = await Promise.all([opencollective(), github()]);
 
     ocData.collective.contributors.nodes = ocData.collective.contributors.nodes
         .filter(node => node.name !== "Github Sponsors");
