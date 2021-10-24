@@ -19,9 +19,10 @@
     flex-grow: 1;
   }
 }
-
-table.striped > tbody > tr:nth-child(2n+1) {
-  background-color: #1e2021;
+@media (prefers-color-scheme: dark) {
+  table.striped > tbody > tr:nth-child(2n+1) {
+    background-color: #1e2021;
+  }
 }
 
 @media only screen and (max-width: 601px) {
