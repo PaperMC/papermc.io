@@ -15,8 +15,7 @@
             <div class="col s12">
                 <ul id="snippet-tabs" class="tabs">
                     <li class="tab"><a class="active" href="#maven">Maven</a></li>
-                    <li class="tab"><a href="#groovygradle">Gradle (Groovy DSL)</a></li>
-                    <li class="tab"><a href="#kotlingradle">Gradle (Kotlin DSL)</a></li>
+                    <li class="tab"><a href="#gradle">Gradle (Kotlin DSL)</a></li>
                 </ul>
             </div>
             <div id="maven" class="col s12">
@@ -37,21 +36,7 @@
 &lt;/dependency&gt;</code></pre>
             </div>
 
-            <div id="groovygradle" class="col s12">
-                <h5>Repository</h3>
-                <p>Add this to your <code>build.gradle</code>:</p>
-                <pre><code class="groovy">repositories {
-    maven { url "https://papermc.io/repo/repository/maven-public/" }
-}</code></pre>
-
-                <h5>Dependency</h3>
-                <p>Then, add this:</p>
-                <pre><code class="groovy">dependencies {
-    compileOnly "io.papermc.paper:paper-api:<span class="latest-artifact-version"></span>"
-}</code></pre>
-            </div>
-
-            <div id="kotlingradle" class="col s12">
+            <div id="gradle" class="col s12">
                 <h5>Repository</h3>
                 <p>Add this to your <code>build.gradle.kts</code>:</p>
                 <pre><code class="kotlin">repositories {
@@ -62,6 +47,11 @@
                 <p>Then, add this:</p>
                 <pre><code class="kotlin">dependencies {
     compileOnly("io.papermc.paper:paper-api:<span class="latest-artifact-version"></span>")
+}</code></pre>
+                <h5>Toolchain</h3>
+                <p>Lastly, point the toolchain to Java 16:</p>
+                <pre><code class="kotlin">java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
 }</code></pre>
             </div>
         </div>
