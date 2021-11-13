@@ -8,6 +8,15 @@ const downloads = {
         "limit": 10,
         "cache": null,
     },
+    "Velocity": {
+        "title": "Velocity",
+        "api_endpoint": "paper",
+        "api_version": "1.17",
+        "github": "PaperMC/Velocity",
+        "desc": "Development builds for the modern, next-generation Minecraft server proxy Velocity. More info <a href='https://velocitypowered.com/'>here</a>.",
+        "limit": 10,
+        "cache": null,
+    },
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
