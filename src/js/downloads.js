@@ -115,6 +115,8 @@ function load(id) {
               </a></td>
               <td data-build-id="${build.build}">${changes}</td>
               <td>${new Date(build.time).toISOString().split('T')[0]}</td>
+              <td><a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" onclick="copy('${build.downloads.application.sha256}')" title="Click to copy the SHA256 of the jar, used to verify the integrity">
+              <i class="material-icons">content_copy</i></a></td>
             </tr>`;
     });
 
@@ -123,9 +125,10 @@ function load(id) {
             <table class="builds-table striped">
               <thead>
                 <tr>
-                  <th width="14%">Build</th>
-                  <th width="76%">Changes</th>
+                  <th width="10%">Build</th>
+                  <th width="75%">Changes</th>
                   <th width="10%">Date</th>
+                  <th width="5%" title="The SHA256 of the jar, used to verify the integrity">SHA256</th>
                 </tr>
               </thead>
 
@@ -151,4 +154,8 @@ function loadMore(id) {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+async function copy(string) {
+    await navigator.clipboard.writeText(string);
 }
