@@ -46,7 +46,26 @@ html nav .btn-flat:hover {
   background: rgba(255, 255, 255, .3) !important;
 }
 .page-footer {
-  padding-top: 0px;
+  padding: 0px;
+  vertical-align: middle;
+}
+.page-footer .row {
+  margin-bottom: 0px;
+}
+.page-footer img {
+  fill: #e8e6e3;
+  height: 24px;
+  padding: 0px 4px 6px 4px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.page-footer i {
+  margin-left: 10px;
+}
+@media only screen and (max-width: 601px) {
+  .page-footer .right-align, .page-footer .left-align {
+    text-align: center;
+  }
 }
 .btn.white:hover {
   background-color: #c5c5c5 !important;
@@ -56,9 +75,6 @@ html nav .btn-flat:hover {
 }
 .btn.light-blue.darken-2:hover {
   background-color: #0082ca !important;
-}
-.footer-copyright .copyright {
-  vertical-align: middle;
 }
 nav .brand-logo {
   margin-top: -4px;
