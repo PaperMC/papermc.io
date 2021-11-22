@@ -11,7 +11,7 @@ const downloads = {
     "Waterfall": {
         "title": "Waterfall",
         "api_endpoint": "waterfall",
-        "api_version": "1.17",
+        "api_version": "1.18",
         "github": "PaperMC/Waterfall",
         "desc": "Our fork of the BungeeCord software, with improved Forge support and more features.",
         "limit": 10,
