@@ -22,6 +22,7 @@ async function main() {
     } else {
         ocData.collective.contributors.nodes = ocData.collective.contributors.nodes
             .filter(node => node.name !== "GitHub Sponsors");
+        ocData.collective.contributors.nodes.sort((a, b) => b.totalAmountDonated - a.totalAmountDonated);
         ocData.collective.contributors.nodes.forEach(node => {
             listEntries += createListEntry(node.name, node.image);
             count++;
@@ -36,6 +37,7 @@ async function main() {
     } else {
         ghData.organization.sponsors.nodes = ghData.organization.sponsors.nodes
             .filter(node => !ocData.collective.contributors.nodes.some(e => e.name === node.login));
+        // TODO figure out how to sort gh sponsors by total amount donated. The api is stupid.
         ghData.organization.sponsors.nodes.forEach(node => {
             listEntries += createListEntry(node.login, node.avatarUrl.replace("&v=4", ""));
             count++;
@@ -89,6 +91,7 @@ async function opencollective() {
                 nodes {
                     name
                     image
+                    totalAmountDonated
                 }
             }
         }
