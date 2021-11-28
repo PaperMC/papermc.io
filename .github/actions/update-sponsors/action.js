@@ -10,26 +10,41 @@ const root = local ? '' : '/home/runner/work/papermc.io/papermc.io/work/';
 main();
 
 async function main() {
-    const [ocData, ghData] = await Promise.all([opencollective(), github()]);
-
-    ocData.collective.contributors.nodes = ocData.collective.contributors.nodes
-        .filter(node => node.name !== "Github Sponsors");
-    ghData.organization.sponsors.nodes = ghData.organization.sponsors.nodes
-        .filter(node => !ocData.collective.contributors.nodes.some(e => e.name === node.login));
-
-    console.log(`Found ${ocData.collective.contributors.totalCount} OC Sponsors and ${ghData.organization.sponsors.totalCount} GH Sponsors`);
-    fs.writeFileSync(root + 'sponsors.json', JSON.stringify({ocData, ghData}));
+    const [ocData, ghData] = await Promise.all([opencollective(), github()].map(p => p.catch(e => e)));
 
     let listEntries = "";
     let count = 0;
-    ocData.collective.contributors.nodes.forEach(node => {
-        listEntries += createListEntry(node.name, node.image);
-        count++;
-    });
-    ghData.organization.sponsors.nodes.forEach(node => {
-        listEntries += createListEntry(node.login, node.avatarUrl.replace("&v=4", ""));
-        count++;
-    });
+
+    let ocCount;
+    if (ocData instanceof Error) {
+        console.log("OC Error!", ocData);
+        ocCount = -1;
+    } else {
+        ocData.collective.contributors.nodes = ocData.collective.contributors.nodes
+            .filter(node => node.name !== "GitHub Sponsors");
+        ocData.collective.contributors.nodes.forEach(node => {
+            listEntries += createListEntry(node.name, node.image);
+            count++;
+        });
+        ocCount = ocData.collective.contributors.totalCount;
+    }
+
+    let ghCount;
+    if (ghData instanceof Error) {
+        console.log("GH Error!", ghData);
+        ghCount = -1;
+    } else {
+        ghData.organization.sponsors.nodes = ghData.organization.sponsors.nodes
+            .filter(node => !ocData.collective.contributors.nodes.some(e => e.name === node.login));
+        ghData.organization.sponsors.nodes.forEach(node => {
+            listEntries += createListEntry(node.login, node.avatarUrl.replace("&v=4", ""));
+            count++;
+        });
+        ghCount = ghData.organization.sponsors.totalCount;
+    }
+
+    console.log(`Found ${ocCount} OC Sponsors and ${ghCount} GH Sponsors`);
+    fs.writeFileSync(root + 'sponsors.json', JSON.stringify({ocData, ghData}));
 
     const height = Math.ceil(count / 6.0) * 80;
     const width = 500;
@@ -69,7 +84,7 @@ async function opencollective() {
                     valueInCents
                 }
             }
-            contributors(roles: BACKER) {
+            contributors(roles: BACKER, limit: 100) {
                 totalCount
                 nodes {
                     name
