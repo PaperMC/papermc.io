@@ -102,6 +102,7 @@ function load(id) {
         return;
     }
 
+    let promotedRows = "";
     let rows = "";
     const builds = json.builds.filter(build => build.downloads && build.downloads.application);
     let oldVersion;
@@ -126,9 +127,11 @@ function load(id) {
             </tr>`;
         }
 
-        rows += `<tr>
+        const download_color = build.promoted ? 'light-green' : 'light-blue';
+
+        const row = `<tr>
               <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
-              class="waves-effect waves-light btn light-blue darken-2">
+              class="waves-effect waves-light btn ${download_color} darken-2">
               #${build.build}<i class="material-icons left">cloud_download</i>
               </a></td>
               <td data-build-id="${build.build}">${changes}</td>
@@ -136,17 +139,39 @@ function load(id) {
               <td><a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" onclick="copy('${build.downloads.application.sha256}')" title="Click to copy the SHA256 of the jar, used to verify the integrity">
               <i class="material-icons">content_copy</i></a></td>
             </tr>`;
+
+        build.promoted
+            ? promotedRows += row
+            : rows += row;
     });
 
     container.innerHTML = `
-          <div class="download-desc">${downloads[id].desc}</div>
-            <table class="builds-table striped">
+            <div class="download-desc">${downloads[id].desc}</div>
+
+            <div class="builds-title">Promoted Builds</div>
+            <table class="builds-table striped" style="margin-bottom: 15px">
               <thead>
                 <tr>
                   <th width="10%">Build</th>
                   <th width="75%">Changes</th>
                   <th width="10%">Date</th>
                   <th width="5%" title="The SHA256 of the jar, used to verify the integrity">SHA256</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                ${promotedRows}
+              </tbody>
+            </table>
+
+            <div class="builds-title" style="padding-bottom: 5px">Other Builds</div>
+            <table class="builds-table striped">
+              <thead style="visibility: collapse">
+                <tr>
+                  <th width="10%"></th>
+                  <th width="75%"></th>
+                  <th width="10%"></th>
+                  <th width="5%"></th>
                 </tr>
               </thead>
 
