@@ -109,7 +109,11 @@ function load(id) {
     builds.sort((a, b) => b.build - a.build).slice(0, downloads[id].limit).forEach((build) => {
         let changes = "";
         build.changes.forEach((item) => {
-            changes += `<span class="commit-hash">[<a title="${escapeHTML(item.summary)}" href="https://github.com/${githubID}/commit/${item.commit}" target="_blank">${escapeHTML(item.commit.substring(0, 7))}</a>]</span> ${escapeHTML(item.summary).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}<br>`;
+            changes += `<span class="commit-hash">
+                            [<a title="${escapeHTML(item.summary)}" href="https://github.com/${githubID}/commit/${item.commit}" target="_blank">${escapeHTML(item.commit.substring(0, 7))}</a>]
+                        </span>
+                        ${escapeHTML(item.summary).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}
+                        <br>`;
         });
 
         if (!changes) {
@@ -123,22 +127,31 @@ function load(id) {
         if (oldVersion !== build.version) {
             oldVersion = build.version;
             rows += `<tr>
-                <td colspan="3">${capitalizeFirstLetter(downloads[id].api_endpoint)} ${build.version}</td>
-            </tr>`;
+                        <td colspan="3">${capitalizeFirstLetter(downloads[id].api_endpoint)} ${build.version}</td>
+                     </tr>`;
         }
 
         const download_color = build.promoted ? 'light-green' : 'light-blue';
 
         const row = `<tr>
-              <td><a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
-              class="waves-effect waves-light btn ${download_color} darken-2">
-              #${build.build}<i class="material-icons left">cloud_download</i>
-              </a></td>
-              <td data-build-id="${build.build}">${changes}</td>
-              <td>${new Date(build.time).toISOString().split('T')[0]}</td>
-              <td><a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" onclick="copy('${build.downloads.application.sha256}')" title="Click to copy the SHA256 of the jar, used to verify the integrity">
-              <i class="material-icons">content_copy</i></a></td>
-            </tr>`;
+                        <td>
+                            <a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
+                                class="waves-effect waves-light btn ${download_color} darken-2" title="Version: ${build.version}">
+                                #${build.build}<i class="material-icons left">cloud_download</i>
+                            </a>
+                        </td>
+                        <td data-build-id="${build.build}">
+                            ${changes}
+                        </td>
+                        <td>
+                            ${new Date(build.time).toISOString().split('T')[0]}
+                        </td>
+                        <td>
+                            <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" onclick="copy('${build.downloads.application.sha256}')" title="Click to copy the SHA256 of the jar, used to verify the integrity">
+                                <i class="material-icons">content_copy</i>
+                            </a>
+                        </td>
+                     </tr>`;
 
         build.promoted
             ? promotedRows += row
