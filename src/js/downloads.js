@@ -158,6 +158,18 @@ function load(id) {
             : rows += row;
     });
 
+    const noBuilds = `<tr style="background-color: #181A1B">
+                            <td colspan="4">No builds.</td>
+                      </tr>`;
+
+    if (promotedRows === "") {
+        promotedRows = noBuilds;
+    }
+
+    if (rows === "") {
+        rows = noBuilds;
+    }
+
     container.innerHTML = `
             <div class="download-desc">${downloads[id].desc}</div>
 
