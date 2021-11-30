@@ -158,7 +158,7 @@ function load(id) {
             : rows += row;
     });
 
-    const noBuilds = `<tr style="background-color: #181A1B">
+    const noBuilds = `<tr class="no-builds-row">
                             <td colspan="4">No builds.</td>
                       </tr>`;
 
