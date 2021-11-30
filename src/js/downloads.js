@@ -131,7 +131,7 @@ function load(id) {
                      </tr>`;
         }
 
-        const download_color = build.promoted ? 'light-green' : 'light-blue';
+        const download_color = build.promoted === true ? 'light-green' : 'light-blue';
 
         const row = `<tr>
                         <td>
@@ -153,7 +153,7 @@ function load(id) {
                         </td>
                      </tr>`;
 
-        build.promoted
+        build.promoted === true
             ? promotedRows += row
             : rows += row;
     });
