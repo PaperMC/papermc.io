@@ -136,7 +136,7 @@ function load(id) {
         const row = `<tr>
                         <td>
                             <a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
-                                class="waves-effect waves-light btn ${download_color} darken-2" title="Version: ${build.version}">
+                                class="waves-effect waves-light btn ${download_color} darken-2" title="Version: ${build.version}\nChannel: ${capitalizeFirstLetter(build.channel)}">
                                 #${build.build}<i class="material-icons left">cloud_download</i>
                             </a>
                         </td>
