@@ -4,6 +4,13 @@
 .download-desc {
   padding: 10px;
 }
+.builds-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.no-builds-row {
+  background-color: #FFFFFF !important;
+}
 .wide-btn {
   display: block;
   margin: 0 auto;
@@ -22,6 +29,9 @@
 @media (prefers-color-scheme: dark) {
   table.striped > tbody > tr:nth-child(2n+1) {
     background-color: #1e2021;
+  }
+  .no-builds-row {
+    background-color: #181A1B !important;
   }
 }
 
