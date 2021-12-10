@@ -10,35 +10,43 @@ const downloads = {
         },
         {
           "version": "1.15.2",
-          "build": "391"
+          "build": "391",
+          "vulnerable": true
         },
         {
           "version": "1.14.4",
-          "build": "243"
+          "build": "243",
+          "vulnerable": true
         },
         {
           "version": "1.13.2",
-          "build": "655"
+          "build": "655",
+          "vulnerable": true
         },
         {
           "version": "1.12.2",
-          "build": "1618"
+          "build": "1618",
+          "vulnerable": true
         },
         {
           "version": "1.11.2",
-          "build": "1104"
+          "build": "1104",
+          "vulnerable": true
         },
         {
           "version": "1.10.2",
-          "build": "916"
+          "build": "916",
+          "vulnerable": true
         },
         {
           "version": "1.9.4",
-          "build": "773"
+          "build": "773",
+          "vulnerable": true
         },
         {
           "version": "1.8.8",
-          "build": "443"
+          "build": "443",
+          "vulnerable": true
         }
       ],
       cache: null
@@ -51,23 +59,28 @@ const downloads = {
         {
           "version": "1.16",
           "build": "191",
-          "name": "1.16-1.17"
+          "name": "1.16-1.17",
+          "vulnerable": true
         },
         {
           "version": "1.15",
-          "build": "144"
+          "build": "144",
+          "vulnerable": true
         },
         {
           "version": "1.14",
-          "build": "112"
+          "build": "112",
+          "vulnerable": true
         },
         {
           "version": "1.13",
-          "build": "93"
+          "build": "93",
+          "vulnerable": true
         },
         {
           "version": "1.12",
-          "build": "44"
+          "build": "44",
+          "vulnerable": true
         }
       ],
       cache: null
@@ -114,7 +127,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       downloads[id].cache = json;
 
       try {
-        rows += await load(id, version.version, version.build, version.name)
+        rows += await load(id, version.version, version.build, version.name, version.vulnerable)
       } catch (e) {
         console.error(e);
         document.getElementById(id).innerText = "Failed to load downloads.";
@@ -136,7 +149,7 @@ async function apiFetch(project, version, build) {
   });
 }
 
-async function load(id, version, build, name) {
+async function load(id, version, build, name, vulnerable) {
   const container = document.getElementById(id).querySelector(".download-content");
 
   const json = downloads[id].cache;
@@ -164,7 +177,7 @@ async function load(id, version, build, name) {
       <p></p>
       <div class="col s12 l9">
         <h4>${name ? name : version}</h4>
-        <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
+        <p>This build is purely for accessibility. <strong>${vulnerable ? "It contains known security issues! Do not use this on an internet-facing server! " : ""}By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
         <a id="${id}-${version}-${build}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${version}/builds/${build}/downloads/${json.downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
       </div>
     </div>`;
