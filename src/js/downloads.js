@@ -112,7 +112,7 @@ function load(id) {
             changes += `<span class="commit-hash">
                             [<a title="${escapeHTML(item.summary)}" href="https://github.com/${githubID}/commit/${item.commit}" target="_blank">${escapeHTML(item.commit.substring(0, 7))}</a>]
                         </span>
-                        ${escapeHTML(item.summary).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`)}
+                        ${escapeHTML(item.summary).replace(/([^&])#([0-9]+)/gm, `$1<a target="_blank" href="https://github.com/${githubID}/pull/$2">#$2</a>`)}
                         <br>`;
         });
 
