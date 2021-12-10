@@ -1,10 +1,10 @@
 const downloads = {
     "Paper-1.18": {
-        "title": "Paper 1.18",
+        "title": "Paper 1.18.1",
         "api_endpoint": "paper",
         "api_version": "1.18",
         "github": "PaperMC/Paper",
-        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.18. <b>Use with extreme caution! Backups are mandatory.</b></div>",
+        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.18/1.18.1. <b>Use with extreme caution! Backups are mandatory.</b></div>",
         "limit": 10,
         "cache": null,
     },
