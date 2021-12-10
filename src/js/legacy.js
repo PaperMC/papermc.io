@@ -177,7 +177,7 @@ async function load(id, version, build, name, vulnerable) {
       <p></p>
       <div class="col s12 l9">
         <h4>${name ? name : version}</h4>
-        <p>This build is purely for accessibility. <strong>${vulnerable ? "It contains known security issues! Do not use this on an internet-facing server! " : ""}By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
+        <p><strong>This build is purely for accessibility. ${vulnerable ? "<br><span class="red">It contains known security issues! Do not use this on an internet-facing server!</span><br>" : ""}By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
         <a id="${id}-${version}-${build}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${version}/builds/${build}/downloads/${json.downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
       </div>
     </div>`;
