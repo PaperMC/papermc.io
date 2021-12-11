@@ -4,7 +4,7 @@ const downloads = {
         "api_endpoint": "paper",
         "api_version": "1.18",
         "github": "PaperMC/Paper",
-        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.18.1. <b>Use with extreme caution! Backups are mandatory.</b></div>",
+        "desc": "<div class='orange center-align' style='border-radius: 100px; font-size: 1.5em;'>Early builds for 1.18.1. <b>Use with caution! Backups are still recommended.</b></div>",
         "limit": 10,
         "cache": null,
     },
