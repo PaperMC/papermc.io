@@ -74,6 +74,67 @@ const downloads = {
   }
 };
 
+const submitButton = document.getElementById("submit-quiz");
+
+let timer = null;
+
+function setTimer(value) {
+    counterValue = value;
+    submitButton.textContent = "Invalid answers, try again in " + value + " seconds...";
+}
+
+function checkValue(id, value) {
+  const element = document.getElementById(id);
+  const elementValue = element.options[element.selectedIndex].value;
+
+  if (value === elementValue) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+submitButton.onclick = function() {
+  submitButton.disabled = true;
+  let failed = false;
+
+  if (! checkValue("quiz-1", "2")) {
+    failed = true;
+  }
+
+  if (! checkValue("quiz-2", "2")) {
+    failed = true;
+  }
+
+  if (! checkValue("quiz-3", "2")) {
+    failed = true;
+  }
+
+  if (! checkValue("quiz-4", "4")) {
+    failed = true;
+  }
+
+  if (failed) {
+    setTimer(5);
+    timer = setInterval(
+      function() {
+          if (counterValue > 1) {
+              setTimer(counterValue - 1);
+              submitButton.disabled = true;
+          } else {
+              setTimer(0);
+              submitButton.disabled = false;
+              submitButton.textContent = "Submit";
+          }
+      },
+      1000
+    );
+  } else {
+    document.getElementById("quiz").style.display = 'none';
+    document.getElementById("content").style.display = 'block';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   let tabs = "", tabContents = "";
 
