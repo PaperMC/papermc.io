@@ -98,13 +98,7 @@ submitButton.onclick = function() {
   submitButton.disabled = true;
   let failed = false;
 
-  if (! checkValue("quiz-1", "2")) {
-    failed = true;
-  } else if (! checkValue("quiz-2", "2")) {
-    failed = true;
-  } else if (! checkValue("quiz-3", "2")) {
-    failed = true;
-  } else if (! checkValue("quiz-4", "4")) {
+  if (!checkValue("quiz-1", "2") || !checkValue("quiz-2", "2") || !checkValue("quiz-3", "2") || !checkValue("quiz-4", "4")) {
     failed = true;
   }
 
