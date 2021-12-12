@@ -22,5 +22,12 @@ i.benefit-icon {
 
 label {
     font-size: 1.0em;
-    color: #e8e6e3;
+    color: rgba(0,0,0,.87);
+}
+
+@media (prefers-color-scheme: dark) {
+    label {
+        font-size: 1.0em;
+        color: #e8e6e3;
+    }
 }
