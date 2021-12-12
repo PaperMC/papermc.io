@@ -100,17 +100,11 @@ submitButton.onclick = function() {
 
   if (! checkValue("quiz-1", "2")) {
     failed = true;
-  }
-
-  if (! checkValue("quiz-2", "2")) {
+  } else if (! checkValue("quiz-2", "2")) {
     failed = true;
-  }
-
-  if (! checkValue("quiz-3", "2")) {
+  } else if (! checkValue("quiz-3", "2")) {
     failed = true;
-  }
-
-  if (! checkValue("quiz-4", "4")) {
+  } else if (! checkValue("quiz-4", "4")) {
     failed = true;
   }
 
