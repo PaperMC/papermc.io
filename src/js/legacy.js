@@ -7,41 +7,39 @@ const downloads = {
         {
           "version": "1.16.5",
           "build": "792"
+        },
+        {
+          "version": "1.15.2",
+          "build": "392"
+        },
+        {
+          "version": "1.14.4",
+          "build": "244"
+        },
+        {
+          "version": "1.13.2",
+          "build": "656"
+        },
+        {
+          "version": "1.12.2",
+          "build": "1619"
+        },
+        {
+          "version": "1.11.2",
+          "build": "1105"
+        },
+        {
+          "version": "1.10.2",
+          "build": "917"
+        },
+        {
+          "version": "1.9.4",
+          "build": "774"
+        },
+        {
+          "version": "1.8.8",
+          "build": "444"
         }
-        // Legacy downloads removed due to RCE exploit: CVE-2021-44228 
-        //,
-        // {
-        //   "version": "1.15.2",
-        //   "build": "391"
-        // },
-        // {
-        //   "version": "1.14.4",
-        //   "build": "243"
-        // },
-        // {
-        //   "version": "1.13.2",
-        //   "build": "655"
-        // },
-        // {
-        //   "version": "1.12.2",
-        //   "build": "1618"
-        // },
-        // {
-        //   "version": "1.11.2",
-        //   "build": "1104"
-        // },
-        // {
-        //   "version": "1.10.2",
-        //   "build": "916"
-        // },
-        // {
-        //   "version": "1.9.4",
-        //   "build": "773"
-        // },
-        // {
-        //   "version": "1.8.8",
-        //   "build": "443"
-        // }
       ],
       cache: null
   },
