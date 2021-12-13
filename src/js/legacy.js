@@ -77,11 +77,27 @@ const downloads = {
 const submitButton = document.getElementById("submit-quiz");
 
 let timer = null;
+let counterValue = 0;
+let timerSeconds = 0;
 
 function setTimer(value) {
     counterValue = value;
     submitButton.textContent = "Invalid answers, try again in " + value + " seconds...";
 }
+
+timer = setInterval(
+  function() {
+      if (counterValue > 1) {
+          setTimer(counterValue - 1);
+          submitButton.disabled = true;
+      } else {
+          setTimer(0);
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit";
+      }
+  },
+  1000
+);
 
 function checkValue(id, value) {
   const element = document.getElementById(id);
@@ -103,20 +119,8 @@ submitButton.onclick = function() {
   }
 
   if (failed) {
-    setTimer(5);
-    timer = setInterval(
-      function() {
-          if (counterValue > 1) {
-              setTimer(counterValue - 1);
-              submitButton.disabled = true;
-          } else {
-              setTimer(0);
-              submitButton.disabled = false;
-              submitButton.textContent = "Submit";
-          }
-      },
-      1000
-    );
+    timerSeconds = timerSeconds + 5;
+    setTimer(timerSeconds);
   } else {
     document.getElementById("quiz").style.display = 'none';
     document.getElementById("content").style.display = 'block';
