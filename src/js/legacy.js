@@ -7,41 +7,39 @@ const downloads = {
         {
           "version": "1.16.5",
           "build": "792"
+        },
+        {
+          "version": "1.15.2",
+          "build": "392"
+        },
+        {
+          "version": "1.14.4",
+          "build": "244"
+        },
+        {
+          "version": "1.13.2",
+          "build": "656"
+        },
+        {
+          "version": "1.12.2",
+          "build": "1619"
+        },
+        {
+          "version": "1.11.2",
+          "build": "1105"
+        },
+        {
+          "version": "1.10.2",
+          "build": "917"
+        },
+        {
+          "version": "1.9.4",
+          "build": "774"
+        },
+        {
+          "version": "1.8.8",
+          "build": "444"
         }
-        // Legacy downloads removed due to RCE exploit: CVE-2021-44228 
-        //,
-        // {
-        //   "version": "1.15.2",
-        //   "build": "391"
-        // },
-        // {
-        //   "version": "1.14.4",
-        //   "build": "243"
-        // },
-        // {
-        //   "version": "1.13.2",
-        //   "build": "655"
-        // },
-        // {
-        //   "version": "1.12.2",
-        //   "build": "1618"
-        // },
-        // {
-        //   "version": "1.11.2",
-        //   "build": "1104"
-        // },
-        // {
-        //   "version": "1.10.2",
-        //   "build": "916"
-        // },
-        // {
-        //   "version": "1.9.4",
-        //   "build": "773"
-        // },
-        // {
-        //   "version": "1.8.8",
-        //   "build": "443"
-        // }
       ],
       cache: null
   },
@@ -75,6 +73,55 @@ const downloads = {
       cache: null
   }
 };
+
+const submitButton = document.getElementById("submit-quiz");
+
+let timer = null;
+
+function setTimer(value) {
+    counterValue = value;
+    submitButton.textContent = "Invalid answers, try again in " + value + " seconds...";
+}
+
+function checkValue(id, value) {
+  const element = document.getElementById(id);
+  const elementValue = element.options[element.selectedIndex].value;
+
+  if (value === elementValue) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+submitButton.onclick = function() {
+  submitButton.disabled = true;
+  let failed = false;
+
+  if (!checkValue("quiz-1", "2") || !checkValue("quiz-2", "2") || !checkValue("quiz-3", "2") || !checkValue("quiz-4", "4")) {
+    failed = true;
+  }
+
+  if (failed) {
+    setTimer(5);
+    timer = setInterval(
+      function() {
+          if (counterValue > 1) {
+              setTimer(counterValue - 1);
+              submitButton.disabled = true;
+          } else {
+              setTimer(0);
+              submitButton.disabled = false;
+              submitButton.textContent = "Submit";
+          }
+      },
+      1000
+    );
+  } else {
+    document.getElementById("quiz").style.display = 'none';
+    document.getElementById("content").style.display = 'block';
+  }
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
   let tabs = "", tabContents = "";

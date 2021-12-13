@@ -15,3 +15,19 @@ i.benefit-icon {
     display: block;
     font-size: 10rem;
 }
+
+#content {
+    display: none;
+}
+
+label {
+    font-size: 1.0em;
+    color: rgba(0,0,0,.87);
+}
+
+@media (prefers-color-scheme: dark) {
+    label {
+        font-size: 1.0em;
+        color: #e8e6e3;
+    }
+}
