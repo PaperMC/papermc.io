@@ -6,7 +6,7 @@ const downloads = {
       "versions": [
         {
           "version": "1.16.5",
-          "build": "793"
+          "build": "794"
         },
         {
           "version": "1.15.2",
