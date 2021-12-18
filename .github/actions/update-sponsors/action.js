@@ -40,7 +40,11 @@ async function main() {
         // TODO figure out how to sort gh sponsors by total amount donated. The api is stupid.
         ghData.organization.sponsors.nodes.forEach(node => {
             // properly size avatar url
-            node.avatarUrl = node.avatarUrl.replace("&v=4", "").replace("?v=4", "") + "?size=64";
+            const index = node.avatarUrl.indexOf("?");
+            if (index !== -1) {
+                node.avatarUrl = node.avatarUrl.substring(0, index);
+            }
+            node.avatarUrl = node.avatarUrl + "?size=64";
 
             listEntries += createListEntry(node.login, node.avatarUrl);
             count++;
