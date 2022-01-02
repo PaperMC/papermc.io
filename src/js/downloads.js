@@ -4,7 +4,7 @@ const downloads = {
         "api_endpoint": "paper",
         "api_version": "1.18",
         "github": "PaperMC/Paper",
-        "desc": "<div class='orange center-align caution' style='border-radius: 100px; font-size: 1.5em;'>Early builds for 1.18.1. <b>Use with caution! Backups are still recommended.</b></div>",
+        "desc": "Active development for Minecraft 1.18.1",
         "limit": 10,
         "cache": null,
     },
