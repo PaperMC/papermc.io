@@ -1,10 +1,10 @@
 const downloads = {
     "Paper-1.18": {
-        "title": "Paper 1.18",
+        "title": "Paper 1.18.1",
         "api_endpoint": "paper",
         "api_version": "1.18",
         "github": "PaperMC/Paper",
-        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.18. <b>Use with extreme caution! Backups are mandatory.</b></div>",
+        "desc": "Active development for Minecraft 1.18.1",
         "limit": 10,
         "cache": null,
     },
@@ -162,34 +162,35 @@ function load(id) {
                             <td colspan="4">No builds.</td>
                       </tr>`;
 
-    if (promotedRows === "") {
-        promotedRows = noBuilds;
-    }
-
     if (rows === "") {
         rows = noBuilds;
     }
 
-    container.innerHTML = `
-            <div class="download-desc">${downloads[id].desc}</div>
+    container.innerHTML = `<div class="download-desc">${downloads[id].desc}</div>`;
 
-            <div class="builds-title">Promoted Builds</div>
-            <table class="builds-table striped" style="margin-bottom: 15px">
-              <thead>
-                <tr>
-                  <th width="10%">Build</th>
-                  <th width="75%">Changes</th>
-                  <th width="10%">Date</th>
-                  <th width="5%" title="The SHA256 of the jar, used to verify the integrity">SHA256</th>
-                </tr>
-              </thead>
+    if (promotedRows) {
+        container.innerHTML += `
+              <div class="builds-title">Promoted Builds</div>
+              <table class="builds-table striped" style="margin-bottom: 15px">
+                <thead>
+                  <tr>
+                    <th width="10%">Build</th>
+                    <th width="75%">Changes</th>
+                    <th width="10%">Date</th>
+                    <th width="5%" title="The SHA256 of the jar, used to verify the integrity">SHA256</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                ${promotedRows}
-              </tbody>
-            </table>
+                <tbody>
+                  ${promotedRows}
+                </tbody>
+              </table>
+              
+              <div class="builds-title" style="padding-bottom: 5px">Other Builds</div>
+              `;
+    }
 
-            <div class="builds-title" style="padding-bottom: 5px">Other Builds</div>
+    container.innerHTML += `
             <table class="builds-table striped">
               <thead style="visibility: collapse">
                 <tr>

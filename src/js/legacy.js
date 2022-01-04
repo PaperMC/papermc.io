@@ -4,75 +4,74 @@ const downloads = {
       "desc": "Legacy downloads for old major releases of the Paper software.",
       "api_endpoint": "paper",
       "versions": [
-        {
-          "version": "1.16.5",
-          "build": "791"
-        },
-        {
-          "version": "1.15.2",
-          "build": "391"
-        },
-        {
-          "version": "1.14.4",
-          "build": "243"
-        },
-        {
-          "version": "1.13.2",
-          "build": "655"
-        },
-        {
-          "version": "1.12.2",
-          "build": "1618"
-        },
-        {
-          "version": "1.11.2",
-          "build": "1104"
-        },
-        {
-          "version": "1.10.2",
-          "build": "916"
-        },
-        {
-          "version": "1.9.4",
-          "build": "773"
-        },
-        {
-          "version": "1.8.8",
-          "build": "443"
-        }
-      ],
-      cache: null
+          "1.16",
+          "1.15",
+          "1.14",
+          "1.13",
+          "1.12",
+          "1.11",
+          "1.10",
+          "1.9",
+          "1.8"
+      ]
   },
   "Travertine": {
       "title": "Travertine",
       "desc": "Legacy downloads for our retired 1.7-capable server proxy software, Travertine.",
       "api_endpoint": "travertine",
       "versions": [
-        {
-          "version": "1.16",
-          "build": "191",
-          "name": "1.16-1.17"
-        },
-        {
-          "version": "1.15",
-          "build": "144"
-        },
-        {
-          "version": "1.14",
-          "build": "112"
-        },
-        {
-          "version": "1.13",
-          "build": "93"
-        },
-        {
-          "version": "1.12",
-          "build": "44"
-        }
-      ],
-      cache: null
+        "1.16"
+      ]
   }
 };
+
+const submitButton = document.getElementById("submit-quiz");
+
+let timer;
+let counterValue = 0;
+let timerSeconds = 0;
+
+function setTimer(value) {
+    counterValue = value;
+    submitButton.textContent = "Invalid answers, try again in " + value + " seconds...";
+}
+
+timer = setInterval(
+  function() {
+      if (counterValue > 1) {
+          setTimer(counterValue - 1);
+          submitButton.disabled = true;
+      } else {
+          setTimer(0);
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit";
+      }
+  },
+  1000
+);
+
+function checkValue(id, value) {
+  const element = document.getElementById(id);
+  const elementValue = element.options[element.selectedIndex].value;
+  return value === elementValue;
+}
+
+submitButton.onclick = function() {
+  submitButton.disabled = true;
+  let failed = false;
+
+  if (!checkValue("quiz-1", "2") || !checkValue("quiz-2", "2")) {
+    failed = true;
+  }
+
+  if (failed) {
+    timerSeconds = timerSeconds + 5;
+    setTimer(timerSeconds);
+  } else {
+    document.getElementById("quiz").style.display = 'none';
+    document.getElementById("content").style.display = 'block';
+  }
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
   let tabs = "", tabContents = "";
@@ -110,11 +109,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let rows = "";
 
     for (const version of downloads[id].versions) {
-      let json = await apiFetch(downloads[id].api_endpoint, version.version, version.build)
-      downloads[id].cache = json;
-
       try {
-        rows += await load(id, version.version, version.build, version.name)
+        rows += await load(id, downloads[id].api_endpoint, version)
       } catch (e) {
         console.error(e);
         document.getElementById(id).innerText = "Failed to load downloads.";
@@ -126,47 +122,33 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-async function apiFetch(project, version, build) {
-  return window.fetch(`/api/v2/projects/${project}/versions/${version}/builds/${build}`).then((response) => {
-      if (response.status >= 400) {
-          return null;
-      }
+function apiFetch(project, version) {
+  return window.fetch(`/api/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
+    if (response.status >= 400)
+      return null;
 
       return response.json();
   });
 }
 
-async function load(id, version, build, name) {
+async function load(id, api_endpoint, version) {
   const container = document.getElementById(id).querySelector(".download-content");
 
-  const json = downloads[id].cache;
+  const json = await apiFetch(api_endpoint, version)
   if (json == null) {
       container.innerText = "Failed to load downloads.";
       return;
   }
 
-  if (!json.downloads && !json.downloads.application) {
-    return `<div class="row">
-      <div class="col s12 l3">
-        <i class="material-icons benefit-icon">assignment_late</i>
-      </div>
-      <p></p>
-      <div class="col s12 l9">
-        <h4>${name ? name : version}</h4>
-        <p>Failed to retrieve information for this legacy download. Please try again later.</p>
-      </div>
-    </div>`;
-  } else {
-    return `<div class="row">
-      <div class="col s12 l3">
-        <i class="material-icons benefit-icon">assignment_late</i>
-      </div>
-      <p></p>
-      <div class="col s12 l9">
-        <h4>${name ? name : version}</h4>
-        <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
-        <a id="${id}-${version}-${build}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${version}/builds/${build}/downloads/${json.downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
-      </div>
-    </div>`;
-  }
+  return `<div class="row">
+    <div class="col s12 l3">
+      <i class="material-icons benefit-icon">assignment_late</i>
+    </div>
+    <p></p>
+    <div class="col s12 l9">
+      <h4>${json.versions[json.versions.length - 1]}</h4>
+      <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
+      <a id="${id}-${version}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${json.versions[json.versions.length - 1]}/builds/${json.builds[json.builds.length - 1].build}/downloads/${json.builds[json.builds.length - 1].downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
+    </div>
+  </div>`;
 }

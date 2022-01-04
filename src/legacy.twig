@@ -8,10 +8,60 @@
 {% block content %}
   {# Main Scrollable Content #}
   <main class="container">
-    <div class="jumbotron white-text">
-      <h1>Legacy Downloads</h1>
-      <p><strong>These are here purely for informational reasons. No support is given to these whatsoever.</strong></p>
+    <h1>Legacy Downloads</h1>
+    <p><strong>These are here purely for informational reasons.</strong></p>
+    <ul>
+      <li>
+        <i class="tiny material-icons">error</i>
+          You will receive <strong>no support</strong> for these builds.
+      </li>
+      <li>
+          <i class="tiny material-icons">error</i>
+          Any issues you report for these builds <strong>will be closed</strong>.
+      </li>
+      <li>
+        <i class="tiny material-icons">error</i>
+          You may be kicked when asking for support on our Discord.
+      </li>
+    </ul>
+
+    <div class="row" id="quiz">
+      <p><strong>
+        Please answer the following questions to gain access to the downloads.
+      </strong>
+      <i>
+        If you need a translator, try <a href="https://www.deepl.com/translator" target="_blank" rel="noopener noreferrer">deepl</a>.
+      </i>
+      </p>
+      <form>
+        <div class="row">
+          <div class="col s6">
+            <label for="quiz-1">Will you receive support for these builds?</label>
+            <select id="quiz-1" class="browser-default">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">Yes</option>
+              <option value="2">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <label for="quiz-2">What will happen if you open an issue for a problem in any of these builds?</label>
+            <select id="quiz-2" class="browser-default">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">It will be answered and resolved</option>
+              <option value="2">It will be closed</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="col s6">
+        <button class="btn waves-effect waves-light light-blue darken-2" id="submit-quiz">
+          Submit
+        </button>
+      </div>
     </div>
+
     <div id="content" class="row"></div>
   </main>
 {% endblock %}
