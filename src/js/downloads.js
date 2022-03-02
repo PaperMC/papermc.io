@@ -8,15 +8,6 @@ const downloads = {
         "limit": 10,
         "cache": null,
     },
-    "Paper-1.17": {
-        "title": "Paper 1.17.1",
-        "api_endpoint": "paper",
-        "api_version": "1.17",
-        "github": "PaperMC/Paper",
-        "desc": "Support branch for 1.17.1",
-        "limit": 10,
-        "cache": null,
-    },
     "Velocity": {
         "title": "Velocity",
         "api_endpoint": "velocity",
