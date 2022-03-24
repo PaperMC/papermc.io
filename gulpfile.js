@@ -61,7 +61,8 @@ gulp.task('content', () => {
     let busters = JSON.parse(fs.readFileSync('dist/busters.json'));
 
     var twigData = {
-      urls: {}
+      urls: {},
+      year: new Date().getFullYear()
     };
 
     Object.keys(busters).forEach(file => {
