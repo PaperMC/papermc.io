@@ -28,6 +28,11 @@ const downloads = {
 
 const submitButton = document.getElementById("submit-quiz");
 
+if (localStorage.getItem("quiz-complete") == "true") {
+  document.getElementById("quiz").style.display = 'none';
+  document.getElementById("content").style.display = 'block';
+}
+
 let timer;
 let counterValue = 0;
 let timerSeconds = 0;
@@ -69,6 +74,7 @@ submitButton.onclick = function() {
     timerSeconds = timerSeconds + 5;
     setTimer(timerSeconds);
   } else {
+    localStorage.setItem("quiz-complete", "true");
     document.getElementById("quiz").style.display = 'none';
     document.getElementById("content").style.display = 'block';
   }
