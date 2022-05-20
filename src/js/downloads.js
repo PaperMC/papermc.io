@@ -13,7 +13,7 @@ const downloads = {
         "api_endpoint": "velocity",
         "api_version": "3.0.0",
         "github": "PaperMC/Velocity",
-        "desc": " The modern, next-generation Minecraft server proxy.",
+        "desc": "The modern, next-generation Minecraft server proxy.",
         "limit": 10,
         "cache": null,
     },
@@ -29,7 +29,7 @@ const downloads = {
 };
 
 function apiFetch(project, version) {
-    return window.fetch(`/api/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
+    return window.fetch(`https://api.papermc.io/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
         if (response.status >= 400)
             return null;
 
@@ -126,7 +126,7 @@ function load(id) {
 
         const row = `<tr>
                         <td>
-                            <a href="/api/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
+                            <a href="https://api.papermc.io/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
                                 class="waves-effect waves-light btn ${download_color} darken-2" title="Version: ${build.version}\nChannel: ${capitalizeFirstLetter(build.channel)}">
                                 #${build.build}<i class="material-icons left">cloud_download</i>
                             </a>

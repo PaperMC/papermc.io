@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function apiFetch(project, version) {
-  return window.fetch(`/api/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
+  return window.fetch(`https://api.papermc.io/v2/projects/${project}/version_group/${version}/builds`).then((response) => {
     if (response.status >= 400)
       return null;
 
@@ -155,7 +155,7 @@ async function load(id, api_endpoint, version) {
     <div class="col s12 l9">
       <h4>${json.versions[json.versions.length - 1]}</h4>
       <p><strong>This build is purely for accessibility. By clicking the download button, you acknowledge that no support will be provided whatsoever.</strong></p>
-      <a id="${id}-${version}" href="https://papermc.io/api/v2/projects/${downloads[id].api_endpoint}/versions/${json.versions[json.versions.length - 1]}/builds/${json.builds[json.builds.length - 1].build}/downloads/${json.builds[json.builds.length - 1].downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
+      <a id="${id}-${version}" href="https://api.papermc.io/v2/projects/${downloads[id].api_endpoint}/versions/${json.versions[json.versions.length - 1]}/builds/${json.builds[json.builds.length - 1].build}/downloads/${json.builds[json.builds.length - 1].downloads.application.name}" class="waves-effect waves-light btn red darken-2">Download Anyway</a>
     </div>
   </div>`;
 }

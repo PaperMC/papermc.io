@@ -1,12 +1,12 @@
 async function fetchLatestArtifactVersion() {
-    const rootResponse = await fetchUrl('/api/v2/projects/paper');
+    const rootResponse = await fetchUrl('https://api.papermc.io/v2/projects/paper');
     if (rootResponse === null)
         return null;
 
     const versionGroups = rootResponse.version_groups;
     const latestVersionGroup = versionGroups[versionGroups.length - 1];
 
-    const versionGroupResponse = await fetchUrl(`/api/v2/projects/paper/version_group/${latestVersionGroup}/`);
+    const versionGroupResponse = await fetchUrl(`https://api.papermc.io/v2/projects/paper/version_group/${latestVersionGroup}/`);
     if (versionGroupResponse === null)
         return null;
 
