@@ -8,13 +8,13 @@ async function fetchLatestArtifactVersion() {
     let latestVersion = "Unknown";
 
     for (const id of versionGroups) {
-        const versionGroupResponse = await fetchUrl(`https://papermc.io/api/v2/projects/paper/version_group/${id}/`);
+        const versionGroupResponse = await fetchUrl(`https://api.papermc.io/v2/projects/paper/version_group/${id}/`);
         const versions = versionGroupResponse.versions;
         if (versions === null || versions.length === 0) {
             continue;
         }
 
-        const versionInfo = await fetchUrl(`https://papermc.io/api/v2/projects/paper/versions/${versions[versions.length-1]}`);
+        const versionInfo = await fetchUrl(`https://api.papermc.io/v2/projects/paper/versions/${versions[versions.length-1]}`);
         if (versionInfo === null || versionInfo.builds === null || versionInfo.builds.length === 0) {
             continue;
         }
