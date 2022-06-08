@@ -8,6 +8,15 @@ const downloads = {
         "limit": 10,
         "cache": null,
     },
+    "Paper-1.19": {
+        "title": "Paper 1.19",
+        "api_endpoint": "paper",
+        "api_version": "1.19",
+        "github": "PaperMC/Paper",
+        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.19. <b>Use with extreme caution! Backups are mandatory.</b></div>",
+        "limit": 10,
+        "cache": null,
+    },
     "Velocity": {
         "title": "Velocity",
         "api_endpoint": "velocity",
