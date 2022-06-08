@@ -4,14 +4,25 @@ async function fetchLatestArtifactVersion() {
         return null;
 
     const versionGroups = rootResponse.version_groups;
-    const latestVersionGroup = versionGroups[versionGroups.length - 1];
+    versionGroups.reverse()
+    console.log(versionGroups)
+    let latestVersion = "Unknown";
+    for (const id of versionGroups) {
+        const versionGroupResponse = await fetchUrl(`https://papermc.io/api/v2/projects/paper/version_group/${id}/`)
+        const versions = versionGroupResponse.versions
+        if (versions === null || versions.length === 0) {
+            continue
+        }
 
-    const versionGroupResponse = await fetchUrl(`https://api.papermc.io/v2/projects/paper/version_group/${latestVersionGroup}/`);
-    if (versionGroupResponse === null)
-        return null;
+        const versionInfo = await fetchUrl(`https://papermc.io/api/v2/projects/paper/versions/${versions[versions.length-1]}`)
+        console.log(versionInfo)
+        if (versionInfo === null || versionInfo.builds === null || versionInfo.builds.length === 0) {
+            continue
+        }
+        latestVersion = versions[versions.length-1]
+        break;
 
-    const versions = versionGroupResponse.versions;
-    const latestVersion = versions[versions.length - 1];
+    }
 
     return `${latestVersion}-R0.1-SNAPSHOT`;
 }
