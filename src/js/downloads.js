@@ -13,7 +13,7 @@ const downloads = {
         "api_endpoint": "paper",
         "api_version": "1.19",
         "github": "PaperMC/Paper",
-        "desc": "Early development for Minecraft 1.19",
+        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.19. <b>Use with extreme caution! Backups are mandatory.</b></div>",
         "limit": 10,
         "cache": null,
     },
