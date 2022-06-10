@@ -174,7 +174,7 @@ function load(id) {
 
     const experimentalBox = `<div class="experimental-desc">
                                     <i class="material-icons left">error</i>
-                                    <span>Builds marked in red are early, experimental builds. They are not recommended for production usage and should be used with caution. <b>Backups are mandatory!</b></span>
+                                    <span>Builds marked in red are early, experimental builds. They are only recommended for usage on test servers and should be used with caution. <b>Backups are mandatory!</b></span>
                                 </div>`
     if (atLeastOneExperimental) {
         container.innerHTML += experimentalBox;
