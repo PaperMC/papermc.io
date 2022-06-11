@@ -4,6 +4,14 @@
 .download-desc {
   padding: 10px;
 }
+.experimental-desc {
+  padding: 10px;
+  border-radius: 100px;
+  border: 2px solid #d32f2f;
+  margin-block: 10px;
+  display: flex;
+  align-items: center;
+}
 .builds-title {
   font-size: 1.5rem;
   font-weight: bold;

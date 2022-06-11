@@ -13,7 +13,7 @@ const downloads = {
         "api_endpoint": "paper",
         "api_version": "1.19",
         "github": "PaperMC/Paper",
-        "desc": "<div class='red center-align' style='border-radius: 100px; font-size: 1.5em;'>Experimental test builds for 1.19. <b>Use with extreme caution! Backups are mandatory.</b></div>",
+        "desc": "Active development for Minecraft 1.19",
         "limit": 10,
         "cache": null,
     },
@@ -106,6 +106,7 @@ function load(id) {
     let rows = "";
     const builds = json.builds.filter(build => build.downloads && build.downloads.application);
     let oldVersion;
+    let atLeastOneExperimental = false;
     builds.sort((a, b) => b.build - a.build).slice(0, downloads[id].limit).forEach((build) => {
         let changes = "";
         build.changes.forEach((item) => {
@@ -131,13 +132,16 @@ function load(id) {
                      </tr>`;
         }
 
-        const download_color = build.promoted === true ? 'light-green' : 'light-blue';
+        const experimental = build.channel === 'experimental';
+        atLeastOneExperimental = atLeastOneExperimental || experimental;
+        const download_color = build.promoted === true ? 'light-green' : experimental ? 'red' : 'light-blue';
+        const download_icon = experimental ? 'error' : 'cloud_download';
 
         const row = `<tr>
                         <td>
                             <a href="https://api.papermc.io/v2/projects/${downloads[id].api_endpoint}/versions/${build.version}/builds/${build.build}/downloads/${build.downloads.application.name}"
                                 class="waves-effect waves-light btn ${download_color} darken-2" title="Version: ${build.version}\nChannel: ${capitalizeFirstLetter(build.channel)}">
-                                #${build.build}<i class="material-icons left">cloud_download</i>
+                                #${build.build}<i class="material-icons left">${download_icon}</i>
                             </a>
                         </td>
                         <td data-build-id="${build.build}">
@@ -167,6 +171,14 @@ function load(id) {
     }
 
     container.innerHTML = `<div class="download-desc">${downloads[id].desc}</div>`;
+
+    const experimentalBox = `<div class="experimental-desc">
+                                    <i class="material-icons left">error</i>
+                                    <span>Builds marked in red are early, experimental builds. They are only recommended for usage on test servers and should be used with caution. <b>Backups are mandatory!</b></span>
+                                </div>`
+    if (atLeastOneExperimental) {
+        container.innerHTML += experimentalBox;
+    }
 
     if (promotedRows) {
         container.innerHTML += `
@@ -213,6 +225,10 @@ function load(id) {
 
     if (downloads[id].api_endpoint === "paper") {
         container.innerHTML += `<a class="wide-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`
+    }
+
+    if (atLeastOneExperimental) {
+        container.innerHTML += experimentalBox;
     }
 }
 
