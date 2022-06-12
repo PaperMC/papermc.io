@@ -1,19 +1,19 @@
 const downloads = {
-    "Paper-1.18": {
-        "title": "Paper 1.18.2",
-        "api_endpoint": "paper",
-        "api_version": "1.18",
-        "github": "PaperMC/Paper",
-        "desc": "Active development for Minecraft 1.18.2",
-        "limit": 10,
-        "cache": null,
-    },
     "Paper-1.19": {
         "title": "Paper 1.19",
         "api_endpoint": "paper",
         "api_version": "1.19",
         "github": "PaperMC/Paper",
         "desc": "Active development for Minecraft 1.19",
+        "limit": 10,
+        "cache": null,
+    },
+    "Paper-1.18": {
+        "title": "Paper 1.18.2",
+        "api_endpoint": "paper",
+        "api_version": "1.18",
+        "github": "PaperMC/Paper",
+        "desc": "Active development for Minecraft 1.18.2",
         "limit": 10,
         "cache": null,
     },
