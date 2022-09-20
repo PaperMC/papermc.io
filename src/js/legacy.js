@@ -4,6 +4,7 @@ const downloads = {
       "desc": "Legacy downloads for old major releases of the Paper software.",
       "api_endpoint": "paper",
       "versions": [
+          "1.18",
           "1.17",
           "1.16",
           "1.15",
