@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.5.0
+        uses: actions/checkout@v3
       - name: Checkout data branch
-        uses: actions/checkout@v2.5.0
+        uses: actions/checkout@v3
         with:
           ref: data
           path: work
