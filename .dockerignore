@@ -1,0 +1,8 @@
+# vim: ft=gitignore
+# Ignore everything by default
+*
+# Whitelist what we want
+!src/
+!yarn.lock
+!package.json
+!gulpfile.js
