@@ -16,6 +16,7 @@
                 <ul id="snippet-tabs" class="tabs">
                     <li class="tab"><a class="active" href="#maven">Maven</a></li>
                     <li class="tab"><a href="#gradle">Gradle (Kotlin DSL)</a></li>
+                    <li class="tab"><a href="#gradlegroovy">Gradle (Groovy DSL)</a></li>
                 </ul>
             </div>
             <div id="maven" class="col s12">
@@ -62,6 +63,25 @@
                 <p>Lastly, point the toolchain to Java 17:</p>
                 <pre><code class="kotlin">java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}</code></pre>
+            </div>
+
+            <div id="gradlegroovy" class="col s12">
+                <h5>Repository</h5>
+                <p>Add this to your <code>build.gradle</code>:</p>
+                <pre><code class="groovy">repositories {
+    maven { url "https://repo.papermc.io/repository/maven-public/" }
+}</code></pre>
+
+                <h5>Dependency</h5>
+                <p>Then, add this:</p>
+                <pre><code class="groovy">dependencies {
+    compileOnly "io.papermc.paper:paper-api:<span class="latest-artifact-version"></span>"
+}</code></pre>
+                <h5>Toolchain</h5>
+                <p>Lastly, point the toolchain to Java 17:</p>
+                <pre><code class="groovy">java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }</code></pre>
             </div>
         </div>
