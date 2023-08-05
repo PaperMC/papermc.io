@@ -139,7 +139,7 @@ function load(id) {
                             ${changes}
                         </td>
                         <td>
-                            ${new Date(build.time).toISOString().split('T')[0]}
+                            ${new Date(build.time).toLocaleDateString('en-CA')}
                         </td>
                         <td>
                             <a class="downloads-button white grey-text text-darken-4 btn nav-btn waves-effect" onclick="copy('${build.downloads.application.sha256}')" title="Click to copy the SHA256 of the jar, used to verify the integrity">
